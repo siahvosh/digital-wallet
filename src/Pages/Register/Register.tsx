@@ -1,0 +1,67 @@
+import React, {useState} from 'react'
+import {Button, Card, CardContent, CardMedia, Grid2, TextField} from "@mui/material";
+import rbImage from '../../Assets/Tablet login-cuate.png';
+import {useTranslation} from "react-i18next";
+import i18n from '../../i18next'
+import changeLanguage from "../../indexHelper";
+import {useNavigate} from "react-router-dom";
+import './../../App.css'
+
+
+
+export const Register = () => {
+    const navigate = useNavigate()
+    const { t } = useTranslation('register')
+    const [imageUrl, setImageUrl] = useState(rbImage);
+
+    return(
+        <React.Fragment>
+            <Card style={{width: 'calc(100%) - 1rem', padding: '1rem', height: '100vh', boxSizing: 'border-box'}}>
+                <Button
+                    size='small'
+                    variant='outlined'
+                    className='btn'
+                    style={{
+                        fontSize: '9px',
+                        padding: '0',
+                        position: 'absolute',
+                        left: i18n.language === 'en' ? '0.7rem': '',
+                        right: i18n.language === 'fa' ? '0.7rem': '',
+                        border: '1px solid white'}}
+                    onClick={() => changeLanguage(  i18n.language === 'fa' ?  'en' :  'fa')}
+                >
+                    {i18n.language === 'fa' ? t('register.btn.fa') : t('register.btn.en')}
+                </Button>
+                <div style={{width: '85%', margin: 'auto'}}>
+                    <CardMedia
+                        component="img"
+                        image={imageUrl}
+                        alt="Paella dish"
+                        style={{
+                            width: '40%',
+                            margin: 'auto'
+                        }}
+                    />
+                </div>
+                <CardContent style={{justifyContent: 'center', display: 'flex'}}>
+                    <Grid2 container spacing={3} style={{justifyContent: 'center'}}>
+                        <Grid2 size={10}>
+                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}>ورود به میرزاد</span>
+                        </Grid2>
+                        <Grid2 size={10}>
+                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}>شماره همراه خود را جهت ورود به مبرزاد وارد کنید.</span>
+                        </Grid2>
+                        <Grid2 size={10}>
+                            <TextField label='شماره تماس' variant={"standard"} style={{width: '60%'}}/>
+                        </Grid2>
+                        <Grid2 size={10}>
+                            <Button onClick={() => navigate('/verify') } style={{width: '60%', alignContent: "end"}}>تایید</Button>
+                        </Grid2>
+                    </Grid2>
+                </CardContent>
+
+            </Card>
+        </React.Fragment>
+    )
+
+}

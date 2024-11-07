@@ -1,10 +1,69 @@
+body {
+  direction: ltr;
+  text-align: left;
+}
+body.fa {
+  direction: rtl !important;
+  text-align: right !important;
+
+}
+
+Button{
+  background-color: #2bab84 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 14px !important;
+  transition: background-color 0.2s;
+}
+Button:hover {
+  background-color: #424242 !important;
+}
+Button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7) !important;
+  color: #FF7043 !important;
+}
+Button:disabled{
+  background: gray !important;
+  opacity: 50%;
+}
+
+Card {
+  background-color: #242424 !important;
+  color: #E0E0E0 !important;
+  padding: 1rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+Card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+  transform: translateY(-4px);
+}
+
 .App {
   text-align: center;
 }
+.App-header {
+  /*background-color: #282c34;*/
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  color: white;
+  background: white !important;
+}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn{
+  background-color: #1E201E !important;
+  color: #FFFFFF !important;
+  border: 1px solid #e8e8e8 !important;
+  border-radius: 4px !important;
+  transition: border 0.8s !important;
+}
+.btn:hover{
+  border: 1px solid #FF7043 !important;
+  background-color: #1E201E !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,26 +72,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*justify-content: center;*/
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

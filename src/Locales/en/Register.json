@@ -1,0 +1,47 @@
+{
+  "register": {
+    "form": {
+      "title": "Register",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "registerBtn": "Sing up"
+    },
+    "description": {
+      "title": "Mirzad",
+      "welcome": "Mirzad Digital Wallet is a secure and user-friendly tool for managing and storing your cryptocurrencies, providing fast and easy transactions with high security."
+    },
+    "btn": {
+      "rulesCheckBox": "I Agree to Mirzad Privacy Policy.",
+      "en": "English",
+      "fa": "Persian",
+      "haveAnAccount": "I already have an account."
+    }
+  },
+  "verify": {
+    "step1": {
+      "label": "Email",
+      "title": "Please check your email for the verification code. Enter the code below to verify your account.",
+      "resendCode": "Resend Code"
+    },
+    "step2": {
+      "label": "Phone number",
+      "title": "Please enter you phone number and  check your inbox for the verification code. Enter the code below to verify your account.",
+      "resendCode": "Resend Code",
+      "phoneNumber": "Phone number",
+      "sendCode": "Send code"
+    },
+    "step3": {
+      "label": "National number",
+      "title": "Enter your national ID to verify your identity and receive the Shahkar code.",
+      "nationalNumber": "National number",
+      "apply": "Apply"
+    }
+  },
+  "wizardBase":{
+    "next": "Next",
+    "finish": "Finish",
+    "back": "Back"
+  }
+}
