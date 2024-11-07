@@ -71,7 +71,28 @@ Card:hover {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.image {
+  width: 70% !important;
+  margin: auto !important;
+}
 
+@media (max-width: 600px) {
+  .image {
+    width: 40vh !important;
+    margin: 0 !important;
+    justify-self: center;
+  }
+}
 
+span{
 
+}
+
+@media (max-width: 600px) {
+  span {
+    font-size: 15px !important;
+    margin: 0 !important;
+    justify-self: center;
+  }
+}
 

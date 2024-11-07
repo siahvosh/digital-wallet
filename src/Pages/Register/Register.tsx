@@ -14,6 +14,8 @@ export const Register = () => {
     const { t } = useTranslation('register')
     const [imageUrl, setImageUrl] = useState(rbImage);
 
+
+
     return(
         <React.Fragment>
             <Card style={{width: 'calc(100%) - 1rem', padding: '1rem', height: '100vh', boxSizing: 'border-box'}}>
@@ -32,15 +34,12 @@ export const Register = () => {
                 >
                     {i18n.language === 'fa' ? t('register.btn.fa') : t('register.btn.en')}
                 </Button>
-                <div style={{width: '85%', margin: 'auto'}}>
+                <div style={{width: '50%', margin: 'auto'}}>
                     <CardMedia
                         component="img"
                         image={imageUrl}
                         alt="Paella dish"
-                        style={{
-                            width: '40%',
-                            margin: 'auto'
-                        }}
+                        className='image'
                     />
                 </div>
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
@@ -54,8 +53,8 @@ export const Register = () => {
                         <Grid2 size={10}>
                             <TextField label='شماره تماس' variant={"standard"} style={{width: '60%'}}/>
                         </Grid2>
-                        <Grid2 size={10}>
-                            <Button onClick={() => navigate('/verify') } style={{width: '60%', alignContent: "end"}}>تایید</Button>
+                        <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
+                            <Button onClick={() => navigate('/verify') } style={{width: '50%'}}>تایید</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>

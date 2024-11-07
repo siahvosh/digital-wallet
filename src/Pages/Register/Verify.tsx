@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
-import {Button, Card, CardContent, CardMedia, Grid2, TextField} from "@mui/material";
+import {Button, Card, CardContent, CardMedia, Grid2, Link, TextField} from "@mui/material";
 import i18n from "../../i18next";
 import changeLanguage from "../../indexHelper";
 import {useTranslation} from "react-i18next";
-import {useNavigation} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import rbImage from "../../Assets/Fingerprint-bro.png";
 
 export const Verify = () => {
     const [imageUrl, setImageUrl] = useState(rbImage);
     const {t} = useTranslation('register')
-    // const navigate = useNavigation()
+    const navigate = useNavigate()
 
     return (
         <React.Fragment>
@@ -29,22 +29,19 @@ export const Verify = () => {
                 >
                     {i18n.language === 'fa' ? t('register.btn.fa') : t('register.btn.en')}
                 </Button>
-                <div style={{width: '85%', margin: 'auto'}}>
+                <div style={{width: '50%', margin: 'auto'}}>
                     <CardMedia
                         component="img"
                         image={imageUrl}
                         alt="Paella dish"
-                        style={{
-                            width: '40%',
-                            margin: 'auto'
-                        }}
+                        className='image'
                     />
                 </div>
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 size={12} container spacing={3}>
                         <Grid2 size={6} style={{display: 'flex', justifyContent: 'space-between', margin: 'auto'}}>
-                            <span style={{fontSize: '1rem', fontWeight: '500'}}>اصلاح شماره تماس</span>
-                            <span style={{fontSize: '1rem', fontWeight: '500'}}>کد احراز هویت</span>
+                            <span style={{}}>کد احراز هویت</span>
+                            <Link href='/register'>اصلاح شماره تماس</Link>
                         </Grid2>
                         <Grid2 size={12}>
                             <span style={{fontSize: '1rem', fontWeight: '500'}}>کد ارسال شده به شماره 0124949440 را وارد کنید.</span>
@@ -52,12 +49,11 @@ export const Verify = () => {
                         <Grid2 size={12}>
                             <TextField label='کد ارسالی' variant={"standard"} style={{width: '50%'}}/>
                         </Grid2>
-                        <Grid2 size={12}>
-                            <Button  style={{width: '50%'}}>تایید</Button>
+                        <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
+                            <Button onClick={() => navigate('/home')}  style={{width: '50%'}}>تایید</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
-
             </Card>
         </React.Fragment>
     )
