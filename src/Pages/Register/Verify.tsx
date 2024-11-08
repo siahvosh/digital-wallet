@@ -48,7 +48,7 @@ export const Verify = () => {
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
-                                    margin: i18n.language === 'fa' ? '0 -0.8rem 0 0' : ''
+                                    // margin: i18n.language === 'fa' ? '0 0 0 0' : ''
                                 },
                             }} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
