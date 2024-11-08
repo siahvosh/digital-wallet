@@ -1,24 +1,13 @@
 {
-  "login": {
-    "form": {
-      "title": "ورود",
-      "email": "ایمیل",
-      "password": "رمز عبور",
-      "loginBtn": "ورود",
-      "or": "یا"
-    },
-    "description": {
-      "title": "به کیف پول میرزاد خوش آمدید!",
-      "welcome": "به کیف پول دیجیتال میرزاد خوش آمدید! با ما، مدیریت ارزهای دیجیتال خود را به روشی امن، سریع و آسان تجربه کنید و از معاملات مطمئن لذت ببرید.",
-      "dontHaveAnAccount" : "حساب کاربری ندارم"
-    },
-    "btn": {
-      "en": "انگلیسی",
-      "fa": "فارسی"
-    },
-    "alert": {
-      "invalidMail": "ایمیل وارد شده نامعتبر است",
-      "incorrectMail": "ایمیل یا رمز عیور اشتباه است."
-    }
+  "register": {
+    "title": "Login to Mirzad",
+    "description": "Enter your mobile number to log into Mirzad.",
+    "label": "Phone Number",
+    "apply": "Confirm",
+    "registerBtn": "Register",
+    "verifyCode": "Verification Code",
+    "editNumber": "Edit Phone Number",
+    "titleVerify": "Enter the code sent to 0124949440.",
+    "codeLabel": "Sent Code"
   }
 }
