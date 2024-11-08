@@ -1,0 +1,47 @@
+.main-card{
+    width: calc(100%  - 1rem);
+    padding-top: 1rem;
+    height: 10rem;
+    /*background-image: url("../../Assets/pattern.png") !important;*/
+    /*background-position: bottom !important;*/
+    /*background-size: 100%  !important;*/
+}
+
+.account-card{
+    width: 20rem;
+    height: 9rem;
+    margin-top: 1rem;
+    border: 1px solid green;
+    justify-self: center;
+    border-radius: 24px !important;
+    background-image: url("../../Assets/pattern.png") !important;
+    background-position: bottom !important;
+    background-size: 100%  !important;
+}
+
+.action-card{
+    width: calc(100%);
+    margin-top: 1.85rem;
+}
+
+.icon{
+    color: white;
+}
+.grid-style{
+    justify-content: end;
+    display: flex;
+}
+
+.logo{
+    position: absolute;
+    right: 0;
+    width: 7rem;
+    height: 4.4rem;
+    background-image: url("../../Assets/logo.png") !important;
+    background-position: bottom !important;
+    background-size: 100%  !important;
+}
+
+.header{
+
+}
