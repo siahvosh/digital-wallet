@@ -20,7 +20,6 @@ export const Register = () => {
                 <Button
                     size='small'
                     variant='outlined'
-                    className='btn'
                     style={{
                         fontSize: '9px',
                         padding: '0',

@@ -17,11 +17,11 @@ export const Verify = () => {
                 <Button
                     size='small'
                     variant='outlined'
-                    className='btn'
                     style={{
                         fontSize: '9px',
                         padding: '0',
                         position: 'absolute',
+                        textAlign: 'right',
                         left: i18n.language === 'en' ? '0.7rem': '',
                         right: i18n.language === 'fa' ? '0.7rem': '',
                         border: '1px solid white'}}
@@ -35,7 +35,7 @@ export const Verify = () => {
                     alt="Paella dish"
                     className='image'
                 />
-
+                {i18n.language}
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3}>
                         <Grid2 size={8} style={{display: 'flex', justifyContent: 'space-between', margin: 'auto'}}>
@@ -46,10 +46,17 @@ export const Verify = () => {
                             <span style={{fontSize: '1rem', fontWeight: '500'}}>{t('register.titleVerify')}</span>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
-                            <TextField label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
+                            <TextField sx={{
+                                '& .MuiInputLabel-root': {
+                                    textAlign:  'right' ,
+                                    right:  0   ,
+                                    left: 'auto'
+                                },
+
+                            }} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
-                            <Button onClick={() => navigate('/home')}  style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button onClick={() => navigate('/home')} style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
