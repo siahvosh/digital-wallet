@@ -42,16 +42,16 @@ export const Register = () => {
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3} style={{justifyContent: 'center'}}>
                         <Grid2 size={10}>
-                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}>ورود به میرزاد</span>
+                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}> {t('register.title')} </span>
                         </Grid2>
                         <Grid2 size={10}>
-                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}>شماره همراه خود را جهت ورود به مبرزاد وارد کنید.</span>
+                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}>{t('register.description')}</span>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <TextField label='شماره تماس' variant={"standard"} style={{width: '100%'}}/>
+                            <TextField label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>تایید</Button>
+                            <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>

@@ -39,17 +39,17 @@ export const Verify = () => {
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3}>
                         <Grid2 size={8} style={{display: 'flex', justifyContent: 'space-between', margin: 'auto'}}>
-                            <span style={{}}>کد احراز هویت</span>
-                            <Link href='/register'>اصلاح شماره تماس</Link>
+                            <span>{t('register.verifyCode')} </span>
+                            <Link href='/register'>{t('register.editNumber')}</Link>
                         </Grid2>
                         <Grid2 size={12}>
-                            <span style={{fontSize: '1rem', fontWeight: '500'}}>کد ارسال شده به شماره 0124949440 را وارد کنید.</span>
+                            <span style={{fontSize: '1rem', fontWeight: '500'}}>{t('register.titleVerify')}</span>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
-                            <TextField label='کد ارسالی' variant={"standard"} style={{width: '100%'}}/>
+                            <TextField label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
-                            <Button onClick={() => navigate('/home')}  style={{width: '100%'}}>تایید</Button>
+                            <Button onClick={() => navigate('/home')}  style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
