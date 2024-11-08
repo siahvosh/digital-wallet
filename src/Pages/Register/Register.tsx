@@ -37,7 +37,6 @@ export const Register = () => {
                      image={imageUrl}
                      alt="Paella dish"
                      className='image'
-                     style={{border: '2px solid red'}}
                  />
 
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
@@ -48,11 +47,11 @@ export const Register = () => {
                         <Grid2 size={10}>
                             <span style={{fontSize: '1.5rem', fontWeight: '500'}}>شماره همراه خود را جهت ورود به مبرزاد وارد کنید.</span>
                         </Grid2>
-                        <Grid2 size={10}>
-                            <TextField label='شماره تماس' variant={"standard"} style={{width: '60%'}}/>
+                        <Grid2 size={8}  style={{margin: 'auto'}}>
+                            <TextField label='شماره تماس' variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
-                        <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                            <Button onClick={() => navigate('/verify') } style={{width: '50%'}}>تایید</Button>
+                        <Grid2 size={8}  style={{margin: 'auto'}}>
+                            <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>تایید</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>

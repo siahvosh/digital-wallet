@@ -20,8 +20,8 @@ i18n
                 register: registerFa,
             },
         },
-        lng: 'fa',
-        fallbackLng: 'fa',
+        lng: 'en',
+        fallbackLng: 'en',
         interpolation: {
             escapeValue: false,
         },
