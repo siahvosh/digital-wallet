@@ -14,8 +14,6 @@ export const Register = () => {
     const { t } = useTranslation('register')
     const [imageUrl, setImageUrl] = useState(rbImage);
 
-
-
     return(
         <React.Fragment>
             <Card style={{width: 'calc(100%) - 1rem', padding: '1rem', height: '100vh', boxSizing: 'border-box'}}>
@@ -34,14 +32,14 @@ export const Register = () => {
                 >
                     {i18n.language === 'fa' ? t('register.btn.fa') : t('register.btn.en')}
                 </Button>
-                <div style={{width: '50%', margin: 'auto'}}>
-                    <CardMedia
-                        component="img"
-                        image={imageUrl}
-                        alt="Paella dish"
-                        className='image'
-                    />
-                </div>
+                 <CardMedia
+                     component="img"
+                     image={imageUrl}
+                     alt="Paella dish"
+                     className='image'
+                     style={{border: '2px solid red'}}
+                 />
+
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3} style={{justifyContent: 'center'}}>
                         <Grid2 size={10}>

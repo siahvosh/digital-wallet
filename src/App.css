@@ -72,14 +72,14 @@ Card:hover {
   }
 }
 .image {
-  width: 70% !important;
+  width: 50% !important;
   margin: auto !important;
 }
 
 @media (max-width: 600px) {
   .image {
     width: 40vh !important;
-    margin: 0 !important;
+    margin: auto !important;
     justify-self: center;
   }
 }
