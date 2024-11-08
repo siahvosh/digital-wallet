@@ -8,6 +8,8 @@
     "verifyCode": "Verification Code",
     "editNumber": "Edit Phone Number",
     "titleVerify": "Enter the code sent to 0124949440.",
-    "codeLabel": "Sent Code"
+    "codeLabel": "Sent Code",
+    "language": "English"
+
   }
 }

@@ -27,7 +27,7 @@ export const Verify = () => {
                         border: '1px solid white'}}
                     onClick={() => changeLanguage(  i18n.language === 'fa' ?  'en' :  'fa')}
                 >
-                    {i18n.language === 'fa' ? t('register.btn.fa') : t('register.btn.en')}
+                    {t('register.language')}
                 </Button>
                 <CardMedia
                     component="img"
