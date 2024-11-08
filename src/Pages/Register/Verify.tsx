@@ -35,7 +35,6 @@ export const Verify = () => {
                     alt="Paella dish"
                     className='image'
                 />
-                {i18n.language}
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3}>
                         <Grid2 size={8} style={{display: 'flex', justifyContent: 'space-between', margin: 'auto'}}>
@@ -48,11 +47,9 @@ export const Verify = () => {
                         <Grid2 size={8} style={{margin: 'auto'}}>
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
-                                    textAlign:  'right' ,
-                                    right:  0   ,
-                                    left: 'auto'
+                                    left: i18n.language === 'fa' ? 'auto' : 0,
+                                    margin: i18n.language === 'fa' ? '0 -0.8rem 0 0' : ''
                                 },
-
                             }} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>

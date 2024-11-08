@@ -47,7 +47,12 @@ export const Register = () => {
                             <span style={{fontSize: '1.5rem', fontWeight: '500'}}>{t('register.description')}</span>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <TextField label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
+                            <TextField sx={{
+                                '& .MuiInputLabel-root': {
+                                    left: i18n.language === 'fa' ? 'auto' : 0,
+                                    margin: i18n.language === 'fa' ? '0 -0.8rem 0 0' : ''
+                                },
+                            }} label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>
