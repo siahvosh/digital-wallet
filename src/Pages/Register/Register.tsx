@@ -29,6 +29,7 @@ export const Register = () => {
                         right: i18n.language === 'fa' ? '0.7rem': '',
                         border: '1px solid white'}}
                     onClick={() => changeLanguage(  i18n.language === 'fa' ?  'en' :  'fa')}
+
                 >
                     {t('register.language')}
                 </Button>
