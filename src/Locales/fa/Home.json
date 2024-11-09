@@ -2,8 +2,8 @@
   "inventory": "موجودی نقدی",
   "language": "فارسی",
   "actionButton": {
-    "purchaseCharge": "حرید شارژ",
-    "purchaseNet": "حرید بسته",
+    "purchaseCharge": "خرید شارژ",
+    "purchaseNet": "خرید بسته",
     "transmission": "کارت به کارت",
     "payment": "پرداخت",
     "refund": "برداشت",

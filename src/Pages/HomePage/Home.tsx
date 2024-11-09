@@ -20,14 +20,14 @@ import Header from "../../Component/Header/Header";
 export const Home = () => {
     const { t } = useTranslation('home')
     const [actionBTn] = useState([
-        { title : t('actionButton.transmission'), icon: <PaymentIcon/>, size: {xs: 6, md: 3}},
-        { title : t('actionButton.payment'), icon: <PaidIcon/>, size: {xs: 6, md: 3}},
-        { title : t('actionButton.refund'), icon: <OutputIcon/>, size: {xs: 6, md: 3}},
-        { title : t('actionButton.scan'), icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
+        { title : 'actionButton.transmission', icon: <PaymentIcon/>, size: {xs: 6, md: 3}},
+        { title : 'actionButton.payment', icon: <PaidIcon/>, size: {xs: 6, md: 3}},
+        { title : 'actionButton.refund', icon: <OutputIcon/>, size: {xs: 6, md: 3}},
+        { title : 'actionButton.scan', icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
     ])
     const [btn] = useState([
-        { title : t('actionButton.purchaseCharge'), icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
-        { title : t('actionButton.purchaseNet'), icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { title : 'actionButton.purchaseCharge', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { title : 'actionButton.purchaseNet', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
     ])
 
     return (
@@ -67,7 +67,7 @@ export const Home = () => {
                                    <div  className={'btn'} style={{padding: '0.7rem'}}>
                                        <Grid2 container >
                                            <Grid2 size={{xs: 12, md: 12}} container style={{justifyContent: 'center'}}>
-                                               <span style={{fontSize: '1.5rem', color: 'black'}}>{item.title}</span>
+                                               <span style={{fontSize: '1.5rem', color: 'black'}}>{t(`${item.title}`)}</span>
                                                <PaymentIcon className={'payment-icon'} />
                                            </Grid2>
                                            <Grid2 size={12}  sx={{display: { xs: 'none', md: 'flex' } }}>
@@ -84,7 +84,7 @@ export const Home = () => {
                                    <Button variant={"outlined"} className={'btn'} style={{padding: '0.7rem'}}>
                                        {item.icon}
                                    </Button> <br/>
-                                   <span> {item.title} </span>
+                                   <span> {t(`${item.title}`)} </span>
                                </Grid2>
                            ))}
 
