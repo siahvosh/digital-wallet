@@ -6,7 +6,11 @@ import LayersIcon from "@mui/icons-material/Layers";
 import HomeIcon from "@mui/icons-material/Home";
 
 const MenuBar = () => {
-    const [homeBtn] = useState([
+    interface homeBtnType {
+        icon: JSX.Element;
+        size: { xs: number; md: number };
+    }
+    const [homeBtn] = useState<homeBtnType[]>([
         { icon: <SettingsIcon/>, size: {xs: 6, md: 6}},
         { icon: <LocalGroceryStoreIcon/>, size: {xs: 6, md: 6}},
         { icon: <LayersIcon/>, size: {xs: 6, md: 6}},
@@ -16,8 +20,8 @@ const MenuBar = () => {
     return (
         <Card className={"menu"}>
             <div style={{justifyContent: 'space-between', display: 'flex', padding: '0rem 1rem 1rem 1rem', color: '#2bab84'}}>
-                {homeBtn.map((item, idx) => (
-                    <div> {item.icon} </div>
+                {homeBtn.map((item, idx: number) => (
+                    <div key={idx}> {item.icon} </div>
                 ))}
             </div>
         </Card>

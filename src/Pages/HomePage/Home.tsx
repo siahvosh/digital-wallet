@@ -12,17 +12,35 @@ import {useTranslation} from "react-i18next";
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import MenuBar from '../../Component/Menu/MenuBar'
 import Header from "../../Component/Header/Header";
+import Wallet from "./../../Component/Modals/Wallet";
+import {ArrayOptions} from "stream";
 
 
 export const Home = () => {
+
+    const [openModal, setOpenModal] = useState<Boolean>()
+
     const { t } = useTranslation('home')
-    const [actionBTn] = useState([
+
+    interface actionBTnType {
+        title: string;
+        icon: JSX.Element;
+        size: { xs: number; md: number };
+    }
+    const [actionBTn] = useState<actionBTnType[]>([
         { title : 'actionButton.transmission', icon: <PaymentIcon/>, size: {xs: 6, md: 3}},
         { title : 'actionButton.payment',  icon: <PaidIcon/>, size: {xs: 6, md: 3}},
         { title : 'actionButton.refund',  icon: <OutputIcon/>, size: {xs: 6, md: 3}},
         { title : 'actionButton.scan',  icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
     ])
-    const [btn] = useState([
+
+    interface btnType {
+        title: string;
+        description: string;
+        icon: JSX.Element;
+        size: { xs: number; md: number };
+    }
+    const [btn] = useState<btnType[]>([
         { title : 'actionButton.purchaseCharge', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
         { title : 'actionButton.purchaseNet', description: 'actionButton.ChargeDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
     ])
@@ -30,6 +48,7 @@ export const Home = () => {
     return (
         <React.Fragment>
             <Header/>
+
             <div className={'top-card'}>
                 <Card className='account-card'>
                     <CardContent>
@@ -47,7 +66,7 @@ export const Home = () => {
                             </Grid2>
                             <Grid2 size={12} style={{marginTop: '.3rem'}}>
                                 <span style={{color: 'white'}}>
-                                    <IconButton aria-label="delete" size="small"><FullscreenIcon/>
+                                    <IconButton  aria-label="delete" size="small"><FullscreenIcon/>
                                     </IconButton>
                                 </span>
                             </Grid2>
@@ -59,8 +78,8 @@ export const Home = () => {
                 <Card className='action-card'>
                     <CardContent>
                        <Grid2 container spacing={2} style={{justifyContent: 'center'}}>
-                           { btn.map((item, idx) => (
-                               <Grid2 style={{padding: '0.5rem'}}  size={{ xs: 6, md: 4 }}>
+                           { btn.map((item, idx: number) => (
+                               <Grid2 key={idx} style={{padding: '0.5rem'}}  size={{ xs: 6, md: 4 }}>
                                    <div  className={'btn'} style={{padding: '0.7rem'}}>
                                        <Grid2 container >
                                            <Grid2 size={{xs: 12, md: 12}} container style={{justifyContent: 'center'}}>
@@ -76,8 +95,8 @@ export const Home = () => {
                            )) }
                        </Grid2>
                        <Grid2 container spacing={2} style={{justifyContent: 'center', marginTop: '1rem'}}>
-                           {actionBTn.map((item , idx) => (
-                               <Grid2  style={{padding: '0.5rem'}} size={{ xs: item.size.xs, md: item.size.md }}>
+                           {actionBTn.map((item , idx: number) => (
+                               <Grid2 key={idx} style={{padding: '0.5rem'}} size={{ xs: item.size.xs, md: item.size.md }}>
                                    <Button variant={"outlined"} className={'btn'} style={{padding: '0.7rem'}}>
                                        {item.icon}
                                    </Button> <br/>
@@ -97,6 +116,8 @@ export const Home = () => {
                 </Card>
             </div>
             <MenuBar/>
+
+            <Wallet />
         </React.Fragment>
     )
 }
