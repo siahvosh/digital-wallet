@@ -9,25 +9,22 @@ import PaidIcon from '@mui/icons-material/Paid';
 import OutputIcon from '@mui/icons-material/Output';
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import i18n from "../../i18next";
-import changeLanguage from "../../indexHelper";
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import MenuBar from '../../Component/Menu/MenuBar'
 import Header from "../../Component/Header/Header";
 
-// import MuiImageSlider from "mui-image-slider";
 
 export const Home = () => {
     const { t } = useTranslation('home')
     const [actionBTn] = useState([
         { title : 'actionButton.transmission', icon: <PaymentIcon/>, size: {xs: 6, md: 3}},
-        { title : 'actionButton.payment', icon: <PaidIcon/>, size: {xs: 6, md: 3}},
-        { title : 'actionButton.refund', icon: <OutputIcon/>, size: {xs: 6, md: 3}},
-        { title : 'actionButton.scan', icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
+        { title : 'actionButton.payment',  icon: <PaidIcon/>, size: {xs: 6, md: 3}},
+        { title : 'actionButton.refund',  icon: <OutputIcon/>, size: {xs: 6, md: 3}},
+        { title : 'actionButton.scan',  icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
     ])
     const [btn] = useState([
-        { title : 'actionButton.purchaseCharge', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
-        { title : 'actionButton.purchaseNet', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { title : 'actionButton.purchaseCharge', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { title : 'actionButton.purchaseNet', description: 'actionButton.ChargeDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
     ])
 
     return (
@@ -71,14 +68,14 @@ export const Home = () => {
                                                <PaymentIcon className={'payment-icon'} />
                                            </Grid2>
                                            <Grid2 size={12}  sx={{display: { xs: 'none', md: 'flex' } }}>
-                                             <span style={{justifyContent: 'center', color: 'black'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque est magnam temporibus.</span>
+                                             <span style={{justifyContent: 'center', color: 'black'}}>{t(`${item.description}`)}</span>
                                            </Grid2>
                                        </Grid2>
                                    </div>
                                </Grid2>
                            )) }
                        </Grid2>
-                       <Grid2 container spacing={2} style={{justifyContent: 'center', marginTop: '2rem'}}>
+                       <Grid2 container spacing={2} style={{justifyContent: 'center', marginTop: '1rem'}}>
                            {actionBTn.map((item , idx) => (
                                <Grid2  style={{padding: '0.5rem'}} size={{ xs: item.size.xs, md: item.size.md }}>
                                    <Button variant={"outlined"} className={'btn'} style={{padding: '0.7rem'}}>

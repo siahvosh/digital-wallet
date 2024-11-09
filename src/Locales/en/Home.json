@@ -8,6 +8,8 @@
     "payment": "Payment",
     "refund": "Refund",
     "scan": "Scan",
-    "rial": "Rial"
+    "rial": "Rial",
+    "internetDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque est magnam temporibus.",
+    "ChargeDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque est magnam temporibus."
   }
 }

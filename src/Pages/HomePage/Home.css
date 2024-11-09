@@ -99,6 +99,7 @@
     padding: 1rem;
     border-top-left-radius: 30px !important;
     border-top-right-radius: 30px !important;
+    direction: ltr !important;
 }
 @media (max-width: 600px) {
     .menu {
