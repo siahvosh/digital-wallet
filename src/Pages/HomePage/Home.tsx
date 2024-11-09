@@ -18,7 +18,7 @@ import {ArrayOptions} from "stream";
 
 export const Home = () => {
 
-    const [openModal, setOpenModal] = useState<Boolean>()
+    const [openModal, setOpenModal] = useState<boolean>(false)
 
     const { t } = useTranslation('home')
 
@@ -66,7 +66,7 @@ export const Home = () => {
                             </Grid2>
                             <Grid2 size={12} style={{marginTop: '.3rem'}}>
                                 <span style={{color: 'white'}}>
-                                    <IconButton  aria-label="delete" size="small"><FullscreenIcon/>
+                                    <IconButton onClick={() => setOpenModal(true)} aria-label="delete" size="small"><FullscreenIcon/>
                                     </IconButton>
                                 </span>
                             </Grid2>
@@ -117,7 +117,7 @@ export const Home = () => {
             </div>
             <MenuBar/>
 
-            <Wallet />
+            <Wallet open={openModal}/>
         </React.Fragment>
     )
 }

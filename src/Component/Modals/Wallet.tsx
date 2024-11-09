@@ -8,7 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -19,8 +19,17 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-const Wallet = () => {
-    const [open, setOpen] = useState(false);
+interface WalletProps {
+    open: boolean;
+}
+const Wallet : React.FC<WalletProps> = (props) => {
+    const [open, setOpen] = useState<boolean>(false);
+
+
+
+    useEffect(() => {
+        setOpen(props.open)
+    },[props.open])
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -31,9 +40,9 @@ const Wallet = () => {
 
     return (
         <React.Fragment>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Open dialog
-            </Button>
+            {/*<Button variant="outlined" onClick={handleClickOpen}>*/}
+            {/*    Open dialog*/}
+            {/*</Button>*/}
             <BootstrapDialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
