@@ -13,6 +13,9 @@ import i18n from "../../i18next";
 import changeLanguage from "../../indexHelper";
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import HomeIcon from '@mui/icons-material/Home';
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LayersIcon from '@mui/icons-material/Layers';
 // import MuiImageSlider from "mui-image-slider";
 
 export const Home = () => {
@@ -29,16 +32,16 @@ export const Home = () => {
     ])
 
     const [homeBtn, setHomeBtn] = useState([
-        { icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
-        { icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
-        { icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { icon: <SettingsIcon/>, size: {xs: 6, md: 6}},
+        { icon: <LocalGroceryStoreIcon/>, size: {xs: 6, md: 6}},
+        { icon: <LayersIcon/>, size: {xs: 6, md: 6}},
         { icon: <HomeIcon/>, size: {xs: 6, md: 6}},
 
     ])
 
     return (
         <React.Fragment>
-            <Card style={{width: 'calc(100%)', height: '2rem',}}>
+            <div style={{width: 'calc(100%)', height: '2rem',}}>
                 <div style={{justifyContent: 'end', display: 'flex'}}>
                     <div style={{color: 'black'}} className='logo'/>
                 </div>
@@ -61,31 +64,31 @@ export const Home = () => {
                         {t('language')}
                     </Button>
                 </div>
-            </Card>
+            </div>
             <div className={'top-card'}>
                 <Card className='account-card'>
-               <CardContent>
-                   <Grid2 container spacing={0.3}>
-                       <Grid2 size={12} className='grid-style'>
-                           <AccountBalanceWalletIcon className='icon'/>
-                       </Grid2>
-                       <Grid2 size={12} className='grid-style'>
-                           <span style={{color: 'white'}}>
-                               {t('inventory')}
-                           </span>
-                       </Grid2>
-                       <Grid2 size={12} className='grid-style'>
-                           <span style={{color: 'white'}}> 20.000.000 {t('actionButton.rial')}</span>
-                       </Grid2>
-                       <Grid2 size={12} style={{marginTop: '.3rem'}}>
-                           <span style={{color: 'white'}}>
-                               <IconButton aria-label="delete" size="small"><FullscreenIcon/>
-                               </IconButton>
-                           </span>
-                       </Grid2>
-                   </Grid2>
-               </CardContent>
-            </Card>
+                    <CardContent>
+                        <Grid2 container spacing={0.3}>
+                            <Grid2 size={12} className='grid-style'>
+                                <AccountBalanceWalletIcon className='icon'/>
+                            </Grid2>
+                            <Grid2 size={12} className='grid-style'>
+                                <span style={{color: 'white'}}>
+                                    {t('inventory')}
+                                </span>
+                            </Grid2>
+                            <Grid2 size={12} className='grid-style'>
+                                <span style={{color: 'white'}}> 20.000.000 {t('actionButton.rial')}</span>
+                            </Grid2>
+                            <Grid2 size={12} style={{marginTop: '.3rem'}}>
+                                <span style={{color: 'white'}}>
+                                    <IconButton aria-label="delete" size="small"><FullscreenIcon/>
+                                    </IconButton>
+                                </span>
+                            </Grid2>
+                        </Grid2>
+                    </CardContent>
+                </Card>
             </div>
             <div className={'bottom-card'}>
                 <Card className='action-card'>
@@ -118,13 +121,13 @@ export const Home = () => {
                            ))}
 
                        </Grid2>
-                        <Grid2 container size={12}  style={{justifyContent: 'center', marginTop: '1rem'}}>
-                       <div className={'img-card'}>
-                           {/*<div style={{width: '100%', height: '100%', background: 'black', opacity: '60%'}} >*/}
-                           {/*  <span style={{ fontSize: '100px', fontWeight: '800', color:"white"}}>invite firends</span>*/}
-                           {/*</div>*/}
-                       </div>
-                   </Grid2>
+                       <Grid2 container size={12}  style={{justifyContent: 'center', marginTop: '1rem'}}>
+                           <div className={'img-card'}>
+                               {/*<div style={{width: '100%', height: '100%', background: 'black', opacity: '60%'}} >*/}
+                               {/*  <span style={{ fontSize: '100px', fontWeight: '800', color:"white"}}>invite firends</span>*/}
+                               {/*</div>*/}
+                           </div>
+                        </Grid2>
                     </CardContent>
                 </Card>
             </div>

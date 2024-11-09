@@ -5,7 +5,6 @@ body {
 body.fa {
   direction: rtl !important;
   text-align: right !important;
-
 }
 
 Button{
@@ -85,7 +84,6 @@ Card:hover {
   }
 }
 
-
 @media (max-width: 600px) {
   span {
     font-size: 15px !important;
@@ -93,4 +91,3 @@ Card:hover {
     justify-self: center;
   }
 }
-
