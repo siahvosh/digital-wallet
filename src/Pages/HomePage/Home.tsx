@@ -12,6 +12,7 @@ import {useTranslation} from "react-i18next";
 import i18n from "../../i18next";
 import changeLanguage from "../../indexHelper";
 import RssFeedIcon from '@mui/icons-material/RssFeed';
+import HomeIcon from '@mui/icons-material/Home';
 // import MuiImageSlider from "mui-image-slider";
 
 export const Home = () => {
@@ -23,8 +24,16 @@ export const Home = () => {
         { title : t('actionButton.scan'), icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
     ])
     const [btn] = useState([
-        { title : t('actionButton.purchaseCharge'), icon: <PaymentIcon/>, size: {xs: 6, md: 6}},
+        { title : t('actionButton.purchaseCharge'), icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
         { title : t('actionButton.purchaseNet'), icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+    ])
+
+    const [homeBtn, setHomeBtn] = useState([
+        { icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { icon: <HomeIcon/>, size: {xs: 6, md: 6}},
+
     ])
 
     return (
@@ -119,9 +128,11 @@ export const Home = () => {
                     </CardContent>
                 </Card>
             </div>
-            <Card style={{width: 'calc(100%)', height: '2.7rem', border : '1px solid gray',bottom: '0', position: 'fixed'}}>
-                <div style={{justifyContent: 'end', display: 'flex'}}>
-                    <div style={{color: 'black'}} className='logo'/>
+            <Card className={"menu"}>
+                <div style={{justifyContent: 'space-between', display: 'flex', padding: '0rem 1rem 1rem 1rem', color: '#2bab84'}}>
+                    {homeBtn.map((item, idx) => (
+                        <div> {item.icon} </div>
+                    ))}
                 </div>
             </Card>
         </React.Fragment>

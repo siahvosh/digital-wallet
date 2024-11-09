@@ -90,3 +90,15 @@
         margin-top: -0.2rem;
     }
 }
+
+
+.menu{
+    width: 99%;
+    height: 1rem;
+    border-top: 1px solid black;
+    bottom: 0;
+    position: fixed;
+    padding: 1rem;
+    border-top-left-radius: 50px !important;
+    border-top-right-radius: 50px !important;
+}
