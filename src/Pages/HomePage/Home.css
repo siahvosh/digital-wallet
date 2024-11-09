@@ -26,7 +26,6 @@
     background-image: url("../../Assets/pattern.png") !important;
     background-position: bottom !important;
     background-size: 100%  !important;
-    /*direction: rtl !important;*/
 }
 
 .img-card{
@@ -66,8 +65,9 @@
 }
 
 .grid-style{
-    justify-content: end;
+    justify-content: right;
     display: flex;
+    margin-right: 0 ;
 }
 
 .logo{

@@ -68,7 +68,7 @@ export const Home = () => {
             <div className={'top-card'}>
                 <Card className='account-card'>
                     <CardContent>
-                        <Grid2 container spacing={0.3}>
+                        <Grid2 container spacing={0.3} >
                             <Grid2 size={12} className='grid-style'>
                                 <AccountBalanceWalletIcon className='icon'/>
                             </Grid2>
