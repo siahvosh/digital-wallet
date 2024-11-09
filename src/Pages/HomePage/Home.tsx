@@ -48,7 +48,6 @@ export const Home = () => {
     return (
         <React.Fragment>
             <Header/>
-
             <div className={'top-card'}>
                 <Card className='account-card'>
                     <CardContent>
@@ -66,7 +65,8 @@ export const Home = () => {
                             </Grid2>
                             <Grid2 size={12} style={{marginTop: '.3rem'}}>
                                 <span style={{color: 'white'}}>
-                                    <IconButton onClick={() => setOpenModal(true)} aria-label="delete" size="small"><FullscreenIcon/>
+                                    <IconButton onClick={() => setOpenModal(true)} aria-label="delete" size="small">
+                                        <FullscreenIcon/>
                                     </IconButton>
                                 </span>
                             </Grid2>

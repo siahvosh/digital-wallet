@@ -9,6 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import {useEffect, useState} from "react";
+import {Grid2} from "@mui/material";
+import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -44,6 +47,7 @@ const Wallet : React.FC<WalletProps> = (props) => {
             {/*    Open dialog*/}
             {/*</Button>*/}
             <BootstrapDialog
+                fullScreen
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
@@ -63,6 +67,23 @@ const Wallet : React.FC<WalletProps> = (props) => {
                 >
                     <CloseIcon />
                 </IconButton>
+                <DialogContent dividers style={{background: '#2bab84'}}>
+                    <Grid2  alignContent="center" justifyContent="center" container size={12} spacing={0} style={{height: '100%'}}>
+                        <Grid2 size={12}>
+                            <div style={{justifyContent: 'center', display: 'flex'}}>
+                                <span style={{fontSize: '6rem', fontWeight: '600'}}>Inventory</span> <br/>
+                            </div>
+                        </Grid2>
+                        <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
+                            <span style={{fontSize: '2.5rem', fontWeight: '600'}}>20.000.000 Rials</span>
+                        </Grid2>
+                        <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
+                            <IconButton style={{marginTop: '5rem'}} className={'btn'} onClick={handleClose} aria-label="delete" size="small">
+                                <FullscreenIcon/>
+                            </IconButton>
+                        </Grid2>
+                    </Grid2>
+                </DialogContent>
                 <DialogContent dividers>
                     <Typography gutterBottom>
                         Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
@@ -79,11 +100,6 @@ const Wallet : React.FC<WalletProps> = (props) => {
                         ullamcorper nulla non metus auctor fringilla.
                     </Typography>
                 </DialogContent>
-                <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
-                        Save changes
-                    </Button>
-                </DialogActions>
             </BootstrapDialog>
         </React.Fragment>
     );
