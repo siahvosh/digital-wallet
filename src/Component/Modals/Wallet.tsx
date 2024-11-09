@@ -12,6 +12,7 @@ import {useEffect, useState} from "react";
 import {Grid2} from "@mui/material";
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import './Wallet.css'
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -29,23 +30,16 @@ const Wallet : React.FC<WalletProps> = (props) => {
     const [open, setOpen] = useState<boolean>(false);
 
 
-
     useEffect(() => {
         setOpen(props.open)
     },[props.open])
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
         <React.Fragment>
-            {/*<Button variant="outlined" onClick={handleClickOpen}>*/}
-            {/*    Open dialog*/}
-            {/*</Button>*/}
             <BootstrapDialog
                 fullScreen
                 onClose={handleClose}
@@ -78,27 +72,31 @@ const Wallet : React.FC<WalletProps> = (props) => {
                             <span style={{fontSize: '2.5rem', fontWeight: '600'}}>20.000.000 Rials</span>
                         </Grid2>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                            <IconButton style={{marginTop: '5rem'}} className={'btn'} onClick={handleClose} aria-label="delete" size="small">
+                            <IconButton style={{marginTop: '3rem'}} className={'btn'} onClick={handleClose} aria-label="delete" size="small">
                                 <FullscreenIcon/>
                             </IconButton>
                         </Grid2>
                     </Grid2>
                 </DialogContent>
-                <DialogContent dividers>
-                    <Typography gutterBottom>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-                        magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor fringilla.
-                    </Typography>
+                <DialogContent dividers style={{borderTopRightRadius: '50px !important'}}>
+                   <Grid2 alignContent="center" justifyContent="center" container size={12} spacing={3} style={{height: '100%'}}>
+                       <Grid2 size={12}>
+                           <div className={'option'}>
+                               <span style={{padding: '2rem', alignContent: "center"}}>Wallet to Wallet</span>
+                           </div>
+                       </Grid2>
+                       <Grid2 size={12}>
+                           <div className={'option'}>
+
+                           </div>
+                       </Grid2>
+                       <Grid2 size={12}>
+                           <div className={'option'}>
+
+                           </div>
+                       </Grid2>
+
+                   </Grid2>
                 </DialogContent>
             </BootstrapDialog>
         </React.Fragment>
