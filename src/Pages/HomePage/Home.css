@@ -1,22 +1,60 @@
-.main-card{
-    width: calc(100%  - 1rem);
-    padding-top: 1rem;
-    height: 10rem;
-    /*background-image: url("../../Assets/pattern.png") !important;*/
-    /*background-position: bottom !important;*/
-    /*background-size: 100%  !important;*/
+.top-card{
+    width: calc(100%);
+    justify-content: center !important;
+    background-image: url("../../Assets/12244.jpg") !important;
+    background-position: bottom !important;
+    background-size: 100%  !important;
+
+}
+
+.bottom-card{
+    width: calc(100%);
+    /*background: #272626;*/
+    border-top: 1px solid #2bab84;
+    border-top-left-radius: 45px;
+    justify-content: center !important;
+    border-top-right-radius: 45px;
 }
 
 .account-card{
     width: 20rem;
     height: 9rem;
-    margin-top: 1rem;
+    margin: 2rem auto;
     border: 1px solid green;
     justify-self: center;
     border-radius: 24px !important;
     background-image: url("../../Assets/pattern.png") !important;
     background-position: bottom !important;
     background-size: 100%  !important;
+    /*direction: rtl !important;*/
+}
+
+.img-card{
+    width: 50%;
+    background: #ffffff;
+    height: 8rem;
+    position: relative;
+    background-image: url("../../Assets/img1.png") !important;
+    background-position: center !important;
+    background-size: 100% !important;
+
+    /*backdrop-filter: blur(100%);*/
+
+}
+@media (min-width: 600px), (max-width: 900px) {
+    .img-card {
+        width: 75% !important;
+        margin: auto !important;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .img-card {
+        width: 100% !important;
+        margin: auto !important;
+        justify-self: center;
+    }
 }
 
 .action-card{
@@ -34,7 +72,6 @@
 
 .logo{
     position: absolute;
-    right: 0;
     width: 7rem;
     height: 4.4rem;
     background-image: url("../../Assets/logo.png") !important;
@@ -42,6 +79,14 @@
     background-size: 100%  !important;
 }
 
-.header{
+.payment-icon{
+    font-size: 2rem;
+    margin-top: 0.2rem;
+}
 
+@media (max-width: 600px) {
+    .payment-icon {
+        font-size: 1rem;
+        margin-top: -0.2rem;
+    }
 }

@@ -1,0 +1,13 @@
+{
+  "inventory": "Inventory",
+  "language": "English",
+  "actionButton": {
+    "purchaseCharge": "Charge",
+    "purchaseNet": "Internet",
+    "transmission": "Transmission",
+    "payment": "Payment",
+    "refund": "Refund",
+    "scan": "Scan",
+    "rial": "Rial"
+  }
+}

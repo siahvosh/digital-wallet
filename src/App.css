@@ -18,10 +18,10 @@ Button{
 Button:hover {
   background-color: #424242 !important;
 }
-Button:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7) !important;
-  color: #FF7043 !important;
-}
+/*Button:active {*/
+/*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7) !important;*/
+/*  color: #FF7043 !important;*/
+/*}*/
 Button:disabled{
   background: gray !important;
   opacity: 50%;
@@ -55,15 +55,16 @@ Card:hover {
 }
 
 .btn{
-  background-color: #1E201E !important;
-  color: #FFFFFF !important;
-  border: 1px solid #e8e8e8 !important;
-  border-radius: 4px !important;
+  background-color: #ffffff !important;
+  color: #2bab84 !important;
+  border: 1px solid #2bab84 !important;
   transition: border 0.8s !important;
+  border-radius: 14px !important;
 }
 .btn:hover{
-  border: 1px solid #FF7043 !important;
-  background-color: #1E201E !important;
+  border: 1px solid #2bab84 !important;
+  background-color: #2bab84 !important;
+  color: #ffffff !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

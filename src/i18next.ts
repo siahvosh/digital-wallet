@@ -6,6 +6,9 @@ import loginEn from './Locales/en/Login.json';
 import registerEn from './Locales/en/Register.json';
 import loginFa from './Locales/fa/Login.json';
 import registerFa from './Locales/fa/Register.json';
+import homeFa from './Locales/fa/Home.json';
+import homeEn from './Locales/en/Home.json';
+
 
 i18n
     .use(initReactI18next)
@@ -14,10 +17,12 @@ i18n
             en: {
                 login: loginEn,
                 register: registerEn,
+                home: homeEn
             },
             fa: {
                 login: loginFa,
                 register: registerFa,
+                home: homeFa
             },
         },
         lng: 'en',

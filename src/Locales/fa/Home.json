@@ -1,0 +1,13 @@
+{
+  "inventory": "موجودس نقدی",
+  "language": "فارسی",
+  "actionButton": {
+    "purchaseCharge": "حرید شارژ",
+    "purchaseNet": "حرید بسته",
+    "transmission": "کارت به کارت",
+    "payment": "پرداخت",
+    "refund": "برداشت",
+    "scan": "اسگن",
+    "rial": "ریال"
+  }
+}
