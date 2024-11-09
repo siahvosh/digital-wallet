@@ -12,10 +12,9 @@ import {useTranslation} from "react-i18next";
 import i18n from "../../i18next";
 import changeLanguage from "../../indexHelper";
 import RssFeedIcon from '@mui/icons-material/RssFeed';
-import HomeIcon from '@mui/icons-material/Home';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import SettingsIcon from '@mui/icons-material/Settings';
-import LayersIcon from '@mui/icons-material/Layers';
+import MenuBar from '../../Component/Menu/MenuBar'
+import Header from "../../Component/Header/Header";
+
 // import MuiImageSlider from "mui-image-slider";
 
 export const Home = () => {
@@ -31,40 +30,9 @@ export const Home = () => {
         { title : t('actionButton.purchaseNet'), icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
     ])
 
-    const [homeBtn, setHomeBtn] = useState([
-        { icon: <SettingsIcon/>, size: {xs: 6, md: 6}},
-        { icon: <LocalGroceryStoreIcon/>, size: {xs: 6, md: 6}},
-        { icon: <LayersIcon/>, size: {xs: 6, md: 6}},
-        { icon: <HomeIcon/>, size: {xs: 6, md: 6}},
-
-    ])
-
     return (
         <React.Fragment>
-            <div style={{width: 'calc(100%)', height: '2rem',}}>
-                <div style={{justifyContent: 'end', display: 'flex'}}>
-                    <div style={{color: 'black'}} className='logo'/>
-                </div>
-                <div style={{justifyContent: 'start', display: 'flex'}}>
-                    <Button
-                        size='small'
-                        variant='outlined'
-                        style={{
-                            fontSize: '9px',
-                            padding: '0',
-                            position: 'absolute',
-                            marginTop: '0.5rem',
-                            left: i18n.language === 'en' ? '0.7rem': '',
-                            right: i18n.language === 'fa' ? '0.7rem': '',
-                            border: '1px solid white'}}
-                        onClick={() => changeLanguage(  i18n.language === 'fa' ?  'en' :  'fa')}
-
-                    >
-
-                        {t('language')}
-                    </Button>
-                </div>
-            </div>
+            <Header/>
             <div className={'top-card'}>
                 <Card className='account-card'>
                     <CardContent>
@@ -131,13 +99,7 @@ export const Home = () => {
                     </CardContent>
                 </Card>
             </div>
-            <Card className={"menu"}>
-                <div style={{justifyContent: 'space-between', display: 'flex', padding: '0rem 1rem 1rem 1rem', color: '#2bab84'}}>
-                    {homeBtn.map((item, idx) => (
-                        <div> {item.icon} </div>
-                    ))}
-                </div>
-            </Card>
+            <MenuBar/>
         </React.Fragment>
     )
 }
