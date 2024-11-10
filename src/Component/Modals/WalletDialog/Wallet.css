@@ -3,11 +3,36 @@
     height: 6rem;
     border: 1px solid #2bab84;
     border-radius: 30px ;
-    align-content: center;
+    align-content: center !important;
     cursor: pointer;
     color: black !important;
 }
 
 .pattern{
     /*background-image: url("./../../../Assets/12244.jpg");*/
+}
+
+
+.actions-content{
+    background: #2bab84;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.title-style{
+    font-size: 10vw;
+    font-weight: 600;
+    color: white;
+}
+.inventory-style{
+    font-size: 4vw;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-title{
+    font-size: 2rem;
+}
+.dc-title{
+    font-size: 1rem;
 }

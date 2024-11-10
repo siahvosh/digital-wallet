@@ -84,10 +84,10 @@ Card:hover {
   }
 }
 
-@media (max-width: 600px) {
-  span {
-    font-size: 15px !important;
-    margin: 0 !important;
-    justify-self: center;
-  }
-}
+/*@media (max-width: 600px) {*/
+/*  span {*/
+/*    font-size: 15px !important;*/
+/*    margin: 0 !important;*/
+/*    justify-self: center;*/
+/*  }*/
+/*}*/
