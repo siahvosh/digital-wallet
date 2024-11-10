@@ -8,8 +8,6 @@ import {useNavigate} from "react-router-dom";
 import './../../App.css'
 import {useData} from "../../DataContext";
 
-
-
 export const Register = () => {
     const navigate = useNavigate()
     const { t } = useTranslation('register')

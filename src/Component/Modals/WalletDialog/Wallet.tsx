@@ -21,11 +21,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-
 const Wallet = () => {
     const {t} = useTranslation('walletModal')
     const [open, setOpen] = useState<boolean>(false);
-
     const { data } = useData();
     const { setData } = useData();
 
@@ -37,7 +35,6 @@ const Wallet = () => {
         if(setData)
             setData(false);
     };
-
 
     return (
         <React.Fragment>
@@ -84,7 +81,6 @@ const Option = () => {
         animation: any,
         animationSize: object
     }
-
     const [btn] = useState<btnType[]>([
         {
             title: 'option1.title',
@@ -141,7 +137,6 @@ const Option = () => {
                 </Grid2>
             ))}
         </React.Fragment>
-
     )
 }
 export default Wallet;
