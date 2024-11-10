@@ -2,9 +2,11 @@ import React from 'react';
 import './App.css';
 import {Routers} from './Routers/Routers'
 import {BrowserRouter as Router} from "react-router-dom";
+import {DataProvider} from "./DataContext";
 
 function App() {
   return (
+      <DataProvider>
       <div className="App">
         <header className="App-header">
           <Router>
@@ -12,6 +14,7 @@ function App() {
           </Router>
         </header>
       </div>
+      </DataProvider>
   );
 }
 

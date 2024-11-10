@@ -7,7 +7,7 @@ type DataContextType = {
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
-export const DatatProvider = ({ children }: { children: ReactNode }) => {
+export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [data, setData] = useState<any>(null);
 
     return (
@@ -20,7 +20,7 @@ export const DatatProvider = ({ children }: { children: ReactNode }) => {
 export const useData = () => {
     const context = useContext(DataContext);
     if (!context) {
-        throw new Error("useWallet باید داخل WalletProvider استفاده شود");
+        throw new Error("useData باید داخل WalletProvider استفاده شود");
     }
     return context;
 };

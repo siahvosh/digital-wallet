@@ -13,24 +13,19 @@ import RssFeedIcon from '@mui/icons-material/RssFeed';
 import MenuBar from '../../Component/Menu/MenuBar'
 import Header from "../../Component/Header/Header";
 import Wallet from "../../Component/Modals/WalletDialog/Wallet";
-import {DatatProvider, useData} from '../../DataContext'
+import {useData} from '../../DataContext'
 
 // export const DataContext = createContext();
 
 export const Home = () => {
-
-    const [openModal, setOpenModal] = useState<boolean>(false)
-
     return (
-        <DatatProvider>
-           <React.Fragment>
-               <Header/>
-               <TopCard/>
-               <ActionCard/>
-               <MenuBar/>
-               <Wallet/>
-           </React.Fragment>
-        </DatatProvider>
+       <React.Fragment>
+           <Header/>
+           <TopCard/>
+           <ActionCard/>
+           <MenuBar/>
+           <Wallet/>
+       </React.Fragment>
     )
 }
 
@@ -44,7 +39,6 @@ const TopCard = () => {
     useEffect(() => {
         setData(openModal)
     }, [setData]);
-
     useEffect(() => {
         setData(data)
     }, [data]);
