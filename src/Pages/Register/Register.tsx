@@ -13,6 +13,7 @@ export const Register = () => {
     const { t } = useTranslation('register')
     const [imageUrl] = useState<any>(rbImage);
     const { setPhoneNumber } = useData();
+    const { phoneNumber } = useData();
 
     const handelInputNumber = (e: string) => {
         setPhoneNumber(e)
@@ -55,7 +56,7 @@ export const Register = () => {
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }} onChange={(e) => handelInputNumber(e.target.value)} label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
+                            }} onChange={(e) => handelInputNumber(e.target.value)}  label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>

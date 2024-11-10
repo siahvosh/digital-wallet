@@ -12,6 +12,12 @@ export const Verify = () => {
     const {t} = useTranslation('register')
     const navigate = useNavigate()
     const { phoneNumber } = useData();
+    const { setPhoneNumber } = useData();
+
+    const goToRegister = () =>{
+        setPhoneNumber(phoneNumber)
+        navigate('/' )
+    }
 
     return (
         <React.Fragment>
@@ -54,7 +60,7 @@ export const Verify = () => {
                             }} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
-                            <Button onClick={() => navigate('/')} style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button onClick={goToRegister} style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
