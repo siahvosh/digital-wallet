@@ -6,13 +6,19 @@ import i18n from '../../i18next'
 import changeLanguage from "../../indexHelper";
 import {useNavigate} from "react-router-dom";
 import './../../App.css'
+import {useData} from "../../DataContext";
 
 
 
 export const Register = () => {
     const navigate = useNavigate()
     const { t } = useTranslation('register')
-    const [imageUrl, setImageUrl] = useState(rbImage);
+    const [imageUrl] = useState<any>(rbImage);
+    const { setPhoneNumber } = useData();
+
+    const handelInputNumber = (e: string) => {
+        setPhoneNumber(e)
+    }
 
     return(
         <React.Fragment>
@@ -38,7 +44,6 @@ export const Register = () => {
                      alt="Paella dish"
                      className='image'
                  />
-
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3} style={{justifyContent: 'center'}}>
                         <Grid2 size={10}>
@@ -51,9 +56,8 @@ export const Register = () => {
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
-                                    // margin: i18n.language === 'fa' ? '0 0rem 0 0' : ''
                                 },
-                            }} label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
+                            }} onChange={(e) => handelInputNumber(e.target.value)} label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>

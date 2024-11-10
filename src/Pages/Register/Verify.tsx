@@ -1,15 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Button, Card, CardContent, CardMedia, Grid2, Link, TextField} from "@mui/material";
 import i18n from "../../i18next";
 import changeLanguage from "../../indexHelper";
 import {useTranslation} from "react-i18next";
 import {NavLink, useNavigate} from "react-router-dom";
 import rbImage from "../../Assets/Fingerprint-bro.png";
+import {useData} from "../../DataContext";
 
 export const Verify = () => {
     const [imageUrl, setImageUrl] = useState(rbImage);
     const {t} = useTranslation('register')
     const navigate = useNavigate()
+    const { phoneNumber } = useData();
 
     return (
         <React.Fragment>
@@ -42,13 +44,12 @@ export const Verify = () => {
                             <Link href='/register'>{t('register.editNumber')}</Link>
                         </Grid2>
                         <Grid2 size={12}>
-                            <span style={{fontSize: '1rem', fontWeight: '500'}}>{t('register.titleVerify')}</span>
+                            <span style={{fontSize: '1rem', fontWeight: '500'}}> {t('register.titleVerify')} {phoneNumber}. </span>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
-                                    // margin: i18n.language === 'fa' ? '0 0 0 0' : ''
                                 },
                             }} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>

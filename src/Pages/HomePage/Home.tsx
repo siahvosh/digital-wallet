@@ -37,14 +37,17 @@ const TopCard = () => {
     const { data } = useData();
 
     useEffect(() => {
-        setData(openModal)
+        if(setData)
+            setData(openModal)
     }, [setData]);
     useEffect(() => {
-        setData(data)
+        if(setData)
+            setData(data)
     }, [data]);
 
     const handelShowDialog = (value: boolean) => {
-        setData(value)
+        if(setData)
+            setData(value)
         setOpenModal(value)
     }
     return (

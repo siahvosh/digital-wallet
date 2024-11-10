@@ -1,17 +1,20 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type DataContextType = {
-    data: any;
-    setData: (data: any) => void;
+    data?: any;
+    setData?: (data: any) => void;
+    phoneNumber?: string,
+    setPhoneNumber?: any
 };
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [data, setData] = useState<any>(null);
+    const [phoneNumber, setPhoneNumber] = useState<string>();
 
     return (
-        <DataContext.Provider value={{ data, setData }}>
+        <DataContext.Provider value={{ data, setData, phoneNumber, setPhoneNumber }}>
             {children}
         </DataContext.Provider>
     );

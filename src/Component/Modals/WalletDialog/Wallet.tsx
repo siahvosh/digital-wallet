@@ -34,7 +34,8 @@ const Wallet = () => {
     },[data])
 
     const handleClose = () => {
-        setData(false);
+        if(setData)
+            setData(false);
     };
 
 
