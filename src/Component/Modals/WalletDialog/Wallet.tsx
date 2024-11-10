@@ -11,6 +11,7 @@ import './Wallet.css'
 import {useData} from "../../../DataContext";
 import {useTranslation} from "react-i18next";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
+import LottieAnimation from "../../../Lottie/LottieAnimation";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -51,11 +52,11 @@ const Wallet = () => {
                          <Grid2 container size={12} spacing={1} className={'content'}>
                              <Grid2 size={12}>
                                  <div style={{justifyContent: 'center', display: 'flex'}}>
-                                     <span className={'title-style'}>Inventory</span> <br/>
+                                     <span className={'title-style'}>{t('topCard.inventory')}</span> <br/>
                                  </div>
                              </Grid2>
                              <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                                 <span className={'inventory-style'}>20.000.000 Rials</span>
+                                 <span className={'inventory-style'}>20.000.000 {t('topCard.rials')}</span>
                              </Grid2>
                              <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
                                  <IconButton className={'btn'} onClick={handleClose} aria-label="delete" size="small">
@@ -112,6 +113,7 @@ const Option = () => {
                     <div className={'option btn'}>
                         <span className={item.titleClassName}>{t(`${item.title}`)}</span><br/>
                         <span className={item.dcClassName}>{t(`${item.description}`)}</span>
+                        <LottieAnimation />
                     </div>
                 </Grid2>
             ))}
