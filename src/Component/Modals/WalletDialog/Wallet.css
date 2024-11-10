@@ -1,22 +1,23 @@
-.option{
-    width: 100%;
-    height: 6rem;
-    border: 1px solid #2bab84;
-    border-radius: 30px ;
-    align-content: center !important;
-    cursor: pointer;
-    color: black !important;
-}
-
-.pattern{
-    /*background-image: url("./../../../Assets/12244.jpg");*/
-}
-
-
-.actions-content{
+.content{
     background: #2bab84;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    padding: 3rem;
+
+}
+
+.action-container{
+    align-content: center;
+    padding: 1rem;
+}
+
+.option{
+    border: 2px solid #2bab84;
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    color: black !important;
 }
 
 .title-style{

@@ -1,0 +1,18 @@
+{
+  "topCard": {
+    "inventory": "Cash Balance",
+    "rials": "Rials"
+  },
+  "option1": {
+    "title": "Wallet to Wallet",
+    "description": "Transfer from one wallet to another"
+  },
+  "option2": {
+    "title": "Add Funds",
+    "description": "From bank card to wallet"
+  },
+  "option3": {
+    "title": "Withdraw Funds",
+    "description": "From wallet to bank card"
+  }
+}
