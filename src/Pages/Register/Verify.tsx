@@ -31,12 +31,14 @@ export const Verify = () => {
                 >
                     {t('register.language')}
                 </Button>
+
                 <CardMedia
                     component="img"
                     image={imageUrl}
                     alt="Paella dish"
                     className='image'
                 />
+
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3}>
                         <Grid2 size={8} style={{display: 'flex', justifyContent: 'space-between', margin: 'auto'}}>
