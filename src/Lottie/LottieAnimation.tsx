@@ -1,17 +1,21 @@
 import React from 'react';
 import Lottie from 'react-lottie-player';
-import animationData from './Wallet.json';
 
 
-const LottieAnimation = () => {
+const LottieAnimation = (props: any) => {
     return (
         <div>
-            <Lottie
-                loop
-                animationData={animationData}
-                play
-                style={{ width: 150, height: 150 }}
-            />
+       <Lottie
+           loop
+           animationData={props.animation}
+           play
+           style={{
+               width: props.animationSize.width,
+               height: props.animationSize.height ,
+               justifySelf: 'end',
+               marginTop: '-3rem',
+       }}
+       />
         </div>
     );
 };

@@ -1,8 +1,6 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import {useEffect, useState} from "react";
 import {Card, Grid2} from "@mui/material";
@@ -10,8 +8,9 @@ import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import './Wallet.css'
 import {useData} from "../../../DataContext";
 import {useTranslation} from "react-i18next";
-import RssFeedIcon from "@mui/icons-material/RssFeed";
 import LottieAnimation from "../../../Lottie/LottieAnimation";
+import wallet from './../../../Lottie/Wallet.json';
+import addToWallet from './../../../Lottie/AddToWallet.json';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -80,7 +79,9 @@ const Option = () => {
         title: string;
         description: string;
         titleClassName: string;
-        dcClassName: string
+        dcClassName: string,
+        animation: any,
+        animationSize: object
     }
 
     const [btn] = useState<btnType[]>([
@@ -88,19 +89,34 @@ const Option = () => {
             title: 'option1.title',
             description: 'option1.description',
             titleClassName: 'btn-title',
-            dcClassName: 'dc-title'
+            dcClassName: 'dc-title',
+            animation: wallet,
+            animationSize: {
+                width: 120,
+                height: 120
+            }
         },
         {
             title: 'option2.title',
             description: 'option2.description',
             titleClassName: 'btn-title',
-            dcClassName: 'dc-title'
+            dcClassName: 'dc-title',
+            animation: addToWallet,
+            animationSize: {
+                width: 180,
+                height: 180
+            }
         },
         {
-            title: 'option2.title',
-            description: 'option2.description',
+            title: 'option3.title',
+            description: 'option3.description',
             titleClassName: 'btn-title',
-            dcClassName: 'dc-title'
+            dcClassName: 'dc-title',
+            animation: '',
+            animationSize: {
+                width: 150,
+                height: 150
+            }
         },
     ])
 
@@ -111,9 +127,15 @@ const Option = () => {
             {btn.map((item, idx) => (
                 <Grid2 key={idx} size={12}>
                     <div className={'option btn'}>
-                        <span className={item.titleClassName}>{t(`${item.title}`)}</span><br/>
-                        <span className={item.dcClassName}>{t(`${item.description}`)}</span>
-                        <LottieAnimation />
+                        <Grid2 spacing={0} container size={12}>
+                            <Grid2 size={6}>
+                                <span className={item.titleClassName}>{t(`${item.title}`)}</span><br/>
+                                <span className={item.dcClassName}>{t(`${item.description}`)}</span>
+                            </Grid2>
+                            <Grid2 size={6}>
+                                <LottieAnimation animationSize={item.animationSize} animation={item.animation}/>
+                            </Grid2>
+                        </Grid2>
                     </div>
                 </Grid2>
             ))}
