@@ -1,0 +1,13 @@
+.option{
+    width: 100%;
+    height: 6rem;
+    border: 1px solid #2bab84;
+    border-radius: 30px ;
+    align-content: center;
+    cursor: pointer;
+    color: black !important;
+}
+
+.pattern{
+    /*background-image: url("./../../../Assets/12244.jpg");*/
+}

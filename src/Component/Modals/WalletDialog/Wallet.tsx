@@ -13,6 +13,7 @@ import {Grid2} from "@mui/material";
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import './Wallet.css'
+import {useData} from "../../../DataContext";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -23,19 +24,20 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-interface WalletProps {
-    open: boolean;
-}
-const Wallet : React.FC<WalletProps> = (props) => {
+
+const Wallet = () => {
+
     const [open, setOpen] = useState<boolean>(false);
 
+    const { data } = useData();
+    const { setData } = useData();
 
     useEffect(() => {
-        setOpen(props.open)
-    },[props.open])
+        setOpen(data)
+    },[data])
 
     const handleClose = () => {
-        setOpen(false);
+        setData(false);
     };
 
     return (
@@ -62,7 +64,15 @@ const Wallet : React.FC<WalletProps> = (props) => {
                     <CloseIcon />
                 </IconButton>
                 <DialogContent dividers style={{background: '#2bab84'}}>
-                    <Grid2  alignContent="center" justifyContent="center" container size={12} spacing={0} style={{height: '100%'}}>
+                    <Grid2
+                        alignContent="center"
+                        justifyContent="center"
+                        container
+                        size={12}
+                        spacing={0}
+                        className={'pattern'}
+                        style={{height: '100%'}}
+                    >
                         <Grid2 size={12}>
                             <div style={{justifyContent: 'center', display: 'flex'}}>
                                 <span style={{fontSize: '6rem', fontWeight: '600'}}>Inventory</span> <br/>
@@ -81,18 +91,21 @@ const Wallet : React.FC<WalletProps> = (props) => {
                 <DialogContent dividers style={{borderTopRightRadius: '50px !important'}}>
                    <Grid2 alignContent="center" justifyContent="center" container size={12} spacing={3} style={{height: '100%'}}>
                        <Grid2 size={12}>
-                           <div className={'option'}>
-                               <span style={{padding: '2rem', alignContent: "center"}}>Wallet to Wallet</span>
+                           <div className={'option btn'}>
+                               <span style={{padding: '2rem', fontSize: '2rem'}}>Wallet to Wallet</span><br/>
+                               <span style={{padding: '2rem', fontSize: '1rem'}}>از کیف پول به کیف پول دیگر</span>
                            </div>
                        </Grid2>
                        <Grid2 size={12}>
-                           <div className={'option'}>
-
+                           <div className={'option btn'}>
+                               <span style={{padding: '2rem', fontSize: '2rem'}}>Wallet to Wallet</span><br/>
+                               <span style={{padding: '2rem', fontSize: '1rem'}}>از کیف پول به کیف پول دیگر</span>
                            </div>
                        </Grid2>
                        <Grid2 size={12}>
-                           <div className={'option'}>
-
+                           <div className={'option btn'}>
+                               <span style={{padding: '2rem', fontSize: '2rem'}}>Wallet to Wallet</span><br/>
+                               <span style={{padding: '2rem', fontSize: '1rem'}}>از کیف پول به کیف پول دیگر</span>
                            </div>
                        </Grid2>
 
