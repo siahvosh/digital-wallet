@@ -14,8 +14,10 @@ export const Register = () => {
     const [imageUrl] = useState<any>(rbImage);
     const { setPhoneNumber } = useData();
     const { phoneNumber } = useData();
+    const [disable, setDisable] = useState<boolean>(true)
 
     const handelInputNumber = (e: string) => {
+        setDisable( e.length < 11 || e.length > 11 ? true : false)
         setPhoneNumber(e)
     }
 
@@ -58,8 +60,9 @@ export const Register = () => {
                                 },
                             }} onChange={(e) => handelInputNumber(e.target.value)}  label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
+
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button disabled={disable} onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
