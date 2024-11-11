@@ -1,10 +1,14 @@
 // import {useTranslation} from "react-i18next/index";
-import {Grid2} from "@mui/material";
+import {Grid2, IconButton} from "@mui/material";
 import * as React from 'react';
 import {useTranslation} from "react-i18next";
+import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
+import {FC} from "react";
 
 
-export const BalanceCard = () =>{
+export const BalanceCard: FC<any> = (props: any) =>{
+
+
     const {t} = useTranslation('walletModal')
     return(
         <React.Fragment>
@@ -18,10 +22,11 @@ export const BalanceCard = () =>{
                     <span className={'inventory-style'}>20.000.000 {t('topCard.rials')}</span>
                 </Grid2>
                 <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                    {/*    <IconButton className={'btn'} onClick={handleClose} aria-label="delete" size="small">*/}
-                    {/*        <FullscreenExitIcon/>*/}
-                    {/*    </IconButton>*/}
-                    {/*</Grid2>*/}
+                    <Grid2>
+                        <IconButton className={'btn'} onClick={props.closeModal} aria-label="delete" size="small">
+                            <FullscreenExitIcon/>
+                        </IconButton>
+                    </Grid2>
                 </Grid2>
 
         </React.Fragment>
