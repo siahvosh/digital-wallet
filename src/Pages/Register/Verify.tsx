@@ -13,9 +13,16 @@ export const Verify = () => {
     const navigate = useNavigate()
     const { phoneNumber } = useData();
     const { setPhoneNumber } = useData();
+    const [disable, setDisable] = useState<boolean>(true)
+
+
+    const handelInputCode = (e: string) => {
+        setDisable( e === '12345' ? false : true)
+        setPhoneNumber(phoneNumber)
+    }
 
     const goToRegister = () =>{
-        setPhoneNumber(phoneNumber)
+        // setDisable(e === '123456': false: true)
         navigate('/' )
     }
 
@@ -57,10 +64,10 @@ export const Verify = () => {
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
+                            }} onChange={(e) => handelInputCode(e.target.value)} label={t('register.codeLabel')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8} style={{margin: 'auto'}}>
-                            <Button onClick={goToRegister} style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button disabled={disable} onClick={goToRegister} style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
