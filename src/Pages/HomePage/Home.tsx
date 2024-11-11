@@ -15,7 +15,6 @@ import Header from "../../Component/Header/Header";
 import Wallet from "../../Component/Modals/WalletDialog/Wallet";
 import {useData} from '../../DataContext'
 
-// export const DataContext = createContext();
 
 export const Home = () => {
     return (
@@ -31,24 +30,14 @@ export const Home = () => {
 
 const TopCard = () => {
     const { t } = useTranslation('home')
-    const [openModal, setOpenModal] = useState<boolean>(false)
+
 
     const { setData } = useData();
-    const { data } = useData();
-
-    useEffect(() => {
-        if(setData)
-            setData(openModal)
-    }, [setData]);
-    useEffect(() => {
-        if(setData)
-            setData(data)
-    }, [data]);
 
     const handelShowDialog = (value: boolean) => {
         if(setData)
             setData(value)
-        setOpenModal(value)
+
     }
     return (
         <div className={'top-card'}>

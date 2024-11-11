@@ -9,7 +9,7 @@ import {useTranslation} from "react-i18next";
 import LottieAnimation from "../../../Lottie/LottieAnimation";
 import wallet from './../../../Lottie/Wallet.json';
 import addToWallet from './../../../Lottie/AddToWallet.json';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {BalanceCard} from "../../BalanceCard/BalanceCard";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -22,14 +22,15 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const Wallet = () => {
-    // const {t} = useTranslation('walletModal')
-    const [open, setOpen] = useState<boolean>(false);
+    // const [open, setOpen] = useState<boolean>(false);
+
     const { data } = useData();
     const { setData } = useData();
-
-    useEffect(() => {
-        setOpen(data)
-    },[data])
+    //
+    //
+    // useEffect(() => {
+    //     setOpen(data)
+    // },[data])
 
     const handleClose = () => {
         if(setData)
@@ -42,9 +43,10 @@ const Wallet = () => {
                 fullScreen
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
-                open={open}
+                open={data}
             >
                 <Card style={{height: '100%',}}>
+
                      <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                          <Grid2 container size={12} spacing={1} className={'content'}>
                              <BalanceCard closeModal={handleClose}/>
