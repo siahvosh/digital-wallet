@@ -68,9 +68,8 @@ const Option = () => {
         titleClassName: string;
         dcClassName: string,
         animation: any,
-        animationSize: object
+        animationSize: object,
         path: string
-
     }
     const [btn] = useState<btnType[]>([
         {
