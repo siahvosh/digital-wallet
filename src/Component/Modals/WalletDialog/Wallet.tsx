@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import IconButton from '@mui/material/IconButton';
 import {useEffect, useState} from "react";
 import {Card, Grid2} from "@mui/material";
-import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import './Wallet.css'
 import {useData} from "../../../DataContext";
 import {useTranslation} from "react-i18next";
 import LottieAnimation from "../../../Lottie/LottieAnimation";
 import wallet from './../../../Lottie/Wallet.json';
 import addToWallet from './../../../Lottie/AddToWallet.json';
+import {useNavigate} from "react-router-dom";
+import {BalanceCard} from "../../BalanceCard/BalanceCard";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -22,7 +22,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const Wallet = () => {
-    const {t} = useTranslation('walletModal')
+    // const {t} = useTranslation('walletModal')
     const [open, setOpen] = useState<boolean>(false);
     const { data } = useData();
     const { setData } = useData();
@@ -47,26 +47,13 @@ const Wallet = () => {
                 <Card style={{height: '100%',}}>
                      <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                          <Grid2 container size={12} spacing={1} className={'content'}>
-                             <Grid2 size={12}>
-                                 <div style={{justifyContent: 'center', display: 'flex'}}>
-                                     <span className={'title-style'}>{t('topCard.inventory')}</span> <br/>
-                                 </div>
-                             </Grid2>
-                             <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                                 <span className={'inventory-style'}>20.000.000 {t('topCard.rials')}</span>
-                             </Grid2>
-                             <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                                 <IconButton className={'btn'} onClick={handleClose} aria-label="delete" size="small">
-                                     <FullscreenExitIcon/>
-                                 </IconButton>
-                             </Grid2>
+                             <BalanceCard/>
                          </Grid2>
                          <Grid2 container size={12} spacing={3} className={'action-container'}>
                              <Option/>
                          </Grid2>
                      </Grid2>
                 </Card>
-
             </BootstrapDialog>
         </React.Fragment>
     );
@@ -80,6 +67,8 @@ const Option = () => {
         dcClassName: string,
         animation: any,
         animationSize: object
+        path: string
+
     }
     const [btn] = useState<btnType[]>([
         {
@@ -91,7 +80,8 @@ const Option = () => {
             animationSize: {
                 width: 120,
                 height: 120
-            }
+            },
+            path: '/transfer'
         },
         {
             title: 'option2.title',
@@ -102,7 +92,9 @@ const Option = () => {
             animationSize: {
                 width: 180,
                 height: 180
-            }
+            },
+            path: '/add'
+
         },
         {
             title: 'option3.title',
@@ -113,17 +105,20 @@ const Option = () => {
             animationSize: {
                 width: 150,
                 height: 150
-            }
+            },
+            path: '/refund'
+
         },
     ])
 
     const {t} = useTranslation('walletModal')
+    const navigate = useNavigate()
 
     return (
         <React.Fragment>
             {btn.map((item, idx) => (
                 <Grid2 key={idx} size={12}>
-                    <div className={'option btn'}>
+                    <div className={'option btn'} onClick={() => navigate(`${item.path}`)}>
                         <Grid2 spacing={0} container size={12}>
                             <Grid2 size={6}>
                                 <span className={item.titleClassName}>{t(`${item.title}`)}</span><br/>
@@ -139,4 +134,6 @@ const Option = () => {
         </React.Fragment>
     )
 }
+
+
 export default Wallet;
