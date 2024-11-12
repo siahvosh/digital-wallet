@@ -15,7 +15,6 @@ export const Register = () => {
     const { t } = useTranslation('register')
     const [imageUrl] = useState<any>(rbImage);
     const { setPhoneNumber } = useData();
-    const { phoneNumber } = useData();
     const [disable, setDisable] = useState<boolean>(true)
 
     axios.post('http://localhost:3000/product', {
