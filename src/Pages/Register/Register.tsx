@@ -18,7 +18,6 @@ export const Register = () => {
     const { phoneNumber } = useData();
     const [disable, setDisable] = useState<boolean>(true)
 
-
     axios.post('http://localhost:3000/product', {
         title: "title 1",
         description: "description",
@@ -30,7 +29,6 @@ export const Register = () => {
     });
 
     const  handelInputNumber = (e: string) => {
-
         setDisable( e.length < 11 || e.length > 11 ? true : false)
         setPhoneNumber(e)
     }

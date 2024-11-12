@@ -19,7 +19,6 @@ export const Transfer = () => {
                     </Grid2>
                 </Grid2>
             </Card>
-
         </React.Fragment>
     )
 }
