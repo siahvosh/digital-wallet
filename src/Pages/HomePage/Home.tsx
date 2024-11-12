@@ -15,7 +15,6 @@ import Header from "../../Component/Header/Header";
 import Wallet from "../../Component/Modals/WalletDialog/Wallet";
 import {useData} from '../../DataContext'
 
-
 export const Home = () => {
     return (
        <React.Fragment>
@@ -31,13 +30,9 @@ export const Home = () => {
 const TopCard = () => {
     const { t } = useTranslation('home')
 
-
     const { setData } = useData();
-
     const handelShowDialog = (value: boolean) => {
-        if(setData)
-            setData(value)
-
+        if(setData) setData(value)
     }
     return (
         <div className={'top-card'}>
@@ -68,7 +63,6 @@ const TopCard = () => {
         </div>
     )
 }
-
 const ActionCard = () => {
     const { t } = useTranslation('home')
     interface actionBTnType {
