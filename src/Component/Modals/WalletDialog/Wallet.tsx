@@ -124,9 +124,9 @@ const Option = () => {
                                 <span className={item.titleClassName}>{t(`${item.title}`)}</span><br/>
                                 <span className={item.dcClassName}>{t(`${item.description}`)}</span>
                             </Grid2>
-                            <Grid2 size={6}>
-                                <LottieAnimation animationSize={item.animationSize} />
-                            </Grid2>
+                            {/*<Grid2 size={6}>*/}
+                            {/*    <LottieAnimation animationSize={item.animationSize} />*/}
+                            {/*</Grid2>*/}
                         </Grid2>
                     </div>
                 </Grid2>
