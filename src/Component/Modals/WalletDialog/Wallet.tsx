@@ -111,7 +111,6 @@ const Option = () => {
 
         },
     ])
-
     const {t} = useTranslation('walletModal')
     const navigate = useNavigate()
 
@@ -121,12 +120,12 @@ const Option = () => {
                 <Grid2 key={idx} size={12}>
                     <div className={'option btn'} onClick={() => navigate(`${item.path}`)}>
                         <Grid2 spacing={0} container size={12}>
-                            <Grid2 size={6}>
+                            <Grid2 size={12}>
                                 <span className={item.titleClassName}>{t(`${item.title}`)}</span><br/>
                                 <span className={item.dcClassName}>{t(`${item.description}`)}</span>
                             </Grid2>
                             <Grid2 size={6}>
-                                <LottieAnimation animationSize={item.animationSize} animation={item.animation}/>
+                                <LottieAnimation animationSize={item.animationSize} />
                             </Grid2>
                         </Grid2>
                     </div>
