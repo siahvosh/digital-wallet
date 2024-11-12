@@ -19,18 +19,18 @@ export const Register = () => {
     const [disable, setDisable] = useState<boolean>(true)
 
 
-
+    axios.post('http://localhost:3000/product', {
+        title: "title 1",
+        description: "description",
+        price: 1100
+    }).then((res) => {
+        console.log({ res });
+    }).catch((error) => {
+        console.error("Error:", error);
+    });
 
     const  handelInputNumber = (e: string) => {
-        axios.post('http://localhost:3000/product', {
-            title: "title 1",
-            description: "description",
-            price: 1100
-        }).then((res) => {
-            console.log({ res });
-        }).catch((error) => {
-            console.error("Error:", error);
-        });
+
         setDisable( e.length < 11 || e.length > 11 ? true : false)
         setPhoneNumber(e)
     }
