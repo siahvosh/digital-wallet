@@ -16,20 +16,26 @@ export const Register = () => {
     const [imageUrl] = useState<any>(rbImage);
     const { setPhoneNumber } = useData();
     const [disable, setDisable] = useState<boolean>(true)
+    const [phone, SetPhone] = useState<string>('')
+    const [password, SetPassword] = useState<string>('')
 
-    axios.post('http://localhost:3000/product', {
-        title: "title 1",
-        description: "description",
-        price: 1100
+    axios.post('http://localhost:3000/auth/register', {
+        phone_number: phone,
+        password: password
     }).then((res) => {
         console.log({ res });
     }).catch((error) => {
         console.error("Error:", error);
     });
 
-    const  handelInputNumber = (e: string) => {
+    const handelInputNumber = (e: string) => {
         setDisable( e.length < 11 || e.length > 11 ? true : false)
         setPhoneNumber(e)
+        SetPhone(e)
+    }
+
+    const handelInputPassword = (e: string) => {
+        SetPassword(e)
     }
 
     return(
@@ -70,6 +76,13 @@ export const Register = () => {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
                             }} onChange={(e) => handelInputNumber(e.target.value)}  label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
+                        </Grid2>
+                        <Grid2 size={8}  style={{margin: 'auto'}}>
+                            <TextField sx={{
+                                '& .MuiInputLabel-root': {
+                                    left: i18n.language === 'fa' ? 'auto' : 0,
+                                },
+                            }} onChange={(e) => handelInputPassword(e.target.value)} type={"password"} label={'password'} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
