@@ -19,14 +19,7 @@ export const Register = () => {
     const [phone, SetPhone] = useState<string>('')
     const [password, SetPassword] = useState<string>('')
 
-    axios.post('http://localhost:3000/auth/register', {
-        phone_number: phone,
-        password: password
-    }).then((res) => {
-        console.log({ res });
-    }).catch((error) => {
-        console.error("Error:", error);
-    });
+
 
     const handelInputNumber = (e: string) => {
         setDisable( e.length < 11 || e.length > 11 ? true : false)
@@ -36,6 +29,20 @@ export const Register = () => {
 
     const handelInputPassword = (e: string) => {
         SetPassword(e)
+    }
+
+
+    const login = () => {
+        axios.post('http://localhost:3000/auth/register', {
+            phone_number: phone,
+            password: password
+        }).then((res) => {
+            console.log({ res });
+            navigate('/verify')
+        }).catch((error) => {
+            console.error("Error:", error);
+            navigate('/')
+        });
     }
 
     return(
@@ -86,7 +93,7 @@ export const Register = () => {
                         </Grid2>
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button disabled={disable} onClick={() => navigate('/verify') } style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button disabled={disable} onClick={login} style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>
