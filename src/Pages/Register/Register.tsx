@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Button, Card, CardContent, CardMedia, Grid2, TextField} from "@mui/material";
 import rbImage from '../../Assets/Tablet login-cuate.png';
 import {useTranslation} from "react-i18next";
@@ -28,6 +28,23 @@ export const Register = () => {
     const handelInputPassword = (e: string) => {
         SetPassword(e)
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem('accessToken');
+
+        axios.post('http://localhost:3000/auth/register', {
+            headers: {
+                Authorization: token,
+            },
+        })
+            .then((res) => {
+                console.log('Protected data:', res.data);
+                navigate('/')
+            })
+            .catch((error) => {
+                console.error('Error accessing protected route:', error.response?.data || error.message);
+            });
+    })
 
     const login = () => {
         axios
