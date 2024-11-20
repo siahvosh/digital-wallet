@@ -29,24 +29,30 @@ export const Register = () => {
         SetPassword(e)
     }
 
-    useEffect(  () => {
-        const token = localStorage.getItem('accessToken');
-
-        axios.post('http://localhost:3000/auth/register', {
-            phone_number: phone,
-            password: password,
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
-            .then((res) => {
-                console.log('Protected data:', res.data);
-                navigate('/')
+    useEffect(() => {
+        const registerUser = () => {
+            const token = localStorage.getItem('accessToken');
+            axios.post('http://localhost:3000/auth/register', {
+                phone_number: phone,
+                password: password,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
             })
-            .catch((error) => {
-                console.error('Error accessing protected route:', error.response?.data || error.message);
-            });
-    })
+                .then((response) => {
+                    console.log('Protected data:', response.data);
+                    navigate('/'); // هدایت به صفحه بعد از موفقیت
+                })
+                .catch((error) => {
+                    console.error('Error accessing protected route:', error.response?.data || error.message);
+                });
+        };
+
+        // فراخوانی تابع برای ارسال درخواست
+        registerUser();
+
+    }, [phone, password, navigate]);
 
     const login = () => {
         axios
