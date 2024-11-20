@@ -29,12 +29,14 @@ export const Register = () => {
         SetPassword(e)
     }
 
-    useEffect(() => {
+    useEffect(  () => {
         const token = localStorage.getItem('accessToken');
 
         axios.post('http://localhost:3000/auth/register', {
+            phone_number: phone,
+            password: password,
             headers: {
-                Authorization: token,
+                Authorization: `Bearer ${token}`,
             },
         })
             .then((res) => {
