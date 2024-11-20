@@ -19,8 +19,6 @@ export const Register = () => {
     const [phone, SetPhone] = useState<string>('')
     const [password, SetPassword] = useState<string>('')
 
-
-
     const handelInputNumber = (e: string) => {
         setDisable( e.length < 11 || e.length > 11 ? true : false)
         setPhoneNumber(e)
@@ -31,19 +29,20 @@ export const Register = () => {
         SetPassword(e)
     }
 
-
     const login = () => {
-        axios.post('http://localhost:3000/auth/register', {
-            phone_number: phone,
-            password: password
-        }).then((res) => {
-            console.log({ res });
-            navigate('/verify')
-        }).catch((error) => {
-            console.error("Error:", error);
-            navigate('/')
-        });
-    }
+        axios
+            .post('http://localhost:3000/auth/register', {
+                phone_number: phone,
+                password: password,
+            })
+            .then((res) => {
+                console.log({ res });
+                navigate('/verify');
+            })
+            .catch((error) => {
+                console.error('Error during login:', error.response?.data || error.message);
+            });
+    };
 
     return(
         <React.Fragment>
