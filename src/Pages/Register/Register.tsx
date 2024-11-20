@@ -42,14 +42,13 @@ export const Register = () => {
             })
                 .then((response) => {
                     console.log('Protected data:', response.data);
-                    navigate('/'); // هدایت به صفحه بعد از موفقیت
+                    navigate('/');
                 })
                 .catch((error) => {
                     console.error('Error accessing protected route:', error.response?.data || error.message);
                 });
         };
 
-        // فراخوانی تابع برای ارسال درخواست
         registerUser();
 
     }, [phone, password, navigate]);
