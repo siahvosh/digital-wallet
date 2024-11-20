@@ -37,6 +37,7 @@ export const Register = () => {
             })
             .then((res) => {
                 console.log({ res });
+                localStorage.setItem('accessToken', res.data.access_token)
                 navigate('/verify');
             })
             .catch((error) => {
