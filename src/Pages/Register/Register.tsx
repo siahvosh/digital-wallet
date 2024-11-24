@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Card, CardContent, CardMedia, Grid2, TextField} from "@mui/material";
+import {Button, Card, CardContent, CardMedia, Grid2, Link, TextField} from "@mui/material";
 import rbImage from '../../Assets/register.png';
 import {useTranslation} from "react-i18next";
 import i18n from '../../i18next'
@@ -118,6 +118,9 @@ export const Register = () => {
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button disabled={disable} onClick={login} style={{width: '100%'}}>{t('register.apply')}</Button>
+                        </Grid2>
+                        <Grid2 size={8} style={{display: 'flex', justifyContent: 'center', margin: 'auto'}}>
+                            <Link href='/sign'>{t('register.haveAcc')}</Link>
                         </Grid2>
                     </Grid2>
                 </CardContent>

@@ -10,6 +10,7 @@
     "titleVerify": "Enter the code sent to",
     "codeLabel": "Sent Code",
     "language": "English",
-    "password": "password"
+    "password": "password",
+    "haveAcc": "I already have an account"
   }
 }
