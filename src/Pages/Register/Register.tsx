@@ -29,29 +29,29 @@ export const Register = () => {
         SetPassword(e)
     }
 
-    useEffect(() => {
-        const registerUser = () => {
-            const token = localStorage.getItem('accessToken');
-            axios.post('http://localhost:3000/auth/register', {
-                phone_number: phone,
-                password: password,
-            }, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((response) => {
-                    console.log('Protected data:', response.data);
-                    navigate('/');
-                })
-                .catch((error) => {
-                    console.error('Error accessing protected route:', error.response?.data || error.message);
-                });
-        };
-
-        registerUser();
-
-    }, [phone, password, navigate]);
+    // useEffect(() => {
+    //     const registerUser = () => {
+    //         const token = localStorage.getItem('accessToken');
+    //         axios.post('http://localhost:3000/auth/register', {
+    //             phone_number: phone,
+    //             password: password,
+    //         }, {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //             },
+    //         })
+    //             .then((response) => {
+    //                 console.log('Protected data:', response.data);
+    //                 navigate('/');
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Error accessing protected route:', error.response?.data || error.message);
+    //             });
+    //     };
+    //
+    //     registerUser();
+    //
+    // }, [phone, password, navigate]);
 
     const login = () => {
         axios
