@@ -9,6 +9,7 @@
     "editNumber": "اصلاح شماره تماس",
     "titleVerify": "کد ارسال شده به شماره  را وارد کنید.",
     "codeLabel": "کد ارسالی",
-    "language": "فارسی"
+    "language": "فارسی",
+    "password": "رمز عبور"
   }
 }

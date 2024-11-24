@@ -113,7 +113,7 @@ export const Register = () => {
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }} onChange={(e) => handelInputPassword(e.target.value)} type={"password"} label={'password'} variant={"standard"} style={{width: '100%'}}/>
+                            }} onChange={(e) => handelInputPassword(e.target.value)} type={"password"} label={t('register.password')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>

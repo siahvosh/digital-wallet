@@ -9,7 +9,7 @@
     "editNumber": "Edit Phone Number",
     "titleVerify": "Enter the code sent to",
     "codeLabel": "Sent Code",
-    "language": "English"
-
+    "language": "English",
+    "password": "password"
   }
 }
