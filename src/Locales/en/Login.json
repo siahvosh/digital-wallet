@@ -1,24 +1,13 @@
 {
   "login": {
-    "form": {
-      "title": "Login",
-      "email": "Email",
-      "password": "Password",
-      "loginBtn": "Login",
-      "or": "or"
-    },
-    "description": {
-      "title": "Welcome to miraz wallet",
-      "welcome": "Welcome to the Mirzad digital wallet! With us, experience managing your cryptocurrencies in a secure, fast, and easy way, and enjoy reliable transactions.",
-      "dontHaveAnAccount" : "I don't have an account"
-    },
-    "btn": {
-      "en": "English",
-      "fa": "Persian"
-    },
-    "alert": {
-      "invalidMail": "The entered email is invalid",
-      "incorrectMail": "The email or password is incorrect."
-    }
+    "title": "Welcome to Mirzad",
+    "description": "Enter your mobile number to log in to Mirzad.",
+    "phoneNumber": "Phone Number",
+    "password": "Password",
+    "apply": "Log In",
+    "codeLabel": "Verification Code",
+    "language": "Persian",
+    "forget": "Forgot Password",
+    "noAcc": "I don't have an account"
   }
 }
