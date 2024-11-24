@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Button, Card, CardContent, CardMedia, Grid2, TextField} from "@mui/material";
+import {Button, Card, CardContent, CardMedia, Grid2, Link, TextField} from "@mui/material";
 import i18n from "../../i18next";
 import changeLanguage from "../../indexHelper";
 import rbImage from "../../Assets/Tablet login-cuate.png";
@@ -31,7 +31,7 @@ export const SignIn = () => {
                     onClick={() => changeLanguage(  i18n.language === 'fa' ?  'en' :  'fa')}
 
                 >
-                    {t('register.language')}
+                    {t('login.language')}
                 </Button>
                 <CardMedia
                     component="img"
@@ -61,6 +61,9 @@ export const SignIn = () => {
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button disabled={disable}  style={{width: '100%'}}>{t('login.apply')}</Button>
+                        </Grid2>
+                        <Grid2 size={8} style={{display: 'flex', justifyContent: 'center', margin: 'auto'}}>
+                            <Link href='/register'>{t('login.noAcc')}</Link>
                         </Grid2>
                     </Grid2>
                 </CardContent>

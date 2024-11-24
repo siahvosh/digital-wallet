@@ -6,6 +6,8 @@
     "password": "رمز عبور",
     "apply": "ورود",
     "codeLabel": "کد ارسالی",
-    "language": "فارسی"
+    "language": "فارسی",
+    "forget": "فراموشی رمز",
+    "noAcc": "حساب کاربری ندارم"
   }
 }
