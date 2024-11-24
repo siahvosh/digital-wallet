@@ -5,6 +5,7 @@ import changeLanguage from "../../indexHelper";
 import rbImage from "../../Assets/Tablet login-cuate.png";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import axios from "axios";
 
 
 export const SignIn = () => {
@@ -14,6 +15,31 @@ export const SignIn = () => {
     const [disable, setDisable] = useState<boolean>(true)
     const [phone, SetPhone] = useState<string>('')
     const [password, SetPassword] = useState<string>('')
+
+    const handelInputNumber = (e: string) => {
+        setDisable( e.length < 11 || e.length > 11 ? true : false)
+        SetPhone(e)
+    }
+
+    const handelInputPassword = (e: string) => {
+        SetPassword(e)
+    }
+
+    const login = () => {
+        axios
+            .post('http://localhost:3000/auth/login', {
+                phone_number: phone,
+                password: password,
+            })
+            .then((res) => {
+                console.log({ res });
+                localStorage.setItem('accessToken', res.data.access_token)
+                navigate('/');
+            })
+            .catch((error) => {
+                console.error('Error during login:', error.response?.data || error.message);
+            });
+    };
 
     return (
         <React.Fragment>
@@ -49,18 +75,18 @@ export const SignIn = () => {
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }}   label={t('login.phoneNumber')} variant={"standard"} style={{width: '100%'}}/>
+                            }} onChange={(e) => handelInputNumber(e.target.value)}  label={t('login.phoneNumber')}  variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }} type={"password"} label={t('login.password')} variant={"standard"} style={{width: '100%'}}/>
+                            }} onChange={(e) => handelInputPassword(e.target.value)} type={"password"} label={t('login.password')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button disabled={disable}  style={{width: '100%'}}>{t('login.apply')}</Button>
+                            <Button disabled={disable} onClick={login} style={{width: '100%'}}>{t('login.apply')}</Button>
                         </Grid2>
                         <Grid2 size={8} style={{display: 'flex', justifyContent: 'center', margin: 'auto'}}>
                             <Link href='/register'>{t('login.noAcc')}</Link>

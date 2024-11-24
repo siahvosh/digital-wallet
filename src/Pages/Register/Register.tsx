@@ -55,14 +55,14 @@ export const Register = () => {
 
     const login = () => {
         axios
-            .post('http://localhost:3000/auth/register', {
+            .post('http://localhost:3000/auth/login', {
                 phone_number: phone,
                 password: password,
             })
             .then((res) => {
                 console.log({ res });
                 localStorage.setItem('accessToken', res.data.access_token)
-                navigate('/verify');
+                navigate('/');
             })
             .catch((error) => {
                 console.error('Error during login:', error.response?.data || error.message);
