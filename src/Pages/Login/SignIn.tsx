@@ -10,7 +10,7 @@ import {useTranslation} from "react-i18next";
 export const SignIn = () => {
     const [imageUrl] = useState<any>(rbImage);
     const navigate = useNavigate()
-    const { t } = useTranslation('register')
+    const { t } = useTranslation('login')
     const [disable, setDisable] = useState<boolean>(true)
     const [phone, SetPhone] = useState<string>('')
     const [password, SetPassword] = useState<string>('')
@@ -42,28 +42,25 @@ export const SignIn = () => {
                 <CardContent style={{justifyContent: 'center', display: 'flex'}}>
                     <Grid2 container spacing={3} style={{justifyContent: 'center'}}>
                         <Grid2 size={10}>
-                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}> {t('register.title')} </span>
-                        </Grid2>
-                        <Grid2 size={10}>
-                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}>{t('register.description')}</span>
+                            <span style={{fontSize: '1.5rem', fontWeight: '500'}}> {t('login.title')} </span>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }}   label={t('register.label')} variant={"standard"} style={{width: '100%'}}/>
+                            }}   label={t('login.phoneNumber')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <TextField sx={{
                                 '& .MuiInputLabel-root': {
                                     left: i18n.language === 'fa' ? 'auto' : 0,
                                 },
-                            }} type={"password"} label={'password'} variant={"standard"} style={{width: '100%'}}/>
+                            }} type={"password"} label={t('login.password')} variant={"standard"} style={{width: '100%'}}/>
                         </Grid2>
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button disabled={disable}  style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button disabled={disable}  style={{width: '100%'}}>{t('login.apply')}</Button>
                         </Grid2>
                     </Grid2>
                 </CardContent>

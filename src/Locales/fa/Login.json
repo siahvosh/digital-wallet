@@ -1,13 +1,11 @@
 {
-  "register": {
-    "title": "Login to Mirzad",
-    "description": "Enter your mobile number to log into Mirzad.",
-    "label": "Phone Number",
-    "apply": "Confirm",
-    "registerBtn": "Register",
-    "verifyCode": "Verification Code",
-    "editNumber": "Edit Phone Number",
-    "titleVerify": "Enter the code sent to .",
-    "codeLabel": "Sent Code"
+  "login": {
+    "title": "به میرزاد خوش آمدید",
+    "description": "شماره همراه خود را جهت ورود به میرزاد وارد کنید.",
+    "phoneNumber": "شماره تماس",
+    "password": "رمز عبور",
+    "apply": "ورود",
+    "codeLabel": "کد ارسالی",
+    "language": "فارسی"
   }
 }
