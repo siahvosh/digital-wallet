@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Button, Card, CardContent, CardMedia, Grid2, TextField} from "@mui/material";
-import rbImage from '../../Assets/Tablet login-cuate.png';
+import rbImage from '../../Assets/register.png';
 import {useTranslation} from "react-i18next";
 import i18n from '../../i18next'
 import changeLanguage from "../../indexHelper";
