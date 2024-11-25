@@ -88,11 +88,10 @@ export const Transfer = () => {
                             </div>
                         </Grid2>
                         <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '65vw', margin: 'auto', alignContent: 'center'}}>
-                            <Grid2 size={12}>
+                            <Grid2  size={12}>
                                 <span style={{display: 'flex', justifyContent: 'start'}}>{t('transfer.customPriceLabel')}</span>
                             </Grid2>
-
-                            {priceItems.map((item, index) => (
+                                {priceItems.map((item, index) => (
                                 <Grid2 size={{ xs: 12, md: 4, lg: 4}}>
                                     <div className={selectedIndex === index ? 'active-items' : 'btn'} onClick={() => handleItemClick(item.price, index)} style={{
                                         cursor: 'pointer',
@@ -104,7 +103,7 @@ export const Transfer = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={12}  style={{margin: 'auto', width: '65vw'}}>
+                        <Grid2 size={12} style={{margin: 'auto', width: '65vw'}}>
                             <Button style={{width: '100%'}}>{t('transfer.transfer')}</Button>
                         </Grid2>
                     </Grid2>
