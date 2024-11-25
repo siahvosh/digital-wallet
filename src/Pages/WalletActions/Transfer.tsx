@@ -1,10 +1,11 @@
 import * as React from 'react'
-import {Card, Grid2, TextField} from "@mui/material";
+import {Button, Card, Grid2, TextField} from "@mui/material";
 import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import EditIcon from '@mui/icons-material/Edit';
 import PeopleIcon from '@mui/icons-material/People';
 import CloseIcon from '@mui/icons-material/Close';
 import {useState} from "react";
+import i18n from "../../i18next";
 
 export const Transfer = () => {
     interface priceItemsType {
@@ -21,6 +22,7 @@ export const Transfer = () => {
         {price: '3,000,000', num: '7'}
     ])
     const [customPrice, setCustomPrice] = useState<string>('')
+    const [curdNumber, setCurdNumber] = useState<string>('')
 
     return(
         <React.Fragment>
@@ -31,10 +33,19 @@ export const Transfer = () => {
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
-                            <div style={{borderRadius: '8px' ,width: '65vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
-                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem 0 1rem'}}>
-                                    <span style={{alignContent: 'center'}}>شماره مقصد را وارد کنید</span>
-                                    <EditIcon/>
+                            <div style={{width: '65vw', height: '3rem',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                                    <TextField
+                                        sx={{
+                                            '& .MuiInputLabel-root': {
+                                                left: i18n.language === 'fa' ? 'auto' : 0,
+                                            },
+                                        }}
+                                        value={curdNumber}
+                                        onChange={(e) => setCurdNumber(e.target.value)}
+                                        variant={'standard'}
+                                        style={{width: '100%'}}
+                                        label={'کارت مقصد'}/>
                                 </div>
                             </div>
                         </Grid2>
@@ -50,6 +61,11 @@ export const Transfer = () => {
                             <div style={{borderRadius: '8px' ,width: '65vw', height: '3rem', justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                                     <TextField
+                                        sx={{
+                                            '& .MuiInputLabel-root': {
+                                                left: i18n.language === 'fa' ? 'auto' : 0,
+                                            },
+                                        }}
                                         onChange={(e) => setCustomPrice(e.target.value)}
                                         variant={'standard'}
                                         style={{width: '100%'}} value={customPrice} label={'مبلغ دلخواه (ریال) '}/>
@@ -75,6 +91,9 @@ export const Transfer = () => {
                             ))}
 
 
+                        </Grid2>
+                        <Grid2 size={9}  style={{margin: 'auto'}}>
+                            <Button style={{width: '100%'}}>انتقال</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
