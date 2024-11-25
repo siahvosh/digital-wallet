@@ -13,7 +13,11 @@ export const BalanceCard: FC<any> = (props: any) =>{
     return(
         <React.Fragment>
             <Grid2 size={12}>
-
+                <div style={{justifyContent: 'center', display: 'flex'}}>
+                    <span style={{color: 'white'}}>{props.title}</span> <br/>
+                </div>
+            </Grid2>
+            <Grid2 size={12}>
                 <div style={{justifyContent: 'center', display: 'flex'}}>
                     <span className={'title-style'}>{t('topCard.inventory')}</span> <br/>
                 </div>

@@ -41,7 +41,7 @@ export const AddMoney = () => {
             <Card style={{height: '100%'}}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'}>
-                        <BalanceCard/>
+                        <BalanceCard title={'افزایش وجه'}/>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
@@ -77,7 +77,7 @@ export const AddMoney = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12}  style={{margin: 'auto', width: '65vw'}}>
-                            <Button style={{width: '100%'}}>{t('transfer.transfer')}</Button>
+                            <Button style={{width: '100%'}}>{t('addMoney.add')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>

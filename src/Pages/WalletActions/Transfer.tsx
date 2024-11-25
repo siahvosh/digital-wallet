@@ -44,7 +44,7 @@ export const Transfer = () => {
             <Card style={{height: '100%',}}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'}>
-                        <BalanceCard/>
+                        <BalanceCard title={'انتقال'}/>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>

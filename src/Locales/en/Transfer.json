@@ -5,5 +5,8 @@
     "contacts": "Contacts",
     "customPriceLabel": "Suggested Amount (Rials)",
     "transfer": "Transfer"
+  },
+  "addMoney": {
+    "add": "Add funds"
   }
 }

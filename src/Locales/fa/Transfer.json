@@ -5,5 +5,8 @@
     "contacts": "مخاطبین",
     "customPriceLabel": "مبلغ پیشنهادی (ریال) ",
     "transfer": "انتقال"
+  },
+  "addMoney": {
+    "add": "افزایش وجه"
   }
 }
