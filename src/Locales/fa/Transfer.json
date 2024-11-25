@@ -8,5 +8,8 @@
   },
   "addMoney": {
     "add": "افزایش وجه"
+  },
+  "refund": {
+    "refundBtn": "بازگشت وجه"
   }
 }

@@ -8,5 +8,8 @@
   },
   "addMoney": {
     "add": "Add funds"
+  },
+  "refund": {
+    "refundBtn": "refund"
   }
 }
