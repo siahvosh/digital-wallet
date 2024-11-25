@@ -4,8 +4,23 @@ import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import EditIcon from '@mui/icons-material/Edit';
 import PeopleIcon from '@mui/icons-material/People';
 import CloseIcon from '@mui/icons-material/Close';
+import {useState} from "react";
 
 export const Transfer = () => {
+    interface priceItemsType {
+        price: string;
+        num: string
+    }
+
+    const [priceItems] = useState<priceItemsType[]>([
+        {price: '100,000', num: '1'},
+        {price: '200,000', num: '2'},
+        {price: '300,000', num: '3'},
+        {price: '500,000', num: '4'},
+        {price: '1,000,000', num: '5'},
+        {price: '2,000,000', num: '6'},
+        {price: '3,000,000', num: '7'}
+    ])
     return(
         <React.Fragment>
             <Card style={{height: '100%',}}>
@@ -42,24 +57,20 @@ export const Transfer = () => {
                             <Grid2 size={12}>
                                 <span style={{display: 'flex', justifyContent: 'start'}}>مبلغ پیشنهادی (ریال)</span>
                             </Grid2>
-                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>100.000</div>
-                            </Grid2>
-                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>200.000</div>
-                            </Grid2>
-                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>500.000</div>
-                            </Grid2>
-                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>1.000.000</div>
-                            </Grid2>
-                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>2.000.000</div>
-                            </Grid2>
-                            <Grid2 sx={{display: { xs: '6', md: '4' } }}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>3.000.000</div>
-                            </Grid2>
+
+                            {priceItems.map((item, index) => (
+                                <Grid2>
+                                    <div key={index} style={{
+                                        cursor: 'pointer',
+                                        borderRadius: '12px',
+                                        border: '2px solid gray',
+                                        padding: '1rem'
+                                    }}>
+                                        {item.price}
+                                    </div>
+                                </Grid2>
+                            ))}
+
 
                         </Grid2>
                     </Grid2>
