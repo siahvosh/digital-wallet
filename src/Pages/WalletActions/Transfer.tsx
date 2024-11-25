@@ -56,7 +56,7 @@ export const Transfer = () => {
             <Card style={{height: '100%',}}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'}>
-                        <BalanceCard title={'انتقال'}/>
+                        <BalanceCard title={t('transfer.transfer')}/>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>

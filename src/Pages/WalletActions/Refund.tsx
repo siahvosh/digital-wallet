@@ -30,7 +30,7 @@ export const Refund = () => {
             <Card style={{height: '100%'}}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'}>
-                        <BalanceCard title={'برداشت وجه'}/>
+                        <BalanceCard title={t('refund.refundBtn')}/>
                     </Grid2>
                 </Grid2>
                 <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
