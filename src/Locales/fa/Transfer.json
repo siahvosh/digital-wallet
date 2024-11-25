@@ -1,0 +1,9 @@
+{
+  "transfer": {
+    "numberCard": "کارت مقصد",
+    "customPrice": "مبلغ دلخواه (ریال)",
+    "contacts": "مخاطبین",
+    "customPriceLabel": "مبلغ پیشنهادی (ریال) ",
+    "transfer": "انتقال"
+  }
+}
