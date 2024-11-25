@@ -10,6 +10,8 @@ import homeFa from './Locales/fa/Home.json';
 import homeEn from './Locales/en/Home.json';
 import walletModalFa from './Locales/fa/WalletModal.json'
 import walletModalEn from './Locales/en/WalletModal.json'
+import transferEn from './Locales/en/Transfer.json'
+import transferFa from './Locales/fa/Transfer.json'
 
 
 i18n
@@ -20,12 +22,14 @@ i18n
                 login: loginEn,
                 register: registerEn,
                 home: homeEn,
-                walletModal: walletModalEn
+                walletModal: walletModalEn,
+                transfer: transferEn
             },
             fa: {
                 login: loginFa,
                 register: registerFa,
                 home: homeFa,
+                transfer: transferFa,
                 walletModal: walletModalFa
             },
         },

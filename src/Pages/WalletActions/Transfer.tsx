@@ -8,8 +8,11 @@ import {useState} from "react";
 import i18n from "../../i18next";
 import './Items.css'
 import sep1000, {Sep1000} from "../../indexHelper";
+import {useTranslation} from "react-i18next";
 
 export const Transfer = () => {
+    const { t } = useTranslation('transfer');
+
     interface priceItemsType {
         price: string;
         num: string
@@ -57,7 +60,7 @@ export const Transfer = () => {
                                         onChange={(e) => setCurdNumber(e.target.value)}
                                         variant={'standard'}
                                         style={{width: '100%'}}
-                                        label={'کارت مقصد'}/>
+                                        label={t('transfer.numberCard')}/>
                                 </div>
                             </div>
                         </Grid2>
@@ -65,7 +68,7 @@ export const Transfer = () => {
                             <div style={{width: '65vw', height: '3rem',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
                                 <div style={{display: 'flex', justifyContent: 'end'}}>
                                     <PeopleIcon/>
-                                    <span style={{alignContent: 'center'}}>مخاطبین</span>
+                                    <span style={{alignContent: 'center'}}>{t('transfer.contacts')}</span>
                                 </div>
                             </div>
                         </Grid2>
@@ -80,13 +83,13 @@ export const Transfer = () => {
                                         }}
                                         onChange={(e) => handelCustomPrice(e.target.value)}
                                         variant={'standard'}
-                                        style={{width: '100%'}} value={customPrice} label={'مبلغ دلخواه (ریال) '}/>
+                                        style={{width: '100%'}} value={customPrice} label={t('transfer.customPrice')}/>
                                 </div>
                             </div>
                         </Grid2>
                         <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '65vw', margin: 'auto', alignContent: 'center'}}>
                             <Grid2 size={12}>
-                                <span style={{display: 'flex', justifyContent: 'start'}}>مبلغ پیشنهادی (ریال)</span>
+                                <span style={{display: 'flex', justifyContent: 'start'}}>{t('transfer.customPriceLabel')}</span>
                             </Grid2>
 
                             {priceItems.map((item, index) => (
@@ -101,8 +104,8 @@ export const Transfer = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button style={{width: '100%'}}>انتقال</Button>
+                        <Grid2 size={12}  style={{margin: 'auto', width: '65vw'}}>
+                            <Button style={{width: '100%'}}>{t('transfer.transfer')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>

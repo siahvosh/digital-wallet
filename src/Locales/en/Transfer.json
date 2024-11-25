@@ -1,0 +1,9 @@
+{
+  "transfer": {
+    "numberCard": "Destination Card",
+    "customPrice": "Custom Amount (Rials)",
+    "contacts": "Contacts",
+    "customPriceLabel": "Suggested Amount (Rials)",
+    "transfer": "Transfer"
+  }
+}
