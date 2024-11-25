@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import {useState} from "react";
 import i18n from "../../i18next";
 import './Items.css'
+import sep1000, {Sep1000} from "../../indexHelper";
 
 export const Transfer = () => {
     interface priceItemsType {
@@ -30,7 +31,8 @@ export const Transfer = () => {
         setCustomPrice(value)
     };
     const handelCustomPrice = (value: any) => {
-        setCustomPrice(value)
+        Sep1000(value)
+        setCustomPrice(Sep1000(value))
         setSelectedIndex(-1)
     }
 

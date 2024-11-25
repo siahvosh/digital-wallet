@@ -17,4 +17,15 @@ const changeLanguage = (lang: string) => {
 
 }
 
-export default changeLanguage
+export const Sep1000 = (value: string) => {
+    const cleanValue = value.replace(/,/g, '');
+
+    if (cleanValue === '' || isNaN(Number(cleanValue))) {
+        return '';
+    }
+
+    return Number(cleanValue).toLocaleString('en-US')
+}
+
+
+export default changeLanguage;
