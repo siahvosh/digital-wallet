@@ -11,7 +11,6 @@ export const Transfer = () => {
         price: string;
         num: string
     }
-
     const [priceItems] = useState<priceItemsType[]>([
         {price: '100,000', num: '1'},
         {price: '200,000', num: '2'},
@@ -21,6 +20,8 @@ export const Transfer = () => {
         {price: '2,000,000', num: '6'},
         {price: '3,000,000', num: '7'}
     ])
+    const [customPrice, setCustomPrice] = useState<string>('')
+
     return(
         <React.Fragment>
             <Card style={{height: '100%',}}>
@@ -46,10 +47,12 @@ export const Transfer = () => {
                             </div>
                         </Grid2>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
-                            <div style={{borderRadius: '8px' ,width: '65vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
-                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem 0 1rem'}}>
-                                    <span style={{alignContent: 'center'}}>مبلغ دلخواه (ریال) </span>
-                                    <CloseIcon/>
+                            <div style={{borderRadius: '8px' ,width: '65vw', height: '3rem', justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                                    <TextField
+                                        onChange={(e) => setCustomPrice(e.target.value)}
+                                        variant={'standard'}
+                                        style={{width: '100%'}} value={customPrice} label={'مبلغ دلخواه (ریال) '}/>
                                 </div>
                             </div>
                         </Grid2>
@@ -60,7 +63,7 @@ export const Transfer = () => {
 
                             {priceItems.map((item, index) => (
                                 <Grid2>
-                                    <div key={index} style={{
+                                    <div onClick={() => setCustomPrice(item.price)} key={index} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         border: '2px solid gray',
