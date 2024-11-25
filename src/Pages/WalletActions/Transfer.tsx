@@ -41,11 +41,12 @@ export const Transfer = () => {
     }
 
     useEffect(() => {
-     if (curdNumber.length > 0 && curdNumber.length < 17)
-         setDisabled(false)
-     else
+     if ((curdNumber.length < 1 && curdNumber.length > 16) || customPrice.length <= 6)
          setDisabled(true)
-    }, [curdNumber])
+     else
+         setDisabled(false)
+    }, [curdNumber, customPrice])
+
 
     return(
         <React.Fragment>
