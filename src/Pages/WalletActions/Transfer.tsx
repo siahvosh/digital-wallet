@@ -39,6 +39,10 @@ export const Transfer = () => {
                             </div>
                         </Grid2>
                         <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '50vw', margin: 'auto', alignContent: 'center'}}>
+                            <Grid2 size={12}>
+                                <span style={{display: 'flex', justifyContent: 'start'}}>مبلغ پیشنهادی (ریال)</span>
+                            </Grid2>
+
                             <Grid2 size={4}>
                                 <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
                             </Grid2>
