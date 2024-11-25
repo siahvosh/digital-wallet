@@ -14,7 +14,7 @@ export const Routers = () => {
             <Route path="/" element={ <ProtectedRoute> <Home/> </ProtectedRoute>} />
             <Route path="register" element={<Register/>} />
             <Route path="verify" element={<Verify/>} />
-            <Route path="sign" element={<SignIn/>} />
+            <Route path="login" element={<SignIn/>} />
             <Route path="transfer" element={<ProtectedRoute> <Transfer/> </ProtectedRoute>} />
             <Route path="add" element={ <ProtectedRoute> <AddMoney/> </ProtectedRoute>} />
             <Route path="refund" element={ <ProtectedRoute> <Refund/> </ProtectedRoute>} />
