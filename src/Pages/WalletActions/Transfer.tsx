@@ -39,11 +39,14 @@ export const Transfer = () => {
         setCustomPrice(Sep1000(value))
         setSelectedIndex(-1)
     }
-
+    const handelCardNumber = (value: any) => {
+        setCurdNumber(value)
+        console.log(curdNumber.length)
+    }
     useEffect(() => {
-     if ((curdNumber.length < 1 && curdNumber.length > 16) || customPrice.length <= 6)
+     if (curdNumber.length !== 16 || customPrice.length < 7)
          setDisabled(true)
-     else
+     if(curdNumber.length === 16 && customPrice.length >= 7)
          setDisabled(false)
     }, [curdNumber, customPrice])
 
@@ -66,7 +69,7 @@ export const Transfer = () => {
                                             },
                                         }}
                                         value={curdNumber}
-                                        onChange={(e) => setCurdNumber(e.target.value)}
+                                        onChange={(e) => handelCardNumber(e.target.value)}
                                         variant={'standard'}
                                         style={{width: '100%'}}
                                         label={t('transfer.numberCard')}/>
