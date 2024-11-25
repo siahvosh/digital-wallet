@@ -15,7 +15,7 @@ export const Transfer = () => {
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
-                            <div style={{borderRadius: '8px' ,width: '50vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                            <div style={{borderRadius: '8px' ,width: '65vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem 0 1rem'}}>
                                     <span style={{alignContent: 'center'}}>شماره مقصد را وارد کنید</span>
                                     <EditIcon/>
@@ -23,7 +23,7 @@ export const Transfer = () => {
                             </div>
                         </Grid2>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
-                            <div style={{width: '50vw', height: '3rem',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                            <div style={{width: '65vw', height: '3rem',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
                                 <div style={{display: 'flex', justifyContent: 'end'}}>
                                     <PeopleIcon/>
                                     <span style={{alignContent: 'center'}}>مخاطبین</span>
@@ -31,26 +31,34 @@ export const Transfer = () => {
                             </div>
                         </Grid2>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
-                            <div style={{borderRadius: '8px' ,width: '50vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                            <div style={{borderRadius: '8px' ,width: '65vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem 0 1rem'}}>
                                     <span style={{alignContent: 'center'}}>مبلغ دلخواه (ریال) </span>
                                     <CloseIcon/>
                                 </div>
                             </div>
                         </Grid2>
-                        <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '50vw', margin: 'auto', alignContent: 'center'}}>
+                        <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '65vw', margin: 'auto', alignContent: 'center'}}>
                             <Grid2 size={12}>
                                 <span style={{display: 'flex', justifyContent: 'start'}}>مبلغ پیشنهادی (ریال)</span>
                             </Grid2>
-
-                            <Grid2 size={4}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
+                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>100.000</div>
                             </Grid2>
-                            <Grid2 size={4}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
+                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>200.000</div>
                             </Grid2>
-                            <Grid2 size={4}>
-                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
+                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>500.000</div>
+                            </Grid2>
+                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>1.000.000</div>
+                            </Grid2>
+                            <Grid2  sx={{display: { xs: '6', md: '4' } }}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>2.000.000</div>
+                            </Grid2>
+                            <Grid2 sx={{display: { xs: '6', md: '4' } }}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>3.000.000</div>
                             </Grid2>
 
                         </Grid2>
