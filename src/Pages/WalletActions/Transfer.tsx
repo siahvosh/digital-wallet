@@ -4,7 +4,7 @@ import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import EditIcon from '@mui/icons-material/Edit';
 import PeopleIcon from '@mui/icons-material/People';
 import CloseIcon from '@mui/icons-material/Close';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import i18n from "../../i18next";
 import './Items.css'
 import sep1000, {Sep1000} from "../../indexHelper";
@@ -28,6 +28,7 @@ export const Transfer = () => {
     const [customPrice, setCustomPrice] = useState<string>('')
     const [curdNumber, setCurdNumber] = useState<string>('')
     const [selectedIndex, setSelectedIndex] = useState<number>()
+    const [disabled, setDisabled] = useState<boolean>(true)
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
@@ -39,6 +40,13 @@ export const Transfer = () => {
         setSelectedIndex(-1)
     }
 
+    useEffect(() => {
+     if (curdNumber.length > 0 && curdNumber.length < 17)
+         setDisabled(false)
+     else
+         setDisabled(true)
+    }, [curdNumber])
+
     return(
         <React.Fragment>
             <Card style={{height: '100%',}}>
@@ -46,7 +54,7 @@ export const Transfer = () => {
                     <Grid2 container size={12} spacing={1} className={'content'}>
                         <BalanceCard title={'انتقال'}/>
                     </Grid2>
-                    <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
+                    <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
                             <div style={{width: '65vw', height: '3rem',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
                                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -104,7 +112,7 @@ export const Transfer = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw'}}>
-                            <Button style={{width: '100%'}}>{t('transfer.transfer')}</Button>
+                            <Button disabled={disabled} style={{width: '100%'}}>{t('transfer.transfer')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
