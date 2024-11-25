@@ -3,7 +3,7 @@ import {Button, Card, Grid2, TextField} from "@mui/material";
 import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import i18n from "../../i18next";
 import {useTranslation} from "react-i18next";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Sep1000} from "../../indexHelper";
 
 
@@ -24,7 +24,9 @@ export const AddMoney = () => {
         {price: '2,000,000', num: '6'},
     ])
     const [customPrice, setCustomPrice] = useState<string>('')
+    const [disabled, setDisabled] = useState<boolean>(true)
     const [selectedIndex, setSelectedIndex] = useState<number>()
+
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
@@ -35,6 +37,10 @@ export const AddMoney = () => {
         setCustomPrice(Sep1000(value))
         setSelectedIndex(-1)
     }
+
+    useEffect(() => {
+       customPrice.length < 7 ? setDisabled(true) : setDisabled(false)
+    }, [customPrice])
 
     return(
         <React.Fragment>
@@ -77,7 +83,7 @@ export const AddMoney = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12}  style={{margin: 'auto', width: '65vw'}}>
-                            <Button style={{width: '100%'}}>{t('addMoney.add')}</Button>
+                            <Button disabled={disabled} style={{width: '100%'}}>{t('addMoney.add')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
