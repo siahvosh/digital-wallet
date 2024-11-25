@@ -2,20 +2,28 @@ import * as React from 'react'
 import {Button, Card, Grid2, TextField} from "@mui/material";
 import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import i18n from "../../i18next";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Sep1000} from "../../indexHelper";
 import {useTranslation} from "react-i18next";
 
 export const Refund = () => {
     const [customPrice, setCustomPrice] = useState<string>('')
     const { t } = useTranslation('transfer');
-
+    const [disabled, setDisabled] = useState<boolean>(true)
     const [curdNumber, setCurdNumber] = useState<string>('')
 
     const handelCustomPrice = (value: any) => {
         Sep1000(value)
         setCustomPrice(Sep1000(value))
     }
+
+    useEffect(() => {
+        if (curdNumber.length !== 16 || customPrice.length < 7)
+            setDisabled(true)
+        if(curdNumber.length === 16 && customPrice.length >= 7)
+            setDisabled(false)
+    }, [curdNumber, customPrice])
+
 
     return(
         <React.Fragment>
@@ -72,7 +80,7 @@ export const Refund = () => {
                             </div>
                         </div>
                     <Grid2 size={12} style={{margin: 'auto', width: '65vw'}}>
-                        <Button style={{width: '100%'}}>{t('refund.refundBtn')}</Button>
+                        <Button disabled={disabled} style={{width: '100%'}}>{t('refund.refundBtn')}</Button>
                     </Grid2>
                 </Grid2>
             </Card>
