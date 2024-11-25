@@ -19,7 +19,6 @@ export const Transfer = () => {
         {price: '500,000', num: '4'},
         {price: '1,000,000', num: '5'},
         {price: '2,000,000', num: '6'},
-        {price: '3,000,000', num: '7'}
     ])
     const [customPrice, setCustomPrice] = useState<string>('')
     const [curdNumber, setCurdNumber] = useState<string>('')
@@ -78,8 +77,8 @@ export const Transfer = () => {
                             </Grid2>
 
                             {priceItems.map((item, index) => (
-                                <Grid2>
-                                    <div onClick={() => setCustomPrice(item.price)} key={index} style={{
+                                <Grid2 size={{ xs: 12, md: 4, lg: 4}}>
+                                    <div onClick={() => setCustomPrice(item.price)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         border: '2px solid gray',
@@ -92,7 +91,7 @@ export const Transfer = () => {
 
 
                         </Grid2>
-                        <Grid2 size={9}  style={{margin: 'auto'}}>
+                        <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button style={{width: '100%'}}>انتقال</Button>
                         </Grid2>
                     </Grid2>
