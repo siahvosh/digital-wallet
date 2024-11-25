@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-// تعریف نوع داده‌های AuthContext
 interface AuthContextType {
     authToken: string | null;
     login: (token: string) => void;
