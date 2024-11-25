@@ -53,16 +53,16 @@ export const Register = () => {
     //
     // }, [phone, password, navigate]);
 
-    const login = () => {
+    const register = () => {
         axios
-            .post('http://localhost:3000/auth/login', {
+            .post('http://localhost:3000/auth/register', {
                 phone_number: phone,
                 password: password,
             })
             .then((res) => {
                 console.log({ res });
                 localStorage.setItem('accessToken', res.data.access_token)
-                navigate('/');
+                navigate('/verify');
             })
             .catch((error) => {
                 console.error('Error during login:', error.response?.data || error.message);
@@ -117,7 +117,7 @@ export const Register = () => {
                         </Grid2>
 
                         <Grid2 size={8}  style={{margin: 'auto'}}>
-                            <Button disabled={disable} onClick={login} style={{width: '100%'}}>{t('register.apply')}</Button>
+                            <Button disabled={disable} onClick={register} style={{width: '100%'}}>{t('register.apply')}</Button>
                         </Grid2>
                         <Grid2 size={8} style={{display: 'flex', justifyContent: 'center', margin: 'auto'}}>
                             <Link href='/sign'>{t('register.haveAcc')}</Link>

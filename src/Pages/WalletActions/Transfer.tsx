@@ -1,6 +1,9 @@
 import * as React from 'react'
 import {Card, Grid2, TextField} from "@mui/material";
 import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
+import EditIcon from '@mui/icons-material/Edit';
+import PeopleIcon from '@mui/icons-material/People';
+import CloseIcon from '@mui/icons-material/Close';
 
 export const Transfer = () => {
     return(
@@ -10,11 +13,42 @@ export const Transfer = () => {
                     <Grid2 container size={12} spacing={1} className={'content'}>
                         <BalanceCard/>
                     </Grid2>
-                    <Grid2 container size={12} spacing={3} className={'action-container'}>
+                    <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={3} className={'action-container'}>
                         <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
-                            <div style={{width: '50vw', height: '3rem', border: '1px solid red', margin: 'auto', alignContent: 'center'}}>
-                                <span style={{alignContent: 'center'}}>شماره مقصد را وارد کنید</span>
+                            <div style={{borderRadius: '8px' ,width: '50vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem 0 1rem'}}>
+                                    <span style={{alignContent: 'center'}}>شماره مقصد را وارد کنید</span>
+                                    <EditIcon/>
+                                </div>
                             </div>
+                        </Grid2>
+                        <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
+                            <div style={{width: '50vw', height: '3rem',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                                <div style={{display: 'flex', justifyContent: 'end'}}>
+                                    <PeopleIcon/>
+                                    <span style={{alignContent: 'center'}}>مخاطبین</span>
+                                </div>
+                            </div>
+                        </Grid2>
+                        <Grid2 size={12} style={{justifyContent: 'center', display: 'center'}}>
+                            <div style={{borderRadius: '8px' ,width: '50vw', height: '3rem', border: '1px solid #2bab84',justifyContent: 'space-between' ,margin: 'auto', alignContent: 'center'}}>
+                                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem 0 1rem'}}>
+                                    <span style={{alignContent: 'center'}}>مبلغ دلخواه (ریال) </span>
+                                    <CloseIcon/>
+                                </div>
+                            </div>
+                        </Grid2>
+                        <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '50vw', margin: 'auto', alignContent: 'center'}}>
+                            <Grid2 size={4}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
+                            </Grid2>
+                            <Grid2 size={4}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
+                            </Grid2>
+                            <Grid2 size={4}>
+                                <div style={{borderRadius: '12px', border: '2px solid gray', padding: '1rem'}}>50.000</div>
+                            </Grid2>
+
                         </Grid2>
                     </Grid2>
                 </Grid2>
