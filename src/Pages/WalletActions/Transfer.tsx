@@ -29,7 +29,10 @@ export const Transfer = () => {
         setSelectedIndex(index)
         setCustomPrice(value)
     };
-
+    const handelCustomPrice = (value: any) => {
+        setCustomPrice(value)
+        setSelectedIndex(-1)
+    }
 
     return(
         <React.Fragment>
@@ -73,7 +76,7 @@ export const Transfer = () => {
                                                 left: i18n.language === 'fa' ? 'auto' : 0,
                                             },
                                         }}
-                                        onChange={(e) => setCustomPrice(e.target.value)}
+                                        onChange={(e) => handelCustomPrice(e.target.value)}
                                         variant={'standard'}
                                         style={{width: '100%'}} value={customPrice} label={'مبلغ دلخواه (ریال) '}/>
                                 </div>
