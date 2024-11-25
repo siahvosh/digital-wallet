@@ -6,7 +6,7 @@ import i18n from '../../i18next'
 import changeLanguage from "../../indexHelper";
 import {useNavigate} from "react-router-dom";
 import './../../App.css'
-import {useData} from "../../DataContext";
+import {useData} from "../../Context/DataContext";
 import axios from "axios";
 import {jsx} from "@emotion/react";
 

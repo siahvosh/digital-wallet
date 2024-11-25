@@ -13,7 +13,7 @@ import RssFeedIcon from '@mui/icons-material/RssFeed';
 import MenuBar from '../../Component/Menu/MenuBar'
 import Header from "../../Component/Header/Header";
 import Wallet from "../../Component/Modals/WalletDialog/Wallet";
-import {useData} from '../../DataContext'
+import {useData} from '../../Context/DataContext'
 
 export const Home = () => {
     return (

@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import {useEffect, useState} from "react";
 import {Card, Grid2} from "@mui/material";
 import './Wallet.css'
-import {useData} from "../../../DataContext";
+import {useData} from "../../../Context/DataContext";
 import {useTranslation} from "react-i18next";
 import LottieAnimation from "../../../Lottie/LottieAnimation";
 import wallet from './../../../Lottie/Wallet.json';

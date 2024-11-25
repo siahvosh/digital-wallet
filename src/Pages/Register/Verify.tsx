@@ -5,7 +5,7 @@ import changeLanguage from "../../indexHelper";
 import {useTranslation} from "react-i18next";
 import {NavLink, useNavigate} from "react-router-dom";
 import rbImage from "../../Assets/Fingerprint-bro.png";
-import {useData} from "../../DataContext";
+import {useData} from "../../Context/DataContext";
 
 export const Verify = () => {
     const [imageUrl, setImageUrl] = useState(rbImage);
