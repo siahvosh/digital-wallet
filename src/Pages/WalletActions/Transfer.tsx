@@ -6,6 +6,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import CloseIcon from '@mui/icons-material/Close';
 import {useState} from "react";
 import i18n from "../../i18next";
+import './Items.css'
 
 export const Transfer = () => {
     interface priceItemsType {
@@ -22,6 +23,13 @@ export const Transfer = () => {
     ])
     const [customPrice, setCustomPrice] = useState<string>('')
     const [curdNumber, setCurdNumber] = useState<string>('')
+    const [selectedIndex, setSelectedIndex] = useState<number>()
+
+    const handleItemClick = (value: string, index: number) => {
+        setSelectedIndex(index)
+        setCustomPrice(value)
+    };
+
 
     return(
         <React.Fragment>
@@ -78,18 +86,15 @@ export const Transfer = () => {
 
                             {priceItems.map((item, index) => (
                                 <Grid2 size={{ xs: 12, md: 4, lg: 4}}>
-                                    <div onClick={() => setCustomPrice(item.price)} style={{
+                                    <div className={selectedIndex === index ? 'active-items' : 'btn'} onClick={() => handleItemClick(item.price, index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
-                                        border: '2px solid gray',
-                                        padding: '1rem'
+                                        padding: '1rem',
                                     }}>
                                         {item.price}
                                     </div>
                                 </Grid2>
                             ))}
-
-
                         </Grid2>
                         <Grid2 size={8}  style={{margin: 'auto'}}>
                             <Button style={{width: '100%'}}>انتقال</Button>
