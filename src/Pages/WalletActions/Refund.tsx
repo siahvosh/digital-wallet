@@ -3,14 +3,20 @@ import {Button, Card, Grid2, TextField} from "@mui/material";
 import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import i18n from "../../i18next";
 import {useEffect, useState} from "react";
-import {Sep1000} from "../../indexHelper";
+import {convertToInt, Sep1000} from "../../indexHelper";
 import {useTranslation} from "react-i18next";
+import axios from "axios";
+import {useData} from "../../Context/DataContext";
+import {useNavigate} from "react-router-dom";
 
 export const Refund = () => {
-    const [customPrice, setCustomPrice] = useState<string>('')
     const { t } = useTranslation('transfer');
+    const navigate = useNavigate();
+
+    const [customPrice, setCustomPrice] = useState<string>('')
     const [disabled, setDisabled] = useState<boolean>(true)
     const [curdNumber, setCurdNumber] = useState<string>('')
+    const {walletId} = useData()
 
     const handelCustomPrice = (value: any) => {
         Sep1000(value)
@@ -24,6 +30,21 @@ export const Refund = () => {
             setDisabled(false)
     }, [curdNumber, customPrice])
 
+    const refund = () => {
+
+        const amount = convertToInt(customPrice)
+        axios
+            .patch('http://localhost:3000/wallet/refund', {
+                walletId: walletId,
+                amount: amount
+            })
+            .then(res => {
+                navigate('/')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     return(
         <React.Fragment>
@@ -80,7 +101,7 @@ export const Refund = () => {
                             </div>
                         </div>
                     <Grid2 size={12} style={{margin: 'auto', width: '65vw'}}>
-                        <Button disabled={disabled} style={{width: '100%'}}>{t('refund.refundBtn')}</Button>
+                        <Button onClick={refund} disabled={disabled} style={{width: '100%'}}>{t('refund.refundBtn')}</Button>
                     </Grid2>
                 </Grid2>
             </Card>
