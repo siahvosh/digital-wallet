@@ -60,11 +60,11 @@ export const Home = () => {
 
 const TopCard = (props: any) => {
     const { t } = useTranslation('home')
-
     const { setData } = useData();
     const handelShowDialog = (value: boolean) => {
         if(setData) setData(value)
     }
+
     return (
         <div className={'top-card'}>
             <Card className='account-card'>
