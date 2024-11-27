@@ -16,7 +16,7 @@ type DataContextType = {
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState<any>(false);
     const [phoneNumber, setPhoneNumber] = useState<string>();
     const [balance, setBalance] = useState<string>();
     const [currency, setCurrency] = useState<string>();
