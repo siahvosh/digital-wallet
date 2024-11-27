@@ -20,13 +20,25 @@ export const Home = () => {
 
     const { phoneNumber } = useData();
 
-    useEffect(() => {
-        console.log({phoneNumber: phoneNumber})
+     useEffect(() => {
+       axios
+            .post('http://localhost:3000/users/find', {
+                phone_number: phoneNumber,
+            })
+            .then((res) => {
+                console.log(res.data.id)
+                getUserData(res.data.id)
+            })
+
+    })
+
+
+    const getUserData = (id:any) => {
         axios
-            .get('http://localhost:3000/wallet?userId=3ab7d1a7-40d6-4041-9676-7ffc77618916')
+            .get(`http://localhost:3000/wallet?userId=${id}`)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
-    })
+    }
 
     return (
        <React.Fragment>
