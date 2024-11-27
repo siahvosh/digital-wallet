@@ -9,6 +9,8 @@ type DataContextType = {
     setBalance?: any,
     currency?: string,
     setCurrency?: any,
+    walletId?: string,
+    setWalletId?: any,
 };
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -18,6 +20,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [phoneNumber, setPhoneNumber] = useState<string>();
     const [balance, setBalance] = useState<string>();
     const [currency, setCurrency] = useState<string>();
+    const [walletId, setWalletId] = useState<string>();
 
     return (
         <DataContext.Provider
@@ -25,7 +28,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                 data, setData,
                 phoneNumber, setPhoneNumber,
                 balance, setBalance,
-                currency, setCurrency
+                currency, setCurrency,
+                walletId, setWalletId
         }}>
             {children}
         </DataContext.Provider>

@@ -4,8 +4,9 @@ import {BalanceCard} from "../../Component/BalanceCard/BalanceCard";
 import i18n from "../../i18next";
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
-import {Sep1000} from "../../indexHelper";
+import {convertToInt, Sep1000} from "../../indexHelper";
 import axios from "axios";
+import {useData} from "../../Context/DataContext";
 
 
 export const AddMoney = () => {
@@ -27,6 +28,7 @@ export const AddMoney = () => {
     const [customPrice, setCustomPrice] = useState<string>('')
     const [disabled, setDisabled] = useState<boolean>(true)
     const [selectedIndex, setSelectedIndex] = useState<number>()
+    const {walletId} = useData()
 
 
     const handleItemClick = (value: string, index: number) => {
@@ -45,10 +47,18 @@ export const AddMoney = () => {
 
 
     const addFound = () => {
+
+        const amount = convertToInt(customPrice)
         axios
-            .post('http://localhost:3000/wallet/add', {
-                walletId: '',
-                amount: customPrice
+            .patch('http://localhost:3000/wallet/add', {
+                walletId: walletId,
+                amount: amount
+            })
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
             })
     }
 

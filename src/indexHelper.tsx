@@ -27,5 +27,8 @@ export const Sep1000 = (value: string) => {
     return Number(cleanValue).toLocaleString('en-US')
 }
 
+export const convertToInt = (value: string) => {
+    return parseInt(value.replace(/,/g, ''), 10)
+}
 
 export default changeLanguage;

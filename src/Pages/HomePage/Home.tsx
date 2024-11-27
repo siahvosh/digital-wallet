@@ -22,6 +22,8 @@ export const Home = () => {
     const { phoneNumber } = useData();
     const { setBalance } = useData()
     const { setCurrency } = useData()
+    const { setWalletId } = useData()
+
 
 
 
@@ -45,6 +47,8 @@ export const Home = () => {
 
                 setBalance(value);
                 setCurrency(res.data[0].currency)
+                setWalletId(res.data[0].walletId)
+
             })
             .catch(err => console.log(err))
     }
