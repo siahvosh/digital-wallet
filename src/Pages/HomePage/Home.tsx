@@ -25,8 +25,6 @@ export const Home = () => {
     const { setWalletId } = useData()
 
 
-
-
      useEffect(() => {
        axios
             .post('http://localhost:3000/users/find', {

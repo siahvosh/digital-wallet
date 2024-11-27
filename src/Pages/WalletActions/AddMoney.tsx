@@ -13,6 +13,7 @@ import {useNavigate} from "react-router-dom";
 export const AddMoney = () => {
     const { t } = useTranslation('transfer');
     const navigate = useNavigate()
+    const { setData } = useData();
 
 
     interface priceItemsType {
@@ -58,6 +59,8 @@ export const AddMoney = () => {
                 amount: amount
             })
             .then(res => {
+                if (setData)
+                    setData(false)
                 navigate('/')
             })
             .catch(err => {
