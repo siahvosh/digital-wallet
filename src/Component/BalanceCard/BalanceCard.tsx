@@ -5,10 +5,13 @@ import {useTranslation} from "react-i18next";
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import {FC} from "react";
 import {useLocation} from "react-router-dom";
+import {useData} from "../../Context/DataContext";
 
 export const BalanceCard: FC<any> = (props: any) =>{
     const path = useLocation()
     const {t} = useTranslation('walletModal')
+    const { balance } = useData()
+    const { currency } = useData()
 
     return(
         <React.Fragment>
@@ -23,7 +26,7 @@ export const BalanceCard: FC<any> = (props: any) =>{
                 </div>
             </Grid2>
             <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                <span className={'inventory-style'}>20.000.000 {t('topCard.rials')}</span>
+                <span className={'inventory-style'}>{balance} {currency}</span>
             </Grid2>
             <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
                 <Grid2>
