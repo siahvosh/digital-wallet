@@ -35,7 +35,6 @@ export const SignIn = () => {
                 password: password,
             })
             .then((res) => {
-                console.log({ res });
                 localStorage.setItem('accessToken', res.data.access_token)
                 setPhoneNumber(phone)
                 navigate('/');
