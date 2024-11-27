@@ -5,6 +5,7 @@ import i18n from "../../i18next";
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 import {Sep1000} from "../../indexHelper";
+import axios from "axios";
 
 
 export const AddMoney = () => {
@@ -41,6 +42,15 @@ export const AddMoney = () => {
     useEffect(() => {
        customPrice.length < 7 ? setDisabled(true) : setDisabled(false)
     }, [customPrice])
+
+
+    const addFound = () => {
+        axios
+            .post('http://localhost:3000/wallet/add', {
+                walletId: '',
+                amount: customPrice
+            })
+    }
 
     return(
         <React.Fragment>
@@ -83,7 +93,7 @@ export const AddMoney = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12}  style={{margin: 'auto', width: '65vw'}}>
-                            <Button disabled={disabled} style={{width: '100%'}}>{t('addMoney.add')}</Button>
+                            <Button onClick={addFound} disabled={disabled} style={{width: '100%'}}>{t('addMoney.add')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
