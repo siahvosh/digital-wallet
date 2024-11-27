@@ -7,12 +7,15 @@ import CloseIcon from '@mui/icons-material/Close';
 import {useEffect, useState} from "react";
 import i18n from "../../i18next";
 import './Items.css'
-import sep1000, {Sep1000} from "../../indexHelper";
+import sep1000, {convertToInt, Sep1000} from "../../indexHelper";
 import {useTranslation} from "react-i18next";
 import {useData} from "../../Context/DataContext";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export const Transfer = () => {
     const { t } = useTranslation('transfer');
+    const navigate = useNavigate();
 
     interface priceItemsType {
         price: string;
@@ -30,6 +33,7 @@ export const Transfer = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [disabled, setDisabled] = useState<boolean>(true)
     const {walletId} = useData()
+    const {setData} = useData()
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
@@ -52,6 +56,22 @@ export const Transfer = () => {
          setDisabled(false)
     }, [curdNumber, customPrice])
 
+    const transfer = () => {
+        const amount = convertToInt(customPrice)
+        axios
+            .patch('http://localhost:3000/wallet/add', {
+                walletId: walletId,
+                amount: amount
+            })
+            .then(res => {
+                if (setData)
+                    setData(false)
+                navigate('/')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     return(
         <React.Fragment>
@@ -118,7 +138,7 @@ export const Transfer = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw'}}>
-                            <Button disabled={disabled} style={{width: '100%'}}>{t('transfer.transfer')}</Button>
+                            <Button onClick={transfer} disabled={disabled} style={{width: '100%'}}>{t('transfer.transfer')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
