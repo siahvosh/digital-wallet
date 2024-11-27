@@ -59,7 +59,7 @@ export const Transfer = () => {
     const transfer = () => {
         const amount = convertToInt(customPrice)
         axios
-            .patch('http://localhost:3000/wallet/add', {
+            .patch('http://localhost:3000/wallet/transfer', {
                 walletId: walletId,
                 amount: amount
             })
