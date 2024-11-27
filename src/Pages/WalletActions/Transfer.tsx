@@ -46,7 +46,6 @@ export const Transfer = () => {
     }
     const handelCardNumber = (value: any) => {
         setCurdNumber(value)
-        console.log(curdNumber.length)
     }
 
     useEffect(() => {
