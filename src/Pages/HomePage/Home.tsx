@@ -26,9 +26,10 @@ export const Home = () => {
 
 
      useEffect(() => {
+         const phone = localStorage.getItem('phone-number')
        axios
             .post('http://localhost:3000/users/find', {
-                phone_number: phoneNumber,
+                phone_number: phone,
             })
             .then((res) => {
                 getUserData(res.data.id)
