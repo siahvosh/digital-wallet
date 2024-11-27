@@ -87,7 +87,7 @@ const TopCard = () => {
                                 </span>
                         </Grid2>
                         <Grid2 size={12} className='grid-style'>
-                            <span style={{color: 'white'}}> {balance} {currency}</span>
+                            <span style={{color: 'white'}}> {balance} {t('actionButton.rial')} </span>
                         </Grid2>
                         <Grid2 size={12} style={{marginTop: '.3rem'}}>
                                 <span style={{color: 'white'}}>

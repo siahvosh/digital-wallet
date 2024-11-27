@@ -11,8 +11,9 @@ import {useNavigate} from "react-router-dom";
 
 
 export const AddMoney = () => {
-
     const { t } = useTranslation('transfer');
+    const navigate = useNavigate()
+
 
     interface priceItemsType {
         price: string;
@@ -26,11 +27,11 @@ export const AddMoney = () => {
         {price: '1,000,000', num: '5'},
         {price: '2,000,000', num: '6'},
     ])
+
     const [customPrice, setCustomPrice] = useState<string>('')
     const [disabled, setDisabled] = useState<boolean>(true)
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const {walletId} = useData()
-    const navigate = useNavigate()
 
 
     const handleItemClick = (value: string, index: number) => {

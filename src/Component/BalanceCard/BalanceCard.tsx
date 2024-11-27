@@ -26,7 +26,7 @@ export const BalanceCard: FC<any> = (props: any) =>{
                 </div>
             </Grid2>
             <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
-                <span className={'inventory-style'}>{balance} {currency}</span>
+                <span className={'inventory-style'}>{balance} {t('topCard.rials')}</span>
             </Grid2>
             <Grid2 size={12} style={{justifyContent: 'center', display: 'flex'}}>
                 <Grid2>
