@@ -18,15 +18,14 @@ export const AddMoney = () => {
 
     interface priceItemsType {
         price: string;
-        num: string
     }
     const [priceItems] = useState<priceItemsType[]>([
-        {price: '100,000', num: '1'},
-        {price: '200,000', num: '2'},
-        {price: '300,000', num: '3'},
-        {price: '500,000', num: '4'},
-        {price: '1,000,000', num: '5'},
-        {price: '2,000,000', num: '6'},
+        {price: '100,000'},
+        {price: '200,000'},
+        {price: '300,000'},
+        {price: '500,000'},
+        {price: '1,000,000'},
+        {price: '2,000,000'},
     ])
 
     const [customPrice, setCustomPrice] = useState<string>('')
@@ -98,7 +97,7 @@ export const AddMoney = () => {
                             </Grid2>
 
                             {priceItems.map((item, index) => (
-                                <Grid2 size={{ xs: 12, md: 4, lg: 4}}>
+                                <Grid2 key={index} size={{ xs: 12, md: 4, lg: 4}}>
                                     <div className={selectedIndex === index ? 'active-items' : 'btn'} onClick={() => handleItemClick(item.price, index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
