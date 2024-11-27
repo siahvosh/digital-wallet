@@ -45,7 +45,7 @@ export const Home = () => {
 
                 setBalance(value);
                 setCurrency(res.data[0].currency)
-                setWalletId(res.data[0].walletId)
+                setWalletId(res.data[0].id)
 
             })
             .catch(err => console.log(err))
