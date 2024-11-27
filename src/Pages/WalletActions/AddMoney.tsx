@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {convertToInt, Sep1000} from "../../indexHelper";
 import axios from "axios";
 import {useData} from "../../Context/DataContext";
+import {useNavigate} from "react-router-dom";
 
 
 export const AddMoney = () => {
@@ -29,6 +30,7 @@ export const AddMoney = () => {
     const [disabled, setDisabled] = useState<boolean>(true)
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const {walletId} = useData()
+    const navigate = useNavigate()
 
 
     const handleItemClick = (value: string, index: number) => {
@@ -55,7 +57,7 @@ export const AddMoney = () => {
                 amount: amount
             })
             .then(res => {
-                console.log(res.data)
+                navigate('/')
             })
             .catch(err => {
                 console.log(err)
