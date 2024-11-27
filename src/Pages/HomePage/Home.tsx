@@ -69,7 +69,6 @@ const TopCard = () => {
         if(setData) setData(value)
     }
     const { balance } = useData()
-    const { currency } = useData()
 
     return (
         <div className={'top-card'}>

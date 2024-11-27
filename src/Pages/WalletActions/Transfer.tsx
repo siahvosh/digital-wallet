@@ -9,6 +9,7 @@ import i18n from "../../i18next";
 import './Items.css'
 import sep1000, {Sep1000} from "../../indexHelper";
 import {useTranslation} from "react-i18next";
+import {useData} from "../../Context/DataContext";
 
 export const Transfer = () => {
     const { t } = useTranslation('transfer');
@@ -28,6 +29,7 @@ export const Transfer = () => {
     const [curdNumber, setCurdNumber] = useState<string>('')
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [disabled, setDisabled] = useState<boolean>(true)
+    const {walletId} = useData()
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
@@ -42,6 +44,7 @@ export const Transfer = () => {
         setCurdNumber(value)
         console.log(curdNumber.length)
     }
+
     useEffect(() => {
      if (curdNumber.length !== 16 || customPrice.length < 7)
          setDisabled(true)

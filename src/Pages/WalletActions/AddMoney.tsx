@@ -52,7 +52,6 @@ export const AddMoney = () => {
     const addFound = () => {
 
         const amount = convertToInt(customPrice)
-        console.log({walletId: walletId})
         axios
             .patch('http://localhost:3000/wallet/add', {
                 walletId: walletId,
