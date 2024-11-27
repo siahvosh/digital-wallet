@@ -14,8 +14,20 @@ import MenuBar from '../../Component/Menu/MenuBar'
 import Header from "../../Component/Header/Header";
 import Wallet from "../../Component/Modals/WalletDialog/Wallet";
 import {useData} from '../../Context/DataContext'
+import axios from "axios";
 
 export const Home = () => {
+
+    const { phoneNumber } = useData();
+
+    useEffect(() => {
+        console.log({phoneNumber: phoneNumber})
+        axios
+            .get('http://localhost:3000/wallet?userId=3ab7d1a7-40d6-4041-9676-7ffc77618916')
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+    })
+
     return (
        <React.Fragment>
            <Header/>

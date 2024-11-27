@@ -6,6 +6,7 @@ import rbImage from "../../Assets/Tablet login-cuate.png";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import axios from "axios";
+import {useData} from "../../Context/DataContext";
 
 
 export const SignIn = () => {
@@ -15,6 +16,8 @@ export const SignIn = () => {
     const [disable, setDisable] = useState<boolean>(true)
     const [phone, SetPhone] = useState<string>('')
     const [password, SetPassword] = useState<string>('')
+    const { setPhoneNumber } = useData();
+
 
     const handelInputNumber = (e: string) => {
         setDisable( e.length < 11 || e.length > 11 ? true : false)
@@ -34,6 +37,7 @@ export const SignIn = () => {
             .then((res) => {
                 console.log({ res });
                 localStorage.setItem('accessToken', res.data.access_token)
+                setPhoneNumber(phone)
                 navigate('/');
             })
             .catch((error) => {
