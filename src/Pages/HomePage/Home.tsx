@@ -15,10 +15,13 @@ import Header from "../../Component/Header/Header";
 import Wallet from "../../Component/Modals/WalletDialog/Wallet";
 import {useData} from '../../Context/DataContext'
 import axios from "axios";
+import {Sep1000} from "../../indexHelper";
 
 export const Home = () => {
 
     const { phoneNumber } = useData();
+    const [balance, setBalance] = useState<string>('0')
+    const [currency, setCurrency] = useState<string>('Rial')
 
      useEffect(() => {
        axios
@@ -26,7 +29,6 @@ export const Home = () => {
                 phone_number: phoneNumber,
             })
             .then((res) => {
-                console.log(res.data.id)
                 getUserData(res.data.id)
             })
 
@@ -36,14 +38,19 @@ export const Home = () => {
     const getUserData = (id:any) => {
         axios
             .get(`http://localhost:3000/wallet?userId=${id}`)
-            .then(res => console.log(res.data))
+            .then(res => {
+                const value = Sep1000(res.data[0].balance)
+
+                setBalance(value);
+                setCurrency(res.data[0].currency)
+            })
             .catch(err => console.log(err))
     }
 
     return (
        <React.Fragment>
            <Header/>
-           <TopCard/>
+           <TopCard balance={balance} currency={currency}/>
            <ActionCard/>
            <MenuBar/>
            <Wallet/>
@@ -51,7 +58,7 @@ export const Home = () => {
     )
 }
 
-const TopCard = () => {
+const TopCard = (props: any) => {
     const { t } = useTranslation('home')
 
     const { setData } = useData();
@@ -72,7 +79,7 @@ const TopCard = () => {
                                 </span>
                         </Grid2>
                         <Grid2 size={12} className='grid-style'>
-                            <span style={{color: 'white'}}> 20.000.000 {t('actionButton.rial')}</span>
+                            <span style={{color: 'white'}}> {props.balance} {props.currency}</span>
                         </Grid2>
                         <Grid2 size={12} style={{marginTop: '.3rem'}}>
                                 <span style={{color: 'white'}}>
