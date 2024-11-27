@@ -20,8 +20,10 @@ import {Sep1000} from "../../indexHelper";
 export const Home = () => {
 
     const { phoneNumber } = useData();
-    const [balance, setBalance] = useState<string>('0')
-    const [currency, setCurrency] = useState<string>('Rial')
+    const { setBalance } = useData()
+    const { setCurrency } = useData()
+
+
 
      useEffect(() => {
        axios
@@ -50,7 +52,7 @@ export const Home = () => {
     return (
        <React.Fragment>
            <Header/>
-           <TopCard balance={balance} currency={currency}/>
+           <TopCard/>
            <ActionCard/>
            <MenuBar/>
            <Wallet/>
@@ -58,12 +60,14 @@ export const Home = () => {
     )
 }
 
-const TopCard = (props: any) => {
+const TopCard = () => {
     const { t } = useTranslation('home')
     const { setData } = useData();
     const handelShowDialog = (value: boolean) => {
         if(setData) setData(value)
     }
+    const { balance } = useData()
+    const { currency } = useData()
 
     return (
         <div className={'top-card'}>
@@ -79,7 +83,7 @@ const TopCard = (props: any) => {
                                 </span>
                         </Grid2>
                         <Grid2 size={12} className='grid-style'>
-                            <span style={{color: 'white'}}> {props.balance} {props.currency}</span>
+                            <span style={{color: 'white'}}> {balance} {currency}</span>
                         </Grid2>
                         <Grid2 size={12} style={{marginTop: '.3rem'}}>
                                 <span style={{color: 'white'}}>
