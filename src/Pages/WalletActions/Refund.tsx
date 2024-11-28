@@ -15,7 +15,7 @@ export const Refund = () => {
 
     const [customPrice, setCustomPrice] = useState<string>('')
     const [disabled, setDisabled] = useState<boolean>(true)
-    const [curdNumber, setCurdNumber] = useState<string>('')
+    const [cardNumber, setCardNumber] = useState<string>('')
     const {walletId} = useData()
     const { setData } = useData();
 
@@ -25,11 +25,11 @@ export const Refund = () => {
     }
 
     useEffect(() => {
-        if (curdNumber.length !== 16 || customPrice.length < 7)
+        if (cardNumber.length !== 16 || customPrice.length < 7)
             setDisabled(true)
-        if(curdNumber.length === 16 && customPrice.length >= 7)
+        if(cardNumber.length === 16 && customPrice.length >= 7)
             setDisabled(false)
-    }, [curdNumber, customPrice])
+    }, [cardNumber, customPrice])
 
     const refund = () => {
 
@@ -37,7 +37,8 @@ export const Refund = () => {
         axios
             .patch('http://localhost:3000/wallet/refund', {
                 walletId: walletId,
-                amount: amount
+                amount: amount,
+                cardNumber: cardNumber,
             })
             .then(res => {
                 if(setData)
@@ -96,8 +97,8 @@ export const Refund = () => {
                                             left: i18n.language === 'fa' ? 'auto' : 0,
                                         },
                                     }}
-                                    value={curdNumber}
-                                    onChange={(e) => setCurdNumber(e.target.value)}
+                                    value={cardNumber}
+                                    onChange={(e) => setCardNumber(e.target.value)}
                                     variant={'standard'}
                                     style={{width: '100%'}}
                                     label={t('transfer.numberCard')}/>
