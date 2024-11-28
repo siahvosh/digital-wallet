@@ -29,7 +29,7 @@ export const Transfer = () => {
         {price: '2,000,000'},
     ])
     const [customPrice, setCustomPrice] = useState<string>('')
-    const [curdNumber, setCurdNumber] = useState<string>('')
+    const [cardNumber, setCardNumber] = useState<string>('')
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [disabled, setDisabled] = useState<boolean>(true)
     const {walletId} = useData()
@@ -45,22 +45,25 @@ export const Transfer = () => {
         setSelectedIndex(-1)
     }
     const handelCardNumber = (value: any) => {
-        setCurdNumber(value)
+        setCardNumber(value)
     }
 
     useEffect(() => {
-     if (curdNumber.length !== 16 || customPrice.length < 7)
+     if (cardNumber.length !== 16 || customPrice.length < 7)
          setDisabled(true)
-     if(curdNumber.length === 16 && customPrice.length >= 7)
+     if(cardNumber.length === 16 && customPrice.length >= 7)
          setDisabled(false)
-    }, [curdNumber, customPrice])
+    }, [cardNumber, customPrice])
 
     const transfer = () => {
         const amount = convertToInt(customPrice)
+        console.log(cardNumber)
         axios
             .patch('http://localhost:3000/wallet/transfer', {
                 walletId: walletId,
-                amount: amount
+                amount: amount,
+                cardNumber: cardNumber,
+
             })
             .then(res => {
                 if (setData)
@@ -89,7 +92,7 @@ export const Transfer = () => {
                                                 left: i18n.language === 'fa' ? 'auto' : 0,
                                             },
                                         }}
-                                        value={curdNumber}
+                                        value={cardNumber}
                                         onChange={(e) => handelCardNumber(e.target.value)}
                                         variant={'standard'}
                                         style={{width: '100%'}}

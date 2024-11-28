@@ -9,13 +9,13 @@ function App() {
   return (
       <DataProvider>
           <AuthProvider>
-          <div className="App">
-            <header className="App-header">
-              <Router>
-                <Routers/>
-              </Router>
-            </header>
-          </div>
+              <div className="App">
+                <header className="App-header">
+                  <Router>
+                    <Routers/>
+                  </Router>
+                </header>
+              </div>
           </AuthProvider>
       </DataProvider>
   );
