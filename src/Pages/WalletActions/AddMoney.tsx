@@ -55,7 +55,8 @@ export const AddMoney = () => {
         axios
             .patch('http://localhost:3000/wallet/add', {
                 walletId: walletId,
-                amount: amount
+                amount: amount,
+                cardNumber: null
             })
             .then(res => {
                 if (setData)
