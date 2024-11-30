@@ -18,8 +18,6 @@ export const AddMoney = () => {
     const { setData } = useData();
     const { phoneNumber } = useSelector((state: RootState) => state.user);
 
-
-
     interface priceItemsType {
         price: string;
     }
@@ -51,7 +49,6 @@ export const AddMoney = () => {
     useEffect(() => {
        customPrice.length < 7 ? setDisabled(true) : setDisabled(false)
     }, [customPrice])
-
 
     const addFound = () => {
 
