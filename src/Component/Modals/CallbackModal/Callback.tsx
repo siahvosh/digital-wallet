@@ -74,8 +74,8 @@ export const Callback = () => {
                                         marginTop: '0.5rem'
                                     }}>{item.description}</span>
                                 </CardContent>
-                                <CardActions style={{position: 'absolute', bottom: '0', right: '0'}}>
-                                    <Button size={'small'} onClick={handleClose} color="primary">متوجه شدم</Button>
+                                <CardActions>
+                                    <Button size={'small'} onClick={handleClose} style={{marginTop: '1rem', width: '100%', margin: 'auto'}} color="primary">متوجه شدم</Button>
                                 </CardActions>
                             </React.Fragment>
 
