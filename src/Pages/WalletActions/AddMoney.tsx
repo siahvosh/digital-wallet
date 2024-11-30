@@ -99,7 +99,6 @@ export const AddMoney = () => {
                             <Grid2 size={12}>
                                 <span style={{display: 'flex', justifyContent: 'start'}}>{t('transfer.customPriceLabel')}</span>
                             </Grid2>
-                            {phoneNumber}
                             {priceItems.map((item, index) => (
                                 <Grid2 key={index} size={{ xs: 12, md: 4, lg: 4}}>
                                     <div className={selectedIndex === index ? 'active-items' : 'btn'} onClick={() => handleItemClick(item.price, index)} style={{
