@@ -3,6 +3,7 @@ import {styled} from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import React, {useContext, useEffect, useState} from "react";
 import imageUrl from "../../../Assets/success.png"
+import unsuccessImg from "../../../Assets/unsuccess.png"
 import {useData} from "../../../Context/DataContext";
 
 
@@ -33,14 +34,15 @@ export const Callback = () => {
         status: string;
         title: string;
         description: string;
+        img: any
     }
 
     const [statusList] = useState<statusType[]>(
         [
-            {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: `ملبغ ${amount} ریال از کیف شما به حساب ${cardNumber} واریز شد`},
-            {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: `کیف پول شما به مبلغ ${amount} ریال شارژ شد`},
-            {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: `مبلغ  ${amount} ریال از کیف پول شما برداشت شد`},
-            {status: 'failed', title: 'عملیات ناموق بود', description: 'متاسفانه عملیات اتجام نشد لطفا مجدد تلاش کنید'},
+            {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: `ملبغ ${amount} ریال از کیف شما به حساب ${cardNumber} واریز شد`, img: imageUrl},
+            {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: `کیف پول شما به مبلغ ${amount} ریال شارژ شد`, img: imageUrl},
+            {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: `مبلغ  ${amount} ریال از کیف پول شما برداشت شد` , img: imageUrl},
+            {status: 'failed', title: 'عملیات ناموق بود', description: 'متاسفانه عملیات اتجام نشد لطفا مجدد تلاش کنید', img: unsuccessImg},
 
         ]
     )
@@ -58,7 +60,7 @@ export const Callback = () => {
                             <React.Fragment key={index}>
                                 <CardMedia
                                     component="img"
-                                    image={imageUrl}
+                                    image={item.img}
                                     alt="Paella dish"
                                     style={{height: '70%', width: '70%', margin: 'auto'}}
                                 />
