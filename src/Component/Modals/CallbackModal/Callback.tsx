@@ -18,7 +18,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 export const Callback = () => {
 
     const [open, setOpen] = useState(true);
-    const {callbackStatus, amount} = useData()
+    const {callbackStatus, amount, cardNumber} = useData()
     const handleClose = () => {
         setOpen(false);
     };
@@ -31,7 +31,7 @@ export const Callback = () => {
 
     const [statusList] = useState<statusType[]>(
         [
-            {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: 'ملبغ 100.000 ریال از کیف شما به حساب 5044456263980238 واریز شد'},
+            {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: `ملبغ ${amount} ریال از کیف شما به حساب ${cardNumber} واریز شد`},
             {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: `کیف پول شما به مبلغ ${amount} ریال شارژ شد`},
             {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: `مبلغ  ${amount} ریال از کیف پول شما برداشت شد`},
 

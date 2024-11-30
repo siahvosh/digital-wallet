@@ -29,11 +29,11 @@ export const Transfer = () => {
         {price: '2,000,000'},
     ])
     const [customPrice, setCustomPrice] = useState<string>('')
-    const [cardNumber, setCardNumber] = useState<string>('')
+    const [cardNumber, setCardNumbers] = useState<string>('')
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [disabled, setDisabled] = useState<boolean>(true)
     const {walletId} = useData()
-    const {setData} = useData()
+    const {setData, setCardNumber, setAmount, setCallbackStatus} = useData()
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
@@ -45,7 +45,7 @@ export const Transfer = () => {
         setSelectedIndex(-1)
     }
     const handelCardNumber = (value: any) => {
-        setCardNumber(value)
+        setCardNumbers(value)
     }
 
     useEffect(() => {
@@ -68,6 +68,9 @@ export const Transfer = () => {
             .then(res => {
                 if (setData)
                     setData(false)
+                setCallbackStatus('transfer')
+                setAmount(customPrice)
+                setCardNumber(cardNumber)
                 navigate('/')
             })
             .catch(err => {
