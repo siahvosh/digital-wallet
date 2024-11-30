@@ -7,6 +7,9 @@ import {AddMoney} from '../Pages/WalletActions/AddMoney'
 import {Refund} from '../Pages/WalletActions/Refund'
 import {SignIn} from '../Pages/Login/SignIn'
 import ProtectedRoute from "../Component/ProtectedRouter/ProtectedRouter";
+import {CardMedia} from "@mui/material";
+import React from "react";
+import img from "./../Assets/404.png"
 
 export const Routers = () => {
     return (
@@ -18,7 +21,15 @@ export const Routers = () => {
             <Route path="transfer" element={<ProtectedRoute> <Transfer/> </ProtectedRoute>} />
             <Route path="add" element={ <ProtectedRoute> <AddMoney/> </ProtectedRoute>} />
             <Route path="refund" element={ <ProtectedRoute> <Refund/> </ProtectedRoute>} />
-            <Route path="/*" element={<div style={{color: "red", margin: "auto", fontSize: '5rem'}}> NOT FOUND 404</div>}/>
+            <Route path="/*" element={<div style={{color: "red", margin: "auto", fontSize: '5rem'}}>
+
+                <CardMedia
+                    component="img"
+                    image={img}
+                    alt="Paella dish"
+                    style={{height: '30rem', width: '30rem', margin: 'auto'}}
+                />
+            </div>}/>
         </Routes>
     )
 }
