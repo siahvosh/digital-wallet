@@ -17,6 +17,8 @@ type DataContextType = {
     setAmount?: any,
     cardNumber?: string,
     setCardNumber?: any,
+    showCallback?: any
+    setShowCallback?: any,
 };
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -30,6 +32,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [callbackStatus, setCallbackStatus] = useState<string>();
     const [amount, setAmount] = useState<string>();
     const [cardNumber, setCardNumber] = useState<string>();
+    const [showCallback, setShowCallback] = useState(false);
 
     return (
         <DataContext.Provider
@@ -42,6 +45,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                 callbackStatus, setCallbackStatus,
                 amount, setAmount,
                 cardNumber, setCardNumber,
+                showCallback, setShowCallback,
         }}>
             {children}
         </DataContext.Provider>

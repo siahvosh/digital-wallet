@@ -33,7 +33,7 @@ export const Transfer = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [disabled, setDisabled] = useState<boolean>(true)
     const {walletId} = useData()
-    const {setData, setCardNumber, setAmount, setCallbackStatus} = useData()
+    const {setData, setCardNumber, setAmount, setCallbackStatus, setShowCallback} = useData()
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
@@ -71,6 +71,7 @@ export const Transfer = () => {
                 setCallbackStatus('transfer')
                 setAmount(customPrice)
                 setCardNumber(cardNumber)
+                setShowCallback(true)
                 navigate('/')
             })
             .catch(err => {

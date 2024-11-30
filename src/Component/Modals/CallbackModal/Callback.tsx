@@ -1,7 +1,7 @@
 import {Button, Card, CardActions, CardContent, CardMedia} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import imageUrl from "../../../Assets/success.png"
 import {useData} from "../../../Context/DataContext";
 
@@ -17,11 +17,17 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 export const Callback = () => {
 
+
     const [open, setOpen] = useState(true);
-    const {callbackStatus, amount, cardNumber} = useData()
+    const {callbackStatus, amount, cardNumber, showCallback, setCallbackStatus} = useData()
     const handleClose = () => {
+        setCallbackStatus(false);
         setOpen(false);
     };
+    useEffect(() => {
+        setOpen(showCallback)
+    }, [showCallback])
+
 
     interface statusType {
         status: string;

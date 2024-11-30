@@ -15,7 +15,7 @@ import {useSelector} from "react-redux";
 export const AddMoney = () => {
     const { t } = useTranslation('transfer');
     const navigate = useNavigate()
-    const { setData, setCallbackStatus, setAmount } = useData();
+    const { setData, setCallbackStatus, setAmount, setShowCallback } = useData();
     const { phoneNumber } = useSelector((state: RootState) => state.user);
 
     interface priceItemsType {
@@ -63,8 +63,8 @@ export const AddMoney = () => {
                 if (setData)
                     setData(false)
                 setCallbackStatus('add')
-                setAmount(amount)
-
+                setAmount(customPrice)
+                setShowCallback(true)
                 navigate('/')
             })
             .catch(err => {
