@@ -22,12 +22,10 @@ export const SignIn = () => {
     const { setPhoneNumber } = useData();
     const dispatch: AppDispatch = useDispatch();
 
-
     const handelInputNumber = (e: string) => {
         setDisable( e.length < 11 || e.length > 11 ? true : false)
         SetPhone(e)
     }
-
     const handelInputPassword = (e: string) => {
         SetPassword(e)
     }

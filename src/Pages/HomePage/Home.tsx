@@ -16,6 +16,7 @@ import Wallet from "../../Component/Modals/WalletDialog/Wallet";
 import {useData} from '../../Context/DataContext'
 import axios from "axios";
 import {Sep1000} from "../../indexHelper";
+import {Callback} from "../../Component/CallbackModal/Callback";
 
 export const Home = () => {
 
@@ -59,6 +60,7 @@ export const Home = () => {
            <ActionCard/>
            <MenuBar/>
            <Wallet/>
+           <Callback/>
        </React.Fragment>
     )
 }
