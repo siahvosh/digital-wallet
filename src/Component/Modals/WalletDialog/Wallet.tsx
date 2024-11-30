@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Card, Grid2} from "@mui/material";
 import './Wallet.css'
 import {useData} from "../../../Context/DataContext";
 import {useTranslation} from "react-i18next";
 import wallet from './../../../Lottie/Wallet.json';
 import addToWallet from './../../../Lottie/AddToWallet.json';
-import {useLocation, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {BalanceCard} from "../../BalanceCard/BalanceCard";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({

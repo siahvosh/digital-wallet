@@ -17,7 +17,7 @@ export const Refund = () => {
     const [disabled, setDisabled] = useState<boolean>(true)
     const [cardNumber, setCardNumber] = useState<string>('')
     const {walletId} = useData()
-    const { setData } = useData();
+    const { setData, setCallbackStatus } = useData();
 
     const handelCustomPrice = (value: any) => {
         Sep1000(value)
@@ -43,6 +43,7 @@ export const Refund = () => {
             .then(res => {
                 if(setData)
                     setData(false)
+                setCallbackStatus('refund')
                 navigate('/')
             })
             .catch(err => {

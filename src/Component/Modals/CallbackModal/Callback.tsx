@@ -1,8 +1,9 @@
 import {Button, Card, CardActions, CardContent, CardMedia} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import imageUrl from "../../../Assets/success.png"
+import {useData} from "../../../Context/DataContext";
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -17,11 +18,10 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 export const Callback = () => {
 
     const [open, setOpen] = useState(true);
+    const {callbackStatus} = useData()
     const handleClose = () => {
         setOpen(false);
     };
-
-    const [st, setSt] = useState<string>('refund')
 
     interface statusType {
         status: string;
@@ -45,9 +45,8 @@ export const Callback = () => {
             open={open}
         >
             <Card style={{height: '30rem', width: '30rem'}}>
-
                 {statusList
-                    .filter(item => item.status === st)
+                    .filter(item => item.status === callbackStatus)
                     .map((item, index) => (
                             <React.Fragment key={index}>
                                 <CardMedia
