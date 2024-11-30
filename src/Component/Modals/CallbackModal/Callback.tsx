@@ -40,6 +40,7 @@ export const Callback = () => {
             {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: `ملبغ ${amount} ریال از کیف شما به حساب ${cardNumber} واریز شد`},
             {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: `کیف پول شما به مبلغ ${amount} ریال شارژ شد`},
             {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: `مبلغ  ${amount} ریال از کیف پول شما برداشت شد`},
+            {status: 'failed', title: 'عملیات ناموق بود', description: 'متاسفانه عملیات اتجام نشد لطفا مجدد تلاش کنید'},
 
         ]
     )

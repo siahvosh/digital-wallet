@@ -76,6 +76,11 @@ export const Transfer = () => {
             })
             .catch(err => {
                 console.log(err)
+                if (setData)
+                    setData(false)
+                setCallbackStatus('failed')
+                setShowCallback(true)
+                navigate('/')
             })
     }
 

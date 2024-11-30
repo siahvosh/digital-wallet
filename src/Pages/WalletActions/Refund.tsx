@@ -50,6 +50,12 @@ export const Refund = () => {
             })
             .catch(err => {
                 console.log(err)
+                setCallbackStatus('failed')
+                if (setData)
+                    setData(false)
+                setCallbackStatus('failed')
+                setShowCallback(true)
+                navigate('/')
             })
     }
 
