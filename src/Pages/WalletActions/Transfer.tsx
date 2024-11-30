@@ -66,22 +66,19 @@ export const Transfer = () => {
 
             })
             .then(res => {
-                if (setData)
-                    setData(false)
                 setCallbackStatus('transfer')
                 setAmount(customPrice)
                 setCardNumber(cardNumber)
-                setShowCallback(true)
-                navigate('/')
+
             })
             .catch(err => {
                 console.log(err)
-                if (setData)
-                    setData(false)
                 setCallbackStatus('failed')
-                setShowCallback(true)
-                navigate('/')
             })
+
+        if (setData) setData(false)
+        setShowCallback(true)
+        navigate('/')
     }
 
     return(
