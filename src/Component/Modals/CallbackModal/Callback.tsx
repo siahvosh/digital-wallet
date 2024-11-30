@@ -22,12 +22,18 @@ export const Callback = () => {
     };
 
     interface statusType {
+        status: string;
         title: string;
         description: string;
     }
 
-    const status = useState<statusType>(
-        {title: 'انتقال با موفقیت انجام شد\n', description: 'ملبغ 100.000 ریال از کیف شما به حساب 5044456263980238 واریز شد',}
+    const status = useState<statusType[]>(
+        [
+            {status: 'transfer', title: 'انتقال با موفقیت انجام شد\n', description: 'ملبغ 100.000 ریال از کیف شما به حساب 5044456263980238 واریز شد'},
+            {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: 'کیف پول به مبلغ 100.000 شارژ شد'},
+            {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: 'مبلغ 100.000 از کیف پول شما برداشت شد'},
+
+        ]
     )
 
 
@@ -38,8 +44,6 @@ export const Callback = () => {
             open={open}
         >
             <Card style={{height: '30rem', width: '30rem'}}>
-
-
                 <CardMedia
                     component="img"
                     image={imageUrl}
