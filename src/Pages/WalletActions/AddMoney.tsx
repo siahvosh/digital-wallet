@@ -60,17 +60,20 @@ export const AddMoney = () => {
                 cardNumber: null
             })
             .then(res => {
+                if (setData) setData(false)
                 setCallbackStatus('add')
                 setAmount(customPrice)
+                setShowCallback(true)
+                navigate('/')
             })
             .catch(err => {
                 console.log(err)
+                if (setData) setData(false)
                 setCallbackStatus('failed')
+                setShowCallback(true)
+                navigate('/')
             })
 
-        if (setData) setData(false)
-        setShowCallback(true)
-        navigate('/')
     }
 
     return(
