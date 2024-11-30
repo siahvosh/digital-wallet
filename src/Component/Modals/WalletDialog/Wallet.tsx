@@ -6,7 +6,6 @@ import {Card, Grid2} from "@mui/material";
 import './Wallet.css'
 import {useData} from "../../../Context/DataContext";
 import {useTranslation} from "react-i18next";
-import LottieAnimation from "../../../Lottie/LottieAnimation";
 import wallet from './../../../Lottie/Wallet.json';
 import addToWallet from './../../../Lottie/AddToWallet.json';
 import {useLocation, useNavigate} from "react-router-dom";
@@ -22,15 +21,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const Wallet = () => {
-    // const [open, setOpen] = useState<boolean>(false);
-
     const { data } = useData();
     const { setData } = useData();
-    //
-    //
-    // useEffect(() => {
-    //     setOpen(data)
-    // },[data])
 
     const handleClose = () => {
         if(setData)
