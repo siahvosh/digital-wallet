@@ -7,6 +7,9 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import axios from "axios";
 import {useData} from "../../Context/DataContext";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../Redux/Store";
+import {setUserInfo} from "../../Redux/userSlice";
 
 
 export const SignIn = () => {
@@ -17,6 +20,7 @@ export const SignIn = () => {
     const [phone, SetPhone] = useState<string>('')
     const [password, SetPassword] = useState<string>('')
     const { setPhoneNumber } = useData();
+    const dispatch: AppDispatch = useDispatch();
 
 
     const handelInputNumber = (e: string) => {
@@ -36,6 +40,7 @@ export const SignIn = () => {
             })
             .then((res) => {
                 localStorage.setItem('accessToken', res.data.access_token)
+                dispatch(setUserInfo({phoneNumber: phone, userId: null, walletId: null}))
                 localStorage.setItem('phone-number', phone)
                 setPhoneNumber(phone)
                 navigate('/');

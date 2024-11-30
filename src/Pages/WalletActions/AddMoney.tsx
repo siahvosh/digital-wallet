@@ -8,12 +8,16 @@ import {convertToInt, Sep1000} from "../../indexHelper";
 import axios from "axios";
 import {useData} from "../../Context/DataContext";
 import {useNavigate} from "react-router-dom";
+import {RootState} from "../../Redux/Store";
+import {useSelector} from "react-redux";
 
 
 export const AddMoney = () => {
     const { t } = useTranslation('transfer');
     const navigate = useNavigate()
     const { setData } = useData();
+    const { phoneNumber } = useSelector((state: RootState) => state.user);
+
 
 
     interface priceItemsType {
@@ -95,7 +99,7 @@ export const AddMoney = () => {
                             <Grid2 size={12}>
                                 <span style={{display: 'flex', justifyContent: 'start'}}>{t('transfer.customPriceLabel')}</span>
                             </Grid2>
-
+                            {phoneNumber}
                             {priceItems.map((item, index) => (
                                 <Grid2 key={index} size={{ xs: 12, md: 4, lg: 4}}>
                                     <div className={selectedIndex === index ? 'active-items' : 'btn'} onClick={() => handleItemClick(item.price, index)} style={{
