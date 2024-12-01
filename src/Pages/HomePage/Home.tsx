@@ -124,10 +124,11 @@ const ActionCard = () => {
         description: string;
         icon: JSX.Element;
         size: { xs: number; md: number };
+        path: string;
     }
     const [btn] = useState<btnType[]>([
-        { title : 'actionButton.purchaseCharge', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
-        { title : 'actionButton.purchaseNet', description: 'actionButton.ChargeDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}},
+        { title : 'actionButton.purchaseCharge', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}, path: '/'},
+        { title : 'actionButton.purchaseNet', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}, path: '/internet'},
     ])
     return (
         <div className={'bottom-card'}>
@@ -135,7 +136,7 @@ const ActionCard = () => {
                 <CardContent>
                     <Grid2 container spacing={2} style={{justifyContent: 'center'}}>
                         { btn.map((item, idx: number) => (
-                            <Grid2 key={idx} style={{padding: '0.5rem'}}  size={{ xs: 6, md: 4 }}>
+                            <Grid2 key={idx} style={{padding: '0.5rem', cursor: 'pointer'}} onClick={() => navigate(item.path)} size={{ xs: 6, md: 4 }}>
                                 <div  className={'btn'} style={{padding: '0.7rem'}}>
                                     <Grid2 container >
                                         <Grid2 size={{xs: 12, md: 12}} container style={{justifyContent: 'center'}}>
