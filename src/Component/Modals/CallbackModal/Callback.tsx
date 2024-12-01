@@ -78,7 +78,7 @@ export const Callback = () => {
                                     </span>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size={'small'} onClick={handleClose} style={{marginTop: '1rem', width: '100%', margin: 'auto'}} color="primary">متوجه شدم</Button>
+                                    <Button size={'small'} onClick={handleClose} style={{marginTop: '1rem', width: '100%', margin: 'auto'}} color="primary">{t('callback.btn')}</Button>
                                 </CardActions>
                             </React.Fragment>
 

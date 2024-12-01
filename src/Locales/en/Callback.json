@@ -15,7 +15,8 @@
     "failed": {
       "title": "Operation failed",
       "description": "Unfortunately, the operation was not successful. Please try again."
-    }
+    },
+    "btn": "Got it"
   }
 }
 
