@@ -8,6 +8,7 @@ import {Refund} from '../Pages/WalletActions/Refund'
 import {SignIn} from '../Pages/Login/SignIn'
 import ProtectedRoute from "../Component/ProtectedRouter/ProtectedRouter";
 import {InternetPackage} from "../Pages/Purchase/InternetPackage";
+import {Credit} from "../Pages/Purchase/Credit";
 import {CardMedia} from "@mui/material";
 import React from "react";
 import img from "./../Assets/404.png"
@@ -23,6 +24,7 @@ export const Routers = () => {
             <Route path="add" element={ <ProtectedRoute> <AddMoney/> </ProtectedRoute>} />
             <Route path="refund" element={ <ProtectedRoute> <Refund/> </ProtectedRoute>} />
             <Route path="internet" element={ <ProtectedRoute> <InternetPackage/> </ProtectedRoute>} />
+            <Route path="credit" element={ <ProtectedRoute> <Credit/> </ProtectedRoute>} />
             <Route path="/*" element={<div style={{color: "red", margin: "auto", fontSize: '5rem'}}>
 
                 <CardMedia

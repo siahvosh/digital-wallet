@@ -88,7 +88,7 @@ export const Transfer = () => {
 
     return(
         <React.Fragment>
-            <Card style={{height: '100%',}}>
+            <Card style={{height: '100%'}}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'}>
                         <BalanceCard title={t('transfer.transfer')}/>

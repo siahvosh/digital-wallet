@@ -127,7 +127,7 @@ const ActionCard = () => {
         path: string;
     }
     const [btn] = useState<btnType[]>([
-        { title : 'actionButton.purchaseCharge', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}, path: '/'},
+        { title : 'actionButton.purchaseCharge', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}, path: '/credit'},
         { title : 'actionButton.purchaseNet', description: 'actionButton.internetDescription', icon: <RssFeedIcon/>, size: {xs: 6, md: 6}, path: '/internet'},
     ])
     return (
