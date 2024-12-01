@@ -12,6 +12,8 @@ import walletModalFa from './Locales/fa/WalletModal.json'
 import walletModalEn from './Locales/en/WalletModal.json'
 import transferEn from './Locales/en/Transfer.json'
 import transferFa from './Locales/fa/Transfer.json'
+import callbackFa from './Locales/fa/Callback.json'
+import callbackEn from './Locales/en/Callback.json'
 
 
 i18n
@@ -23,14 +25,16 @@ i18n
                 register: registerEn,
                 home: homeEn,
                 walletModal: walletModalEn,
-                transfer: transferEn
+                transfer: transferEn,
+                callback: callbackEn,
             },
             fa: {
                 login: loginFa,
                 register: registerFa,
                 home: homeFa,
                 transfer: transferFa,
-                walletModal: walletModalFa
+                walletModal: walletModalFa,
+                callback: callbackFa,
             },
         },
         lng: 'en',

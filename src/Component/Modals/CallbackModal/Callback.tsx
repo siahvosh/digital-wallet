@@ -5,6 +5,7 @@ import React, {useContext, useEffect, useState} from "react";
 import imageUrl from "../../../Assets/success.png"
 import unsuccessImg from "../../../Assets/unsuccess.png"
 import {useData} from "../../../Context/DataContext";
+import {useTranslation} from "react-i18next";
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -17,7 +18,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export const Callback = () => {
-
+    const { t } = useTranslation('callback');
 
     const [open, setOpen] = useState(true);
     const {callbackStatus, amount, cardNumber, showCallback, setCallbackStatus} = useData()
@@ -39,10 +40,10 @@ export const Callback = () => {
 
     const [statusList] = useState<statusType[]>(
         [
-            {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: `ملبغ ${amount} ریال از کیف شما به حساب ${cardNumber} واریز شد`, img: imageUrl},
-            {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: `کیف پول شما به مبلغ ${amount} ریال شارژ شد`, img: imageUrl},
-            {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: `مبلغ  ${amount} ریال از کیف پول شما برداشت شد` , img: imageUrl},
-            {status: 'failed', title: 'عملیات ناموفق بود', description: 'متاسفانه عملیات اتجام نشد لطفا مجدد تلاش کنید', img: unsuccessImg},
+            {status: 'transfer', title: 'callback.transfer.title', description: 'callback.transfer.description', img: imageUrl},
+            {status: 'add', title: 'callback.add.title', description: 'callback.transfer.description', img: imageUrl},
+            {status: 'refund', title: 'callback.refund.title', description: 'callback.transfer.description' , img: imageUrl},
+            {status: 'failed', title: 'callback.failed.title', description: 'callback.transfer.description', img: unsuccessImg},
 
         ]
     )
@@ -65,14 +66,16 @@ export const Callback = () => {
                                     style={{height: '70%', width: '70%', margin: 'auto'}}
                                 />
                                 <CardContent>
-                                    <span style={{display: 'flex', justifyContent: 'center', fontWeight: '700'}}>{item.title}</span>
+                                    <span style={{display: 'flex', justifyContent: 'center', fontWeight: '700'}}>{t(`${item.title}`)}</span>
                                     <span style={{
                                         display: 'flex',
                                         justifyContent: 'center',
                                         fontWeight: '300',
                                         textAlign: 'center',
                                         marginTop: '0.5rem'
-                                    }}>{item.description}</span>
+                                    }}>
+                                        {t(`${item.description}`, { cardNumber, amount })}
+                                    </span>
                                 </CardContent>
                                 <CardActions>
                                     <Button size={'small'} onClick={handleClose} style={{marginTop: '1rem', width: '100%', margin: 'auto'}} color="primary">متوجه شدم</Button>
