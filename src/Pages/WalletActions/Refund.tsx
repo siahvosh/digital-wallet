@@ -41,7 +41,14 @@ export const Refund = () => {
                 cardNumber: cardNumber,
             })
             .then(res => {
-
+                if (setData) setData(false)
+                setCallbackStatus('refund')
+                setAmount(customPrice)
+                setShowCallback(true)
+                navigate('/')
+            })
+            .catch(err => {
+                console.log(err)
                 if (setData) setData(false)
                 setCallbackStatus('failed')
                 setShowCallback(true)
