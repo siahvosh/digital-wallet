@@ -27,7 +27,7 @@ export const Routers = () => {
                     component="img"
                     image={img}
                     alt="Paella dish"
-                    style={{height: '30rem', width: '30rem', margin: 'auto'}}
+                    style={{height: '30rem', width: '100%', margin: 'auto'}}
                 />
             </div>}/>
         </Routes>

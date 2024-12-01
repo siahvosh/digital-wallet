@@ -104,16 +104,19 @@ const TopCard = () => {
 }
 const ActionCard = () => {
     const { t } = useTranslation('home')
+    const navigate = useNavigate()
+
     interface actionBTnType {
         title: string;
         icon: JSX.Element;
         size: { xs: number; md: number };
+        path: string;
     }
     const [actionBTn] = useState<actionBTnType[]>([
-        { title : 'actionButton.transmission', icon: <PaymentIcon/>, size: {xs: 6, md: 3}},
-        { title : 'actionButton.payment',  icon: <PaidIcon/>, size: {xs: 6, md: 3}},
-        { title : 'actionButton.refund',  icon: <OutputIcon/>, size: {xs: 6, md: 3}},
-        { title : 'actionButton.scan',  icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}}
+        { title : 'actionButton.transmission', icon: <PaymentIcon/>, size: {xs: 6, md: 3}, path: '/transfer'},
+        { title : 'actionButton.payment',  icon: <PaidIcon/>, size: {xs: 6, md: 3}, path: '/'},
+        { title : 'actionButton.refund',  icon: <OutputIcon/>, size: {xs: 6, md: 3}, path: '/refund'},
+        { title : 'actionButton.scan',  icon: <DocumentScannerIcon/>, size: {xs: 6, md: 3}, path: '/'}
     ])
 
     interface btnType {
@@ -150,7 +153,7 @@ const ActionCard = () => {
                     <Grid2 container spacing={2} style={{justifyContent: 'center', marginTop: '1rem'}}>
                         {actionBTn.map((item , idx: number) => (
                             <Grid2 key={idx} style={{padding: '0.5rem'}} size={{ xs: item.size.xs, md: item.size.md }}>
-                                <Button variant={"outlined"} className={'btn'} style={{padding: '0.7rem'}}>
+                                <Button onClick={() => navigate(item.path)} variant={"outlined"} className={'btn'} style={{padding: '0.7rem'}}>
                                     {item.icon}
                                 </Button> <br/>
                                 <span> {t(`${item.title}`)} </span>

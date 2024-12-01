@@ -29,7 +29,7 @@ export const Callback = () => {
         setOpen(showCallback)
     }, [showCallback])
 
-
+    console.log({alooooooooooo3454: open})
     interface statusType {
         status: string;
         title: string;
@@ -42,7 +42,7 @@ export const Callback = () => {
             {status: 'transfer', title: 'انتقال با موفقیت انجام شد', description: `ملبغ ${amount} ریال از کیف شما به حساب ${cardNumber} واریز شد`, img: imageUrl},
             {status: 'add', title: 'کیف پول با موفقیت شارژ شد', description: `کیف پول شما به مبلغ ${amount} ریال شارژ شد`, img: imageUrl},
             {status: 'refund', title: 'برداشت با موفقیت انجام شد', description: `مبلغ  ${amount} ریال از کیف پول شما برداشت شد` , img: imageUrl},
-            {status: 'failed', title: 'عملیات ناموق بود', description: 'متاسفانه عملیات اتجام نشد لطفا مجدد تلاش کنید', img: unsuccessImg},
+            {status: 'failed', title: 'عملیات ناموفق بود', description: 'متاسفانه عملیات اتجام نشد لطفا مجدد تلاش کنید', img: unsuccessImg},
 
         ]
     )
@@ -53,7 +53,7 @@ export const Callback = () => {
             aria-labelledby="customized-dialog-title"
             open={open}
         >
-            <Card style={{height: '30rem', width: '30rem'}}>
+            <Card style={{}}>
                 {statusList
                     .filter(item => item.status === callbackStatus)
                     .map((item, index) => (
