@@ -41,9 +41,9 @@ export const Callback = () => {
     const [statusList] = useState<statusType[]>(
         [
             {status: 'transfer', title: 'callback.transfer.title', description: 'callback.transfer.description', img: imageUrl},
-            {status: 'add', title: 'callback.add.title', description: 'callback.transfer.description', img: imageUrl},
-            {status: 'refund', title: 'callback.refund.title', description: 'callback.transfer.description' , img: imageUrl},
-            {status: 'failed', title: 'callback.failed.title', description: 'callback.transfer.description', img: unsuccessImg},
+            {status: 'add', title: 'callback.add.title', description: 'callback.add.description', img: imageUrl},
+            {status: 'refund', title: 'callback.refund.title', description: 'callback.refund.description' , img: imageUrl},
+            {status: 'failed', title: 'callback.failed.title', description: 'callback.failed.description', img: unsuccessImg},
 
         ]
     )
