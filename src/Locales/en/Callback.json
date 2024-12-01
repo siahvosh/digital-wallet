@@ -1,20 +1,21 @@
 {
   "callback": {
     "transfer": {
-      "title": "انتقال با موفقیت انجام شد",
-      "description": "مبلغ {{amount}} ریال از کیف شما به حساب {{cardNumber}} واریز شد"
+      "title": "Transfer was successful",
+      "description": "The amount of {{amount}} Rials has been transferred from your wallet to account number {{cardNumber}}."
     },
     "add": {
-      "title": "کیف پول با موفقیت شارژ شد",
-      "description": "کیف پول شما به مبلغ {{amount}} ریال شارژ شد"
+      "title": "Wallet successfully recharged",
+      "description": "Your wallet has been recharged with the amount of {{amount}} Rials."
     },
     "refund": {
-      "title": "برداشت با موفقیت انجام شد",
-      "description": "مبلغ {{amount}} ریال از کیف پول شما برداشت شد"
+      "title": "Withdrawal was successful",
+      "description": "The amount of {{amount}} Rials has been withdrawn from your wallet."
     },
     "failed": {
-      "title": "عملیات ناموفق بود",
-      "description": "متاسفانه عملیات انجام نشد، لطفا مجدد تلاش کنید"
+      "title": "Operation failed",
+      "description": "Unfortunately, the operation was not successful. Please try again."
     }
   }
 }
+
