@@ -5,24 +5,31 @@ import React, {useState} from 'react';
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
-    const [selectedCreadit, setselectedCreadit] = useState<number>()
+    const [selectedCredit, setselectedCredit] = useState<number>()
 
 
-    interface operatorBTnType {
+    interface btnType {
         title: string;
         size: { xs: number; md: number };
-        path: string;
+        discount?: string;
     }
-    const [operator] = useState<operatorBTnType[]>([
-        { title : 'همراه اول', size: {xs: 6, md: 3}, path: '/transfer'},
-        { title : 'ایرانسل', size: {xs: 6, md: 3}, path: '/'},
-        { title : 'شاتل', size: {xs: 6, md: 3}, path: '/refund'},
-        { title : 'رایتل', size: {xs: 6, md: 3}, path: '/'}
-    ])
-
     interface priceItemsType {
         price: string;
     }
+
+    const [operator] = useState<btnType[]>([
+        { title : 'همراه اول', size: {xs: 6, md: 3}},
+        { title : 'ایرانسل', size: {xs: 6, md: 3}},
+        { title : 'شاتل', size: {xs: 6, md: 3}},
+        { title : 'رایتل', size: {xs: 6, md: 3}}
+    ])
+
+    const [credit] = useState<btnType[]>([
+        { title : 'معمولی', size: {xs: 6, md: 3}, discount: '5%'},
+        { title : 'شگفت انگیز', size: {xs: 6, md: 3}, discount: '35%'},
+        { title : 'بانوان', size: {xs: 6, md: 3}, discount: '30%'},
+        { title : 'جوانان', size: {xs: 6, md: 3}, discount: '+ایترنت'}
+    ])
     const [priceItems] = useState<priceItemsType[]>([
         {price: '10,000'},
         {price: '50,000'},
@@ -41,9 +48,10 @@ export const Credit = () => {
         // setCustomPrice(value)
     };
     const handleItemClickCredit = (index: number) => {
-        setselectedCreadit(index)
+        setselectedCredit(index)
         // setCustomPrice(value)
     };
+
     return (
         <React.Fragment>
             <Card style={{height: '100%', width: '100%' }}>
@@ -66,8 +74,7 @@ export const Credit = () => {
                                         className={selectedIndexOp === idx ? 'active-items' : 'btn'}
                                         style={{padding: '0.7rem', width: '100px'}}>
                                         {item.title}
-                                    </Button> <br/>
-                                    <span></span>
+                                    </Button>
                                 </Grid2>
                             ))}
                         </Grid2>
@@ -76,16 +83,16 @@ export const Credit = () => {
                         </Grid2>
                         <Grid2 size={12}>
                             <Grid2 container spacing={0} size={12} style={{justifyContent: 'center', marginTop: '1rem'}}>
-                                {operator.map((item, idx: number) => (
+                                {credit.map((item, idx: number) => (
                                     <Grid2 key={idx} style={{padding: '0.5rem'}}
                                            size={{xs: item.size.xs, md: item.size.md}}>
                                         <Button onClick={() => handleItemClickCredit(idx)}
-                                                className={selectedCreadit === idx ? 'active-items' : 'btn'}
+                                                className={selectedCredit === idx ? 'active-items' : 'btn'}
                                                 variant={"outlined"}
                                                 style={{padding: '0.7rem', width: '100px'}}>
-                                            {item.title}
-                                        </Button> <br/>
-                                        <span></span>
+                                            {item.title} <br/>
+                                            {item.discount}
+                                        </Button>
                                     </Grid2>
                                 ))}
                             </Grid2>
