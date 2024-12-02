@@ -22,12 +22,12 @@ export const Credit = () => {
         price: string;
     }
     const [priceItems] = useState<priceItemsType[]>([
+        {price: '10,000'},
+        {price: '50,000'},
         {price: '100,000'},
         {price: '200,000'},
-        {price: '300,000'},
         {price: '500,000'},
         {price: '1,000,000'},
-        {price: '2,000,000'},
     ])
 
     const handleItemClick = (value: string, index: number) => {
@@ -43,8 +43,9 @@ export const Credit = () => {
                         <TextField style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
-
-                        <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم اپراتور؟</span>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم اپراتور؟</span>
+                        </Grid2>
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'center', marginTop: '1rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
@@ -57,8 +58,9 @@ export const Credit = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-
-                        <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم شارژ؟</span>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم شارژ؟</span>
+                        </Grid2>
                         <Grid2 size={12}>
                             <Grid2 container spacing={0} size={12}
                                    style={{justifyContent: 'center', marginTop: '1rem'}}>
@@ -74,23 +76,35 @@ export const Credit = () => {
                                 ))}
                             </Grid2>
                         </Grid2>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>(ریال) چه مبلغی ؟</span>
+                        </Grid2>
 
-                        <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>مبلغ شارژ</span>
-                        <Grid2 size={12}>
+                        <Grid2 size={12} container style={{
+                            justifyContent: 'center',
+                            display: 'center',
+                            width: '90%',
+                            margin: 'auto',
+                            alignContent: 'center',
+                            marginTop: '1rem'
+                        }}>
                             {priceItems.map((item, index) => (
-                                <Grid2 key={index} size={{xs: 12, md: 4, lg: 4}}>
+                                <Grid2 key={index} size={{xs: 6, md: 2, lg: 2}} style={{justifyContent: 'center', display: 'flex', alignItems: 'center'}}>
                                     <div className={selectedIndex === index ? 'active-items' : 'btn'}
                                          onClick={() => handleItemClick(item.price, index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         padding: '1rem',
+                                        width: '80px',
                                     }}>
                                         {item.price}
                                     </div>
                                 </Grid2>
                             ))}
                         </Grid2>
-
+                        <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '3rem'}}>
+                            <Button  style={{width: '100%'}}>زمهزن</Button>
+                        </Grid2>
                     </Grid2>
 
                 </Grid2>
