@@ -17,16 +17,17 @@ export const Credit = () => {
         size: { xs: number; md: number };
         discount?: string;
         img?: any;
+        imgSize?: any;
     }
     interface priceItemsType {
         price: string;
     }
 
     const [operator] = useState<btnType[]>([
-        { title : 'همراه اول', size: {xs: 6, md: 3}, img: hamrahAval},
-        { title : 'ایرانسل', size: {xs: 6, md: 3}, img: mtn},
-        { title : 'شاتل', size: {xs: 6, md: 3}, img: shatel},
-        { title : 'رایتل', size: {xs: 6, md: 3}, img: raytel}
+        { title : 'همراه اول', size: {xs: 6, md: 3}, img: hamrahAval, imgSize: '50px'},
+        { title : 'ایرانسل', size: {xs: 6, md: 3}, img: mtn, imgSize: '70px'},
+        { title : 'شاتل', size: {xs: 6, md: 3}, img: shatel, imgSize: '70px'},
+        { title : 'رایتل', size: {xs: 6, md: 3}, img: raytel, imgSize: '70px'}
     ])
 
     const [credit] = useState<btnType[]>([
@@ -82,7 +83,7 @@ export const Credit = () => {
                                             width: '100px',
                                             height: '50px',
                                             backgroundImage: `url(${item.img})`,
-                                            backgroundSize: '70px',
+                                            backgroundSize: `${item.imgSize}`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
 
