@@ -1,31 +1,36 @@
 import {Button, Card, Grid2, TextField} from "@mui/material";
 import React, {useState} from 'react';
+import raytel from '../../Assets/raytel.svg'
+import hamrahAval from '../../Assets/hamrahAval.svg'
+import mtn from '../../Assets/iran.svg'
+import shatel from '../../Assets/shatel.svg'
 
 
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
-    const [selectedCredit, setselectedCredit] = useState<number>()
+    const [selectedCredit, setSelectedCredit] = useState<number>()
 
 
     interface btnType {
         title: string;
         size: { xs: number; md: number };
         discount?: string;
+        img?: any;
     }
     interface priceItemsType {
         price: string;
     }
 
     const [operator] = useState<btnType[]>([
-        { title : 'همراه اول', size: {xs: 6, md: 3}},
-        { title : 'ایرانسل', size: {xs: 6, md: 3}},
-        { title : 'شاتل', size: {xs: 6, md: 3}},
-        { title : 'رایتل', size: {xs: 6, md: 3}}
+        { title : 'همراه اول', size: {xs: 6, md: 3}, img: hamrahAval},
+        { title : 'ایرانسل', size: {xs: 6, md: 3}, img: mtn},
+        { title : 'شاتل', size: {xs: 6, md: 3}, img: shatel},
+        { title : 'رایتل', size: {xs: 6, md: 3}, img: raytel}
     ])
 
     const [credit] = useState<btnType[]>([
-        { title : 'معمولی', size: {xs: 6, md: 3}, discount: '5%'},
+        { title : 'معمولی', size: {xs: 6, md: 3}, discount: '5%', img: raytel},
         { title : 'شگفت انگیز', size: {xs: 6, md: 3}, discount: '35%'},
         { title : 'بانوان', size: {xs: 6, md: 3}, discount: '30%'},
         { title : 'جوانان', size: {xs: 6, md: 3}, discount: '+ایترنت'}
@@ -48,7 +53,7 @@ export const Credit = () => {
         // setCustomPrice(value)
     };
     const handleItemClickCredit = (index: number) => {
-        setselectedCredit(index)
+        setSelectedCredit(index)
         // setCustomPrice(value)
     };
 
@@ -68,13 +73,23 @@ export const Credit = () => {
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
-                                    <Button
+                                    <div
                                         onClick={() => handleItemClickOp(idx)}
-                                        variant={"outlined"}
-                                        className={selectedIndexOp === idx ? 'active-items' : 'btn'}
-                                        style={{padding: '0.7rem', width: '100px'}}>
-                                        {item.title}
-                                    </Button>
+                                        style={{
+                                            padding: '0.7rem',
+                                            border: '1px solid green',
+                                            borderRadius: '12px',
+                                            width: '100px',
+                                            height: '50px',
+                                            backgroundImage: `url(${item.img})`,
+                                            backgroundSize: '70px',
+                                            backgroundRepeat: 'no-repeat',
+                                            backgroundPosition: 'center',
+
+
+                                    }}>
+
+                                    </div>
                                 </Grid2>
                             ))}
                         </Grid2>
