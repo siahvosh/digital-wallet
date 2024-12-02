@@ -6,6 +6,7 @@ import mtn from '../../Assets/iran.svg'
 import shatel from '../../Assets/shatel.svg'
 import {useTranslation} from "react-i18next";
 import axios from "axios";
+import {useData} from "../../Context/DataContext";
 
 
 export const Credit = () => {
@@ -14,9 +15,10 @@ export const Credit = () => {
     const [selectedCredit, setSelectedCredit] = useState<number>()
     const [price, setPrice] = useState<string>()
     const [creditValue, setCreditValue] = useState<string>()
+    const [phoneNumber, setPhoneNumber] = useState<string>()
 
     const { t } = useTranslation('credit')
-
+    const {walletId} = useData()
 
     interface btnType {
         title: string;
@@ -70,7 +72,11 @@ export const Credit = () => {
             .patch('http://localhost:3000/wallet/credit', {
                 amount: price,
                 creditType: creditValue,
+                walletId: walletId,
+                phoneNumber: phoneNumber
             })
+            .catch(error => {
+                console.log(error)})
     }
 
     return (
@@ -79,7 +85,7 @@ export const Credit = () => {
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'} style={{alignItems: 'end'}}>
                         <span style={{color: 'white',fontSize: '25px', fontWeight: '800', position: 'relative', top: '0', right: '0.4rem'}}>{t('label.phoneNumber')}</span>
-                        <TextField style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
+                        <TextField onChange={(e) => setPhoneNumber(e.target.value)} style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
