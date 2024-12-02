@@ -36,7 +36,7 @@ export const Credit = () => {
     const [credit] = useState<btnType[]>([
         { title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
         { title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
-        { title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
+        { title : 'credit.women.title', size: {xs: 6, md: 3}, discount: 'credit.women.description'},
         { title : 'credit.teenager.title', size: {xs: 6, md: 3}, discount: 'credit.teenager.description'}
     ])
     const [priceItems] = useState<priceItemsType[]>([
