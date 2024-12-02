@@ -67,10 +67,10 @@ export const Credit = () => {
                         <TextField style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
-                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم اپراتور؟</span>
                         </Grid2>
-                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '1rem'}}>
+                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
@@ -98,8 +98,7 @@ export const Credit = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم شارژ؟</span>
                         </Grid2>
-                        <Grid2 size={12}>
-                            <Grid2 container spacing={0} size={12} style={{justifyContent: 'center', marginTop: '1rem'}}>
+                        <Grid2 container spacing={0} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                                 {credit.map((item, idx: number) => (
                                     <Grid2 key={idx} style={{padding: '0.5rem'}}
                                            size={{xs: item.size.xs, md: item.size.md}}>
@@ -120,39 +119,30 @@ export const Credit = () => {
                                     </Grid2>
                                 ))}
                             </Grid2>
-                        </Grid2>
-                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>(ریال) چه مبلغی ؟</span>
                         </Grid2>
-
-                        <Grid2 size={12} container style={{
-                            justifyContent: 'center',
-                            display: 'center',
-                            width: '90%',
-                            margin: 'auto',
-                            alignContent: 'center',
-                            marginTop: '1rem'
-                        }}>
+                        <Grid2 size={12} container style={{width: '90%', margin: 'auto', alignContent: 'center', marginTop: '0.5rem'}}>
                             {priceItems.map((item, index) => (
-                                <Grid2 key={index} size={{xs: 6, md: 2, lg: 2}}
-                                       style={{justifyContent: 'center', display: 'flex', alignItems: 'center'}}>
-                                <div className={selectedIndex === index ? 'active-items' : 'btn'}
-                                         onClick={() => handleItemClick(item.price, index)} style={{
-                                        cursor: 'pointer',
-                                        borderRadius: '12px',
-                                        padding: '1rem',
-                                        width: '80px',
+                                <Grid2 key={index} size={{xs: 6, md: 2, lg: 2}} style={{justifyContent: 'center', display: 'flex', alignItems: 'center'}}>
+                                    <div onClick={() => handleItemClick(item.price, index)} style={{
+                                       cursor: 'pointer',
+                                       borderRadius: '12px',
+                                       border: selectedIndex === index ? '3px solid #2bab84' : '1px solid gray',
+                                       padding: '1rem',
+                                       width: '100px',
+                                       height: '50px',
                                     }}>
-                                        {item.price}
+                                        {item.price} <br/>
+                                        ریال
                                     </div>
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '3rem'}}>
-                            <Button  style={{width: '100%'}}>زمهزن</Button>
+                        <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '2rem'}}>
+                            <Button  style={{width: '100%'}}>پرداخت</Button>
                         </Grid2>
                     </Grid2>
-
                 </Grid2>
             </Card>
         </React.Fragment>

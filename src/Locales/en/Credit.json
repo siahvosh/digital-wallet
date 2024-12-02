@@ -1,0 +1,20 @@
+{
+  "credit": {
+    "normal": {
+      "title": "Normal",
+      "description": "5%"
+    },
+    "special": {
+      "title": "Amazing",
+      "description": "35%"
+    },
+    "women": {
+      "title": "Women",
+      "description": "30%"
+    },
+    "teenager": {
+      "title": "Teenagers",
+      "description": "+Internet"
+    }
+  }
+}

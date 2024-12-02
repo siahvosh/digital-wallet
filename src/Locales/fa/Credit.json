@@ -1,0 +1,20 @@
+{
+  "credit": {
+    "normal": {
+      "title": "معمولی",
+      "description": "5%"
+    },
+    "special": {
+      "title": "شگفت انگیز",
+      "description": "35%"
+    },
+    "women": {
+      "title": "بانوان",
+      "description": "30%"
+    },
+    "teenager": {
+      "title": "جوانان",
+      "description": "+اینترنت"
+    }
+  }
+}
