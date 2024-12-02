@@ -21,7 +21,7 @@ export const Callback = () => {
     const { t } = useTranslation('callback');
 
     const [open, setOpen] = useState(true);
-    const {callbackStatus, amount, cardNumber, showCallback, setCallbackStatus} = useData()
+    const {callbackStatus, amount, cardNumber, showCallback, setCallbackStatus, phoneNumber} = useData()
     const handleClose = () => {
         setCallbackStatus(false);
         setOpen(false);
@@ -44,6 +44,7 @@ export const Callback = () => {
             {status: 'add', title: 'callback.add.title', description: 'callback.add.description', img: imageUrl},
             {status: 'refund', title: 'callback.refund.title', description: 'callback.refund.description' , img: imageUrl},
             {status: 'failed', title: 'callback.failed.title', description: 'callback.failed.description', img: unsuccessImg},
+            {status: 'credit', title: 'callback.credit.title', description: 'callback.credit.description', img: imageUrl},
 
         ]
     )
@@ -74,7 +75,7 @@ export const Callback = () => {
                                         textAlign: 'center',
                                         marginTop: '0.5rem'
                                     }}>
-                                        {t(`${item.description}`, { cardNumber, amount })}
+                                        {t(`${item.description}`, { cardNumber, amount, phoneNumber })}
                                     </span>
                                 </CardContent>
                                 <CardActions>

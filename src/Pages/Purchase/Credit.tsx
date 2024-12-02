@@ -8,6 +8,7 @@ import {useTranslation} from "react-i18next";
 import axios from "axios";
 import {useData} from "../../Context/DataContext";
 import {convertToInt} from "../../indexHelper";
+import {useNavigate} from "react-router-dom";
 
 
 export const Credit = () => {
@@ -16,10 +17,13 @@ export const Credit = () => {
     const [selectedCredit, setSelectedCredit] = useState<number>()
     const [price, setPrice] = useState<string>('')
     const [creditValue, setCreditValue] = useState<string>()
-    const [phoneNumber, setPhoneNumber] = useState<string>()
+    const [phoneNumber, setPhoneNumberValue] = useState<string>()
     const [operators, setOperators] = useState<string>()
+    const { setData, setCallbackStatus, setAmount, setShowCallback, setPhoneNumber } = useData();
+
 
     const { t } = useTranslation('credit')
+    const navigate = useNavigate();
     const {walletId} = useData()
 
     interface btnType {
@@ -81,9 +85,19 @@ export const Credit = () => {
                 phoneNumber: phoneNumber,
                 cardNumber: null
             })
+            .then(res => {
+                console.log(res)
+                if (setData) setData(false)
+                setCallbackStatus('credit')
+                setAmount(price)
+                setPhoneNumber(phoneNumber)
+                setShowCallback(true)
+                navigate('/')
+            })
             .catch(error => {
                 console.log(error)})
-    }
+                navigate('/')
+            }
 
     return (
         <React.Fragment>
@@ -91,7 +105,7 @@ export const Credit = () => {
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'} style={{alignItems: 'end'}}>
                         <span style={{color: 'white',fontSize: '25px', fontWeight: '800', position: 'relative', top: '0', right: '0.4rem'}}>{t('label.phoneNumber')}</span>
-                        <TextField onChange={(e) => setPhoneNumber(e.target.value)} style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
+                        <TextField onChange={(e) => setPhoneNumberValue(e.target.value)} style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>

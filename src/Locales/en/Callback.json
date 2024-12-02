@@ -16,6 +16,10 @@
       "title": "Operation failed",
       "description": "Unfortunately, the operation was not successful. Please try again."
     },
+    "credit": {
+      "title": "حرید شارژ باموفقیت انجام شد",
+      "description": " شماره {{phoneNumber}} به مبلغ {{amount}} شارژ شد."
+    },
     "btn": "Got it"
   }
 }
