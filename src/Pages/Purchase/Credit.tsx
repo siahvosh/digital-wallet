@@ -70,15 +70,17 @@ export const Credit = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم اپراتور؟</span>
                         </Grid2>
-                        <Grid2 container spacing={0} size={12} style={{justifyContent: 'center', marginTop: '1rem'}}>
+                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '1rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
                                     <div
                                         onClick={() => handleItemClickOp(idx)}
                                         style={{
+                                            margin: 'auto',
                                             padding: '0.7rem',
-                                            border: '1px solid green',
+                                            cursor: 'pointer',
+                                            border: '1px solid gray',
                                             borderRadius: '12px',
                                             width: '100px',
                                             height: '50px',
