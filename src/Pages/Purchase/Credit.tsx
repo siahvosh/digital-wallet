@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
+    const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
 
 
     interface operatorBTnType {
@@ -34,6 +35,10 @@ export const Credit = () => {
         setSelectedIndex(index)
         // setCustomPrice(value)
     };
+    const handleItemClickOp = (index: number) => {
+        setSelectedIndexOp(index)
+        // setCustomPrice(value)
+    };
     return (
         <React.Fragment>
             <Card style={{height: '100%', width: '100%' }}>
@@ -50,8 +55,11 @@ export const Credit = () => {
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
-                                    <Button variant={"outlined"} className={'btn'}
-                                            style={{padding: '0.7rem', width: '100px'}}>
+                                    <Button
+                                        onClick={() => handleItemClickOp(idx)}
+                                        variant={"outlined"}
+                                        className={selectedIndexOp === idx ? 'active-items' : 'btn'}
+                                        style={{padding: '0.7rem', width: '100px'}}>
                                         {item.title}
                                     </Button> <br/>
                                     <span></span>
