@@ -13,8 +13,16 @@
       "description": "30%"
     },
     "teenager": {
-      "title": "Teenagers",
+      "title": "Young",
       "description": "+Internet"
     }
-  }
+  },
+  "label": {
+    "operator": "Which operator?",
+    "credit": "Which recharge?",
+    "price": "What amount?",
+    "phoneNumber": "phone number"
+  },
+  "currency": "Rial",
+  "btn": "Pay"
 }

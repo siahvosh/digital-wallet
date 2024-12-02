@@ -4,6 +4,7 @@ import raytel from '../../Assets/raytel.svg'
 import hamrahAval from '../../Assets/hamrahAval.svg'
 import mtn from '../../Assets/iran.svg'
 import shatel from '../../Assets/shatel.svg'
+import {useTranslation} from "react-i18next";
 
 
 export const Credit = () => {
@@ -11,11 +12,13 @@ export const Credit = () => {
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
     const [selectedCredit, setSelectedCredit] = useState<number>()
 
+    const { t } = useTranslation('credit')
+
 
     interface btnType {
         title: string;
         size: { xs: number; md: number };
-        discount?: string;
+        discount?: any;
         img?: any;
         imgSize?: any;
     }
@@ -31,10 +34,10 @@ export const Credit = () => {
     ])
 
     const [credit] = useState<btnType[]>([
-        { title : 'معمولی', size: {xs: 6, md: 3}, discount: '5%', img: raytel},
-        { title : 'شگفت انگیز', size: {xs: 6, md: 3}, discount: '35%'},
-        { title : 'بانوان', size: {xs: 6, md: 3}, discount: '30%'},
-        { title : 'جوانان', size: {xs: 6, md: 3}, discount: '+ایترنت'}
+        { title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
+        { title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
+        { title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
+        { title : 'credit.teenager.title', size: {xs: 6, md: 3}, discount: 'credit.teenager.description'}
     ])
     const [priceItems] = useState<priceItemsType[]>([
         {price: '10,000'},
@@ -63,19 +66,18 @@ export const Credit = () => {
             <Card style={{height: '100%', width: '100%' }}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'} style={{alignItems: 'end'}}>
-                        <span style={{color: 'white',fontSize: '25px', fontWeight: '800', position: 'relative', top: '0', right: '0.4rem'}}>شماره همراه</span>
+                        <span style={{color: 'white',fontSize: '25px', fontWeight: '800', position: 'relative', top: '0', right: '0.4rem'}}>{t('label.phoneNumber')}</span>
                         <TextField style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
-                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم اپراتور؟</span>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.operator')}</span>
                         </Grid2>
                         <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
                                     <div
-
                                         onClick={() => handleItemClickOp(idx)}
                                         style={{
                                             margin: 'auto',
@@ -96,7 +98,7 @@ export const Credit = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
-                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>کدوم شارژ؟</span>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.credit')}</span>
                         </Grid2>
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                                 {credit.map((item, idx: number) => (
@@ -113,14 +115,14 @@ export const Credit = () => {
                                                 width: '100px',
                                                 height: '50px',
                                             }}>
-                                            {item.title} <br/>
-                                            {item.discount}
+                                            {t(item.title)} <br/>
+                                            {t(item.discount)}
                                         </div>
                                     </Grid2>
                                 ))}
                             </Grid2>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
-                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>(ریال) چه مبلغی ؟</span>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.price')}</span>
                         </Grid2>
                         <Grid2 size={12} container style={{width: '90%', margin: 'auto', alignContent: 'center', marginTop: '0.5rem'}}>
                             {priceItems.map((item, index) => (
@@ -134,13 +136,13 @@ export const Credit = () => {
                                        height: '50px',
                                     }}>
                                         {item.price} <br/>
-                                        ریال
+                                        {t('currency')}
                                     </div>
                                 </Grid2>
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '2rem'}}>
-                            <Button  style={{width: '100%'}}>پرداخت</Button>
+                            <Button  style={{width: '100%'}}>{t('btn')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
