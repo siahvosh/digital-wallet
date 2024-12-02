@@ -75,12 +75,13 @@ export const Credit = () => {
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
                                     <div
+
                                         onClick={() => handleItemClickOp(idx)}
                                         style={{
                                             margin: 'auto',
                                             padding: '0.7rem',
                                             cursor: 'pointer',
-                                            border: '1px solid gray',
+                                            border: selectedIndexOp === idx ? '3px solid #2bab84': '1px solid gray',
                                             borderRadius: '12px',
                                             width: '100px',
                                             height: '50px',
@@ -88,8 +89,6 @@ export const Credit = () => {
                                             backgroundSize: `${item.imgSize}`,
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
-
-
                                     }}>
 
                                     </div>
@@ -104,13 +103,20 @@ export const Credit = () => {
                                 {credit.map((item, idx: number) => (
                                     <Grid2 key={idx} style={{padding: '0.5rem'}}
                                            size={{xs: item.size.xs, md: item.size.md}}>
-                                        <Button onClick={() => handleItemClickCredit(idx)}
-                                                className={selectedCredit === idx ? 'active-items' : 'btn'}
-                                                variant={"outlined"}
-                                                style={{padding: '0.7rem', width: '100px'}}>
+                                        <div
+                                            onClick={() => handleItemClickCredit(idx)}
+                                            style={{
+                                                margin: 'auto',
+                                                padding: '0.7rem',
+                                                cursor: 'pointer',
+                                                border: selectedCredit === idx ? '3px solid #2bab84' : '1px solid gray',
+                                                borderRadius: '12px',
+                                                width: '100px',
+                                                height: '50px',
+                                            }}>
                                             {item.title} <br/>
                                             {item.discount}
-                                        </Button>
+                                        </div>
                                     </Grid2>
                                 ))}
                             </Grid2>
@@ -128,8 +134,9 @@ export const Credit = () => {
                             marginTop: '1rem'
                         }}>
                             {priceItems.map((item, index) => (
-                                <Grid2 key={index} size={{xs: 6, md: 2, lg: 2}} style={{justifyContent: 'center', display: 'flex', alignItems: 'center'}}>
-                                    <div className={selectedIndex === index ? 'active-items' : 'btn'}
+                                <Grid2 key={index} size={{xs: 6, md: 2, lg: 2}}
+                                       style={{justifyContent: 'center', display: 'flex', alignItems: 'center'}}>
+                                <div className={selectedIndex === index ? 'active-items' : 'btn'}
                                          onClick={() => handleItemClick(item.price, index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
