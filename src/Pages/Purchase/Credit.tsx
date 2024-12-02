@@ -5,12 +5,15 @@ import hamrahAval from '../../Assets/hamrahAval.svg'
 import mtn from '../../Assets/iran.svg'
 import shatel from '../../Assets/shatel.svg'
 import {useTranslation} from "react-i18next";
+import axios from "axios";
 
 
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
     const [selectedCredit, setSelectedCredit] = useState<number>()
+    const [price, setPrice] = useState<string>()
+    const [creditValue, setCreditValue] = useState<string>()
 
     const { t } = useTranslation('credit')
 
@@ -21,6 +24,7 @@ export const Credit = () => {
         discount?: any;
         img?: any;
         imgSize?: any;
+        label?: any;
     }
     interface priceItemsType {
         price: string;
@@ -34,10 +38,10 @@ export const Credit = () => {
     ])
 
     const [credit] = useState<btnType[]>([
-        { title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
-        { title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
-        { title : 'credit.women.title', size: {xs: 6, md: 3}, discount: 'credit.women.description'},
-        { title : 'credit.teenager.title', size: {xs: 6, md: 3}, discount: 'credit.teenager.description'}
+        {label: 'همراه اول', title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
+        {label: 'ایرانسل', title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
+        {label: 'شاتل', title : 'credit.women.title', size: {xs: 6, md: 3}, discount: 'credit.women.description'},
+        {label: 'رایتل', title : 'credit.teenager.title', size: {xs: 6, md: 3}, discount: 'credit.teenager.description'}
     ])
     const [priceItems] = useState<priceItemsType[]>([
         {price: '10,000'},
@@ -50,16 +54,24 @@ export const Credit = () => {
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
-        // setCustomPrice(value)
+        setPrice(value)
+
     };
-    const handleItemClickOp = (index: number) => {
+    const handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
-        // setCustomPrice(value)
     };
-    const handleItemClickCredit = (index: number) => {
+    const handleItemClickCredit = (value: string, index: number) => {
         setSelectedCredit(index)
-        // setCustomPrice(value)
+        setCreditValue(value)
     };
+
+    const payment = () => {
+        axios
+            .patch('http://localhost:3000/wallet/credit', {
+                amount: price,
+                creditType: creditValue,
+            })
+    }
 
     return (
         <React.Fragment>
@@ -73,12 +85,14 @@ export const Credit = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.operator')}</span>
                         </Grid2>
+                        {creditValue}
+                        {price}
                         <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
                                     <div
-                                        onClick={() => handleItemClickOp(idx)}
+                                        onClick={() => handleItemClickOp(item.title, idx)}
                                         style={{
                                             margin: 'auto',
                                             padding: '0.7rem',
@@ -105,7 +119,7 @@ export const Credit = () => {
                                     <Grid2 key={idx} style={{padding: '0.5rem'}}
                                            size={{xs: item.size.xs, md: item.size.md}}>
                                         <div
-                                            onClick={() => handleItemClickCredit(idx)}
+                                            onClick={() => handleItemClickCredit(item.label, idx)}
                                             style={{
                                                 margin: 'auto',
                                                 padding: '0.7rem',
@@ -142,7 +156,7 @@ export const Credit = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '2rem'}}>
-                            <Button  style={{width: '100%'}}>{t('btn')}</Button>
+                            <Button onClick={payment}  style={{width: '100%'}}>{t('btn')}</Button>
                         </Grid2>
                     </Grid2>
                 </Grid2>
