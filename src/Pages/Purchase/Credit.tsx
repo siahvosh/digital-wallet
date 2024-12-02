@@ -7,15 +7,17 @@ import shatel from '../../Assets/shatel.svg'
 import {useTranslation} from "react-i18next";
 import axios from "axios";
 import {useData} from "../../Context/DataContext";
+import {convertToInt} from "../../indexHelper";
 
 
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
     const [selectedCredit, setSelectedCredit] = useState<number>()
-    const [price, setPrice] = useState<string>()
+    const [price, setPrice] = useState<string>('')
     const [creditValue, setCreditValue] = useState<string>()
     const [phoneNumber, setPhoneNumber] = useState<string>()
+    const [operators, setOperators] = useState<string>()
 
     const { t } = useTranslation('credit')
     const {walletId} = useData()
@@ -40,10 +42,10 @@ export const Credit = () => {
     ])
 
     const [credit] = useState<btnType[]>([
-        {label: 'همراه اول', title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
-        {label: 'ایرانسل', title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
-        {label: 'شاتل', title : 'credit.women.title', size: {xs: 6, md: 3}, discount: 'credit.women.description'},
-        {label: 'رایتل', title : 'credit.teenager.title', size: {xs: 6, md: 3}, discount: 'credit.teenager.description'}
+        {label: 'معمولی', title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
+        {label: 'اشگفت انگیز', title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
+        {label: 'بانوان', title : 'credit.women.title', size: {xs: 6, md: 3}, discount: 'credit.women.description'},
+        {label: 'جوانان', title : 'credit.teenager.title', size: {xs: 6, md: 3}, discount: 'credit.teenager.description'}
     ])
     const [priceItems] = useState<priceItemsType[]>([
         {price: '10,000'},
@@ -61,6 +63,7 @@ export const Credit = () => {
     };
     const handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
+        setOperators(value)
     };
     const handleItemClickCredit = (value: string, index: number) => {
         setSelectedCredit(index)
@@ -68,12 +71,15 @@ export const Credit = () => {
     };
 
     const payment = () => {
+        const amount = convertToInt(price)
         axios
             .patch('http://localhost:3000/wallet/credit', {
-                amount: price,
+                amount: amount,
+                operator: operators,
                 creditType: creditValue,
                 walletId: walletId,
-                phoneNumber: phoneNumber
+                phoneNumber: phoneNumber,
+                cardNumber: null
             })
             .catch(error => {
                 console.log(error)})
