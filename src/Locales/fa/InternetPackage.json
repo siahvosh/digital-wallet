@@ -1,0 +1,12 @@
+{
+  "label": {
+    "operator": "کدوم اپراتور",
+    "sim": "نوع سیمکارت",
+    "package": "کدوم بسته ؟"
+  },
+  "simCardMode": {
+    "permanent": "دائمی",
+    "credit": "اعتباری"
+  },
+  "btn": "ادامه"
+}
