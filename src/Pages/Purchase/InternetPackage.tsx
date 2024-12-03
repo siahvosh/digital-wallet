@@ -42,15 +42,14 @@ export const InternetPackage = () => {
         {label: 'اشگفت انگیز', title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
     ])
     const [priceItems] = useState<priceItemsType[]>([
-        {title: '10,000'},
-
+        {title: 'اینترنت'},
     ])
 
     const handleItemClick = (value: string, index: number) => {
         setSelectedIndex(index)
         setPrice(value)
-
     };
+
     const handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
         setOperators(value)
@@ -91,7 +90,6 @@ export const InternetPackage = () => {
                                             backgroundRepeat: 'no-repeat',
                                             backgroundPosition: 'center',
                                         }}>
-
                                     </div>
                                 </Grid2>
                             ))}
@@ -111,7 +109,7 @@ export const InternetPackage = () => {
                                             cursor: 'pointer',
                                             border: selectedCredit === idx ? '3px solid #2bab84' : '1px solid gray',
                                             borderRadius: '12px',
-                                            width: '100px',
+                                            width: '104px',
                                             height: '50px',
                                         }}>
                                         fdgfd <br/>
@@ -123,19 +121,20 @@ export const InternetPackage = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>price</span>
                         </Grid2>
-                        <Grid2 size={12} container style={{width: '90%', margin: 'auto', alignContent: 'center', marginTop: '0.5rem'}}>
+                        <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
                             {priceItems.map((item, index) => (
-                                <Grid2 key={index} size={{xs: 6, md: 2, lg: 2}} style={{justifyContent: 'center', display: 'flex', alignItems: 'center'}}>
+                                <Grid2 key={index} size={{xs: 6, md: 3, lg: 2}} style={{padding: '0.5rem'}}>
                                     <div onClick={() => handleItemClick(item.title, index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         border: selectedIndex === index ? '3px solid #2bab84' : '1px solid gray',
-                                        padding: '1rem',
-                                        width: '100px',
+                                        padding: '0.7rem',
+                                        width: '104px',
+                                        margin: 'auto',
                                         height: '50px',
+                                        alignContent: "center"
                                     }}>
-                                        {item.title} <br/>
-                                        currency
+                                       <span> {item.title}</span>
                                     </div>
                                 </Grid2>
                             ))}
