@@ -1,0 +1,13 @@
+{
+  "label": {
+    "operator": "Which operator",
+    "sim": "SIM card type",
+    "package": "Which package?",
+    "phoneNumber": "Phone number"
+  },
+  "simCardMode": {
+    "permanent": "Postpaid",
+    "credit": "Prepaid"
+  },
+  "btn": "Continue"
+}
