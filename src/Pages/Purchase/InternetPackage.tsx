@@ -73,7 +73,7 @@ export const InternetPackage = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.operator')}</span>
                         </Grid2>
-                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
+                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2  style={{padding: '0.5rem'}} key={idx}
                                        size={{xs: item.size.xs, md: item.size.md}}>
