@@ -16,6 +16,8 @@ import callbackFa from './Locales/fa/Callback.json'
 import callbackEn from './Locales/en/Callback.json'
 import creditEn from './Locales/en/Credit.json'
 import creditFa from './Locales/fa/Credit.json'
+import internetFa from './Locales/fa/InternetPackage.json'
+import internetEn from './Locales/en/InternetPackage.json'
 
 
 i18n
@@ -30,6 +32,7 @@ i18n
                 transfer: transferEn,
                 callback: callbackEn,
                 credit: creditEn,
+                internet: internetEn,
             },
             fa: {
                 login: loginFa,
@@ -39,6 +42,7 @@ i18n
                 walletModal: walletModalFa,
                 callback: callbackFa,
                 credit: creditFa,
+                internet: internetFa,
             },
         },
         lng: 'en',

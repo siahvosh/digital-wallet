@@ -9,5 +9,6 @@
     "permanent": "Postpaid",
     "credit": "Prepaid"
   },
-  "btn": "Continue"
+  "btn": "Continue",
+  "internet": "Internet"
 }

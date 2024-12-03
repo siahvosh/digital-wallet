@@ -5,6 +5,7 @@ import mtn from "../../Assets/iran.svg";
 import shatel from "../../Assets/shatel.svg";
 import raytel from "../../Assets/raytel.svg";
 import {useData} from "../../Context/DataContext";
+import {useTranslation} from "react-i18next";
 
 
 export const InternetPackage = () => {
@@ -16,6 +17,8 @@ export const InternetPackage = () => {
     const [phoneNumber, setPhoneNumberValue] = useState<string>()
     const [operators, setOperators] = useState<string>()
     const { setData, setCallbackStatus, setAmount, setShowCallback, setPhoneNumber } = useData();
+
+    const { t } = useTranslation('internet');
 
     interface btnType {
         title: string;
@@ -38,16 +41,16 @@ export const InternetPackage = () => {
 
 
     const [credit] = useState<btnType[]>([
-        {label: 'معمولی', title : 'credit.normal.title', size: {xs: 6, md: 3}, discount: 'credit.normal.description'},
-        {label: 'اشگفت انگیز', title : 'credit.special.title', size: {xs: 6, md: 3}, discount: 'credit.special.description'},
+        {label: 'دائمی', title : 'simCardMode.permanent', size: {xs: 6, md: 3}},
+        {label: 'اعتباری', title : 'simCardMode.credit', size: {xs: 6, md: 3}},
     ])
     const [priceItems] = useState<priceItemsType[]>([
-        {title: 'اینترنت'},
+        {title: 'internet'},
     ])
 
     const handleItemClick = (value: string, index: number) => {
-        setSelectedIndex(index)
         setPrice(value)
+        setSelectedIndex(index)
     };
 
     const handleItemClickOp = (value: string, index: number) => {
@@ -64,14 +67,14 @@ export const InternetPackage = () => {
             <Card style={{height: '100%', width: '100%' }}>
                 <Grid2 size={12} container spacing={0} style={{height: '100%'}}>
                     <Grid2 container size={12} spacing={1} className={'content'} style={{alignItems: 'end'}}>
-                        <span style={{color: 'white',fontSize: '25px', fontWeight: '800', position: 'relative', top: '0', right: '0.4rem'}}>شماره همراه</span>
+                        <span style={{color: 'white',fontSize: '25px', fontWeight: '800', position: 'relative', top: '0', right: '0.4rem'}}>{t('label.phoneNumber')}</span>
                         <TextField onChange={(e) => setPhoneNumberValue(e.target.value)} style={{background: 'white', borderRadius: '12px'}} fullWidth ></TextField>
                     </Grid2>
                     <Grid2 container style={{marginTop: '1.5rem'}} size={12} spacing={2} className={'action-container'}>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
-                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>operator</span>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.operator')}</span>
                         </Grid2>
-                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
+                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.6rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
@@ -95,7 +98,7 @@ export const InternetPackage = () => {
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
-                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>credit</span>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.sim')}</span>
                         </Grid2>
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
                             {credit.map((item, idx: number) => (
@@ -111,15 +114,15 @@ export const InternetPackage = () => {
                                             borderRadius: '12px',
                                             width: '104px',
                                             height: '50px',
+                                            alignContent: 'center',
                                         }}>
-                                        fdgfd <br/>
-                                        dsgfdg
+                                        <span> {t(item.title)} </span>
                                     </div>
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
-                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>price</span>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1.5rem'}}>
+                            <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.package')}</span>
                         </Grid2>
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
                             {priceItems.map((item, index) => (
@@ -134,13 +137,13 @@ export const InternetPackage = () => {
                                         height: '50px',
                                         alignContent: "center"
                                     }}>
-                                       <span> {item.title}</span>
+                                       <span> {t(item.title)}</span>
                                     </div>
                                 </Grid2>
                             ))}
                         </Grid2>
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '2rem'}}>
-                            <Button  style={{width: '100%'}}>click</Button>
+                            <Button  style={{width: '100%'}}>{t('btn')}</Button>
                         </Grid2>
                     </Grid2>
 
