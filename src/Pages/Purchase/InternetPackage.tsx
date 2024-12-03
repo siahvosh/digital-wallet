@@ -52,15 +52,13 @@ export const InternetPackage = () => {
         setSelectedIndexOp(index)
         setOperators(value)
     };
-
-
-    const handlePackagesItem = (value: string, index: number) => {
-        setPrice(value)
-        setSelectedIndex(index)
-    };
     const handleSimType = (value: string, index: number) => {
         setSimType(index)
         setCreditValue(value)
+    };
+    const handlePackagesItem = (value: string, index: number) => {
+        setPrice(value)
+        setSelectedIndex(index)
     };
 
     return (
