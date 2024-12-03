@@ -9,7 +9,7 @@ import axios from "axios";
 import {useData} from "../../Context/DataContext";
 import {convertToInt} from "../../indexHelper";
 import {useNavigate} from "react-router-dom";
-
+import pattern from "../../Assets/patternCredit.png"
 
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
@@ -111,8 +111,6 @@ export const Credit = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.operator')}</span>
                         </Grid2>
-                        {creditValue}
-                        {price}
                         <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                             {operator.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
