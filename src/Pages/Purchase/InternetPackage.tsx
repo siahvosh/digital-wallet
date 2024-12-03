@@ -28,7 +28,7 @@ export const InternetPackage = () => {
         imgSize?: any;
         label?: any;
     }
-    interface priceItemsType {
+    interface packageType {
         title: string;
     }
 
@@ -38,26 +38,23 @@ export const InternetPackage = () => {
         { title : 'شاتل', size: {xs: 6, md: 3}, img: shatel, imgSize: '70px'},
         { title : 'رایتل', size: {xs: 6, md: 3}, img: raytel, imgSize: '70px'}
     ])
-
-
-    const [credit] = useState<btnType[]>([
+    const [SimType] = useState<btnType[]>([
         {label: 'دائمی', title : 'simCardMode.permanent', size: {xs: 6, md: 3}},
         {label: 'اعتباری', title : 'simCardMode.credit', size: {xs: 6, md: 3}},
     ])
-    const [priceItems] = useState<priceItemsType[]>([
+    const [packagesItem] = useState<packageType[]>([
         {title: 'internet'},
     ])
 
-    const handleItemClick = (value: string, index: number) => {
+    const handlePackagesItem = (value: string, index: number) => {
         setPrice(value)
         setSelectedIndex(index)
     };
-
     const handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
         setOperators(value)
     };
-    const handleItemClickCredit = (value: string, index: number) => {
+    const handleSimType = (value: string, index: number) => {
         setSelectedCredit(index)
         setCreditValue(value)
     };
@@ -74,9 +71,9 @@ export const InternetPackage = () => {
                         <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.operator')}</span>
                         </Grid2>
-                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.6rem'}}>
+                        <Grid2 container spacing={1} size={12} style={{justifyContent: 'center', marginTop: '0.5rem'}}>
                             {operator.map((item, idx: number) => (
-                                <Grid2 key={idx} style={{padding: '0.5rem'}}
+                                <Grid2  style={{padding: '0.5rem'}} key={idx}
                                        size={{xs: item.size.xs, md: item.size.md}}>
                                     <div
                                         onClick={() => handleItemClickOp(item.title, idx)}
@@ -97,15 +94,15 @@ export const InternetPackage = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1rem'}}>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.sim')}</span>
                         </Grid2>
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
-                            {credit.map((item, idx: number) => (
+                            {SimType.map((item, idx: number) => (
                                 <Grid2 key={idx} style={{padding: '0.5rem'}}
                                        size={{xs: item.size.xs, md: item.size.md}}>
                                     <div
-                                        onClick={() => handleItemClickCredit(item.label, idx)}
+                                        onClick={() => handleSimType(item.label, idx)}
                                         style={{
                                             margin: 'auto',
                                             padding: '0.7rem',
@@ -121,13 +118,13 @@ export const InternetPackage = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '1.5rem'}}>
+                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.package')}</span>
                         </Grid2>
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
-                            {priceItems.map((item, index) => (
+                            {packagesItem.map((item, index) => (
                                 <Grid2 key={index} size={{xs: 6, md: 3, lg: 2}} style={{padding: '0.5rem'}}>
-                                    <div onClick={() => handleItemClick(item.title, index)} style={{
+                                    <div onClick={() => handlePackagesItem(item.title, index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         border: selectedIndex === index ? '3px solid #2bab84' : '1px solid gray',
@@ -146,7 +143,6 @@ export const InternetPackage = () => {
                             <Button  style={{width: '100%'}}>{t('btn')}</Button>
                         </Grid2>
                     </Grid2>
-
                 </Grid2>
             </Card>
         </React.Fragment>
