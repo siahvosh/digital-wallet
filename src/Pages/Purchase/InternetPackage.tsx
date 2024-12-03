@@ -11,7 +11,9 @@ import {useTranslation} from "react-i18next";
 export const InternetPackage = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
-    const [selectedCredit, setSelectedCredit] = useState<number>()
+    const [simType, setSimType] = useState<number>()
+
+
     const [price, setPrice] = useState<string>('')
     const [creditValue, setCreditValue] = useState<string>()
     const [phoneNumber, setPhoneNumberValue] = useState<string>()
@@ -46,16 +48,18 @@ export const InternetPackage = () => {
         {title: 'internet'},
     ])
 
-    const handlePackagesItem = (value: string, index: number) => {
-        setPrice(value)
-        setSelectedIndex(index)
-    };
     const handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
         setOperators(value)
     };
+
+
+    const handlePackagesItem = (value: string, index: number) => {
+        setPrice(value)
+        setSelectedIndex(index)
+    };
     const handleSimType = (value: string, index: number) => {
-        setSelectedCredit(index)
+        setSimType(index)
         setCreditValue(value)
     };
 
@@ -107,7 +111,7 @@ export const InternetPackage = () => {
                                             margin: 'auto',
                                             padding: '0.7rem',
                                             cursor: 'pointer',
-                                            border: selectedCredit === idx ? '3px solid #2bab84' : '1px solid gray',
+                                            border: simType === idx ? '3px solid #2bab84' : '1px solid gray',
                                             borderRadius: '12px',
                                             width: '104px',
                                             height: '50px',
@@ -134,7 +138,7 @@ export const InternetPackage = () => {
                                         height: '50px',
                                         alignContent: "center"
                                     }}>
-                                       <span> {t(item.title)}</span>
+                                       <span> {t(item.title)} </span>
                                     </div>
                                 </Grid2>
                             ))}
