@@ -26,6 +26,7 @@ export const InternetPackage = () => {
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
     const [simType, setSimType] = useState<number>()
     const [packages, setPackages] = useState<packageType[]>([])
+    const [more, setMore] = useState<any>({name: 'بیشتر', operator: 'sadf', price: 3435})
 
     const [price, setPrice] = useState<string>('')
     const [creditValue, setCreditValue] = useState<string>()
@@ -78,12 +79,14 @@ export const InternetPackage = () => {
             .then(res => {
                 console.log(res)
                 setPackages(res.data)
-                console.log({alooooooooooooooooo: packages})
-
+                setPackages(prev => [...prev , more])
             })
             .catch(err => {
                 console.log(err)
             })
+        ;
+        console.log(packages)
+
     };
     const handleSimType = (value: string, index: number) => {
         setSimType(index)
@@ -157,7 +160,7 @@ export const InternetPackage = () => {
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.package')}</span>
                         </Grid2>}
                         <Grid2 container spacing={0} size={12} style={{marginTop: '0.5rem'}}>
-                             { packages?.map((item, index) => (
+                             { packages?.slice(0, 5).map((item, index) => (
                                 <Grid2 key={index} size={{xs: 6, md: 3}} style={{padding: '0.5rem'}}>
                                     <div onClick={() => handlePackagesItem(item.operator , index)} style={{
                                         cursor: 'pointer',
@@ -212,7 +215,7 @@ const PackageModal: React.FC<Props> = (props ) => {
             >
                 <Card style={{ padding: '0rem 2rem 0 2rem'}}>
                     {props.packages.map((item, idx) => (
-                        <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px', cursor: 'pointer'}}>
+                            <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px', cursor: 'pointer'}}>
                             <Grid2 container spacing={0} size={12} style={{padding: '1rem', width: '100%', height: '100%'}}>
                                 <Grid2 size={12} container style={{}}>
                                     <Grid2 size={6}>
@@ -228,12 +231,13 @@ const PackageModal: React.FC<Props> = (props ) => {
                                     </Grid2>
 
                                     <Grid2 size={6} style={{marginTop: '0.5rem', justifyContent: 'end', display: 'flex'}}>
-                                        <span>{showPrice(item.price)}</span>
+                                        <span>{showPrice(item.price)} ریال</span>
                                     </Grid2>
                                 </Grid2>
                             </Grid2>
                         </div>
-                    ))}
+
+                        ))}
                 </Card>
             </BootstrapDialog>
         </React.Fragment>
