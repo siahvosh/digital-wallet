@@ -207,31 +207,22 @@ const PackageModal: React.FC<Props> = (props ) => {
             >
                 <Card style={{height: '100%', padding: '2rem'}}>
                     {props.packages.map((item, idx) => (
-                        <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px'}}>
-                            <Grid2 container spacing={6} size={12} style={{padding: '1rem', width: '100%'}}>
+                        <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px', cursor: 'pointer'}}>
+                            <Grid2 container spacing={0} size={12} style={{padding: '1rem', width: '100%'}}>
                                 <Grid2 size={12} container style={{}}>
                                     <Grid2 size={6}>
-                                        <span>{item.name}</span>
+                                        <span>{item.name} {item.operator}</span>
                                     </Grid2>
-                                    <Grid2 size={6}>
+                                    <Grid2 size={6} style={{justifyContent: 'end', display: 'flex'}}>
                                         <span>{item.validity}</span>
                                     </Grid2>
                                 </Grid2>
 
-                                <Grid2 size={12} container>
+                                <Grid2 size={12} container style={{marginTop: '2.6rem'}}>
                                     <Grid2 size={6}>
-                                        <div style={{
-                                            cursor: 'pointer',
-                                            borderRadius: '12px',
-                                            border: '1px solid #2bab84',
-                                            width: '100px',
-                                            alignContent: 'center',
-                                            height: '40px',}}>
-
-                                           <span style={{padding: '1rem'}}> حرید بسته</span>
-                                        </div>
+                                        <Button style={{padding: '0.3rem'}}> خرید بسته</Button>
                                     </Grid2>
-                                    <Grid2 size={6}>
+                                    <Grid2 size={6} style={{marginTop: '0.5rem', justifyContent: 'end', display: 'flex'}}>
                                         <span>{item.price} ریال</span>
                                     </Grid2>
                                 </Grid2>
