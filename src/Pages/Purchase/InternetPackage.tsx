@@ -210,7 +210,7 @@ const PackageModal: React.FC<Props> = (props ) => {
                 aria-labelledby="customized-dialog-title"
                 open={true}
             >
-                <Card style={{height: '100%', padding: '2rem'}}>
+                <Card style={{ padding: '0rem 2rem 0 2rem'}}>
                     {props.packages.map((item, idx) => (
                         <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px', cursor: 'pointer'}}>
                             <Grid2 container spacing={0} size={12} style={{padding: '1rem', width: '100%', height: '100%'}}>
