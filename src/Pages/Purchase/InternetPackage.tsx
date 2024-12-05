@@ -6,13 +6,14 @@ import shatel from "../../Assets/shatel.svg";
 import raytel from "../../Assets/raytel.svg";
 import {useData} from "../../Context/DataContext";
 import {useTranslation} from "react-i18next";
+import axios from "axios";
 
 
 export const InternetPackage = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
     const [selectedIndexOp, setSelectedIndexOp] = useState<number>()
     const [simType, setSimType] = useState<number>()
-
+    const [packages, setPackages] = useState<packageType[]>([])
 
     const [price, setPrice] = useState<string>('')
     const [creditValue, setCreditValue] = useState<string>()
@@ -31,7 +32,8 @@ export const InternetPackage = () => {
         label?: any;
     }
     interface packageType {
-        title: string;
+        name: string;
+
     }
 
     const [operator] = useState<btnType[]>([
@@ -44,13 +46,27 @@ export const InternetPackage = () => {
         {label: 'دائمی', title : 'simCardMode.permanent', size: {xs: 6, md: 3}},
         {label: 'اعتباری', title : 'simCardMode.credit', size: {xs: 6, md: 3}},
     ])
-    const [packagesItem] = useState<packageType[]>([
-        {title: 'internet'},
-    ])
+    // const [packagesItem] = useState<packageType[]>([
+    //     {name: 'internet'},
+    // ])
 
     const handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
         setOperators(value)
+
+        axios
+            .post('http://localhost:3000/internet-packages/operator', {
+                operator: value
+            })
+            .then(res => {
+                console.log(res)
+                setPackages(res.data)
+                console.log({alooooooooooooooooo: packages})
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
     };
     const handleSimType = (value: string, index: number) => {
         setSimType(index)
@@ -120,13 +136,14 @@ export const InternetPackage = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-                        <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
+                        {packages.length > 0 &&  <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.package')}</span>
                         </Grid2>
+                        }
                         <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
-                            {packagesItem.map((item, index) => (
+                             { packages?.map((item, index) => (
                                 <Grid2 key={index} size={{xs: 6, md: 3, lg: 2}} style={{padding: '0.5rem'}}>
-                                    <div onClick={() => handlePackagesItem(item.title, index)} style={{
+                                    <div  style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         border: selectedIndex === index ? '3px solid #2bab84' : '1px solid gray',
@@ -136,11 +153,12 @@ export const InternetPackage = () => {
                                         height: '50px',
                                         alignContent: "center"
                                     }}>
-                                       <span> {t(item.title)} </span>
+                                       <span> {t(item.name)} </span>
                                     </div>
                                 </Grid2>
                             ))}
                         </Grid2>
+
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '2rem'}}>
                             <Button  style={{width: '100%'}}>{t('btn')}</Button>
                         </Grid2>
