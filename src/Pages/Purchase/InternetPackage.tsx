@@ -9,6 +9,7 @@ import {useTranslation} from "react-i18next";
 import axios from "axios";
 import {styled} from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
+import {Sep1000} from "../../indexHelper";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -208,7 +209,7 @@ const PackageModal: React.FC<Props> = (props ) => {
                 <Card style={{height: '100%', padding: '2rem'}}>
                     {props.packages.map((item, idx) => (
                         <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px', cursor: 'pointer'}}>
-                            <Grid2 container spacing={0} size={12} style={{padding: '1rem', width: '100%'}}>
+                            <Grid2 container spacing={0} size={12} style={{padding: '1rem', width: '100%', height: '100%'}}>
                                 <Grid2 size={12} container style={{}}>
                                     <Grid2 size={6}>
                                         <span>{item.name} {item.operator}</span>
@@ -217,13 +218,12 @@ const PackageModal: React.FC<Props> = (props ) => {
                                         <span>{item.validity}</span>
                                     </Grid2>
                                 </Grid2>
-
-                                <Grid2 size={12} container style={{marginTop: '2.6rem'}}>
+                                <Grid2 size={12} container style={{alignItems: 'end', display: 'flex'}}>
                                     <Grid2 size={6}>
                                         <Button style={{padding: '0.3rem'}}> خرید بسته</Button>
                                     </Grid2>
                                     <Grid2 size={6} style={{marginTop: '0.5rem', justifyContent: 'end', display: 'flex'}}>
-                                        <span>{item.price} ریال</span>
+                                        <span>{Sep1000(item.price.toString())} ریال</span>
                                     </Grid2>
                                 </Grid2>
                             </Grid2>
