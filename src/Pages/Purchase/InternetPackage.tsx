@@ -32,7 +32,9 @@ export const InternetPackage = () => {
         label?: any;
     }
     interface packageType {
+        title: string;
         name: string;
+        operator: string
 
     }
 
@@ -138,12 +140,11 @@ export const InternetPackage = () => {
                         </Grid2>
                         {packages.length > 0 &&  <Grid2 size={12} style={{display: 'flex', justifyContent: 'start', marginTop: '0.5rem'}}>
                             <span style={{padding: '0 3rem 0 3rem', fontWeight: '700'}}>{t('label.package')}</span>
-                        </Grid2>
-                        }
-                        <Grid2 container spacing={0} size={12} style={{justifyContent: 'start', marginTop: '0.5rem'}}>
+                        </Grid2>}
+                        <Grid2 container spacing={0} size={12} style={{marginTop: '0.5rem'}}>
                              { packages?.map((item, index) => (
-                                <Grid2 key={index} size={{xs: 6, md: 3, lg: 2}} style={{padding: '0.5rem'}}>
-                                    <div  style={{
+                                <Grid2 key={index} size={{xs: 6, md: 3}} style={{padding: '0.5rem'}}>
+                                    <div onClick={() => handlePackagesItem(item.operator , index)} style={{
                                         cursor: 'pointer',
                                         borderRadius: '12px',
                                         border: selectedIndex === index ? '3px solid #2bab84' : '1px solid gray',
@@ -158,7 +159,6 @@ export const InternetPackage = () => {
                                 </Grid2>
                             ))}
                         </Grid2>
-
                         <Grid2 size={12} style={{margin: 'auto', width: '65vw', marginTop: '2rem'}}>
                             <Button  style={{width: '100%'}}>{t('btn')}</Button>
                         </Grid2>
