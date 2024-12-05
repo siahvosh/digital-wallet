@@ -199,6 +199,10 @@ interface Props {
 }
 
 const PackageModal: React.FC<Props> = (props ) => {
+
+    const showPrice = (value: number) => {
+        return Sep1000(value.toString());
+    }
     return (
         <React.Fragment>
             <BootstrapDialog
@@ -222,8 +226,9 @@ const PackageModal: React.FC<Props> = (props ) => {
                                     <Grid2 size={6}>
                                         <Button style={{padding: '0.3rem'}}> خرید بسته</Button>
                                     </Grid2>
+
                                     <Grid2 size={6} style={{marginTop: '0.5rem', justifyContent: 'end', display: 'flex'}}>
-                                        <span>{Sep1000(item.price.toString())} ریال</span>
+                                        <span>{showPrice(item.price)}</span>
                                     </Grid2>
                                 </Grid2>
                             </Grid2>
