@@ -7,6 +7,17 @@ import raytel from "../../Assets/raytel.svg";
 import {useData} from "../../Context/DataContext";
 import {useTranslation} from "react-i18next";
 import axios from "axios";
+import {styled} from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+}));
 
 
 export const InternetPackage = () => {
@@ -165,6 +176,27 @@ export const InternetPackage = () => {
                     </Grid2>
                 </Grid2>
             </Card>
+            <PackageModal/>
+        </React.Fragment>
+    )
+}
+
+
+
+const PackageModal = () => {
+
+    return (
+        <React.Fragment>
+            <BootstrapDialog
+                fullScreen
+
+                aria-labelledby="customized-dialog-title"
+                open={true}
+            >
+                <Card style={{height: '100%',}}>
+                    sdfdsgfg
+                </Card>
+            </BootstrapDialog>
         </React.Fragment>
     )
 }
