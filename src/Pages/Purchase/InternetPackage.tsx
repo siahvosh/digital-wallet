@@ -193,8 +193,27 @@ const PackageModal = () => {
                 aria-labelledby="customized-dialog-title"
                 open={true}
             >
-                <Card style={{height: '100%',}}>
-                    sdfdsgfg
+                <Card style={{height: '100%', padding: '2rem'}}>
+                    <div style={{border: '2px solid red', height: '8rem'}}>
+                        <Grid2 container spacing={2} size={12} style={{padding: '1rem', width: '100%'}}>
+                            <Grid2 size={12}>
+                                <Grid2 size={6}>
+                                    <span>sdlgksdg</span>
+                                </Grid2>
+                                <Grid2 size={6}>
+                                    <span>12,500</span>
+                                </Grid2>
+                            </Grid2>
+                            <Grid2 size={12}>
+                                <Grid2 size={6}>
+                                    <span>sdlgksdg</span>
+                                </Grid2>
+                                <Grid2 size={6}>
+                                    <span>12,500</span>
+                                </Grid2>
+                            </Grid2>
+                        </Grid2>
+                    </div>
                 </Card>
             </BootstrapDialog>
         </React.Fragment>
