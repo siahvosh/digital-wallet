@@ -66,7 +66,7 @@ export const InternetPackage = () => {
     //     {name: 'internet'},
     // ])
 
-    const handleItemClickOp = (value: string, index: number) => {
+    const  handleItemClickOp = (value: string, index: number) => {
         setSelectedIndexOp(index)
         setOperators(value)
 
@@ -194,12 +194,10 @@ interface packageType {
     price: number;
 }
 interface Props {
-    packages: packageType[]; // تعریف درست props برای استفاده در PackageModal
+    packages: packageType[];
 }
 
 const PackageModal: React.FC<Props> = (props ) => {
-
-
     return (
         <React.Fragment>
             <BootstrapDialog
@@ -209,7 +207,7 @@ const PackageModal: React.FC<Props> = (props ) => {
             >
                 <Card style={{height: '100%', padding: '2rem'}}>
                     {props.packages.map((item, idx) => (
-                        <div style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px'}}>
+                        <div key={idx} style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px'}}>
                             <Grid2 container spacing={6} size={12} style={{padding: '1rem', width: '100%'}}>
                                 <Grid2 size={12} container style={{}}>
                                     <Grid2 size={6}>
@@ -219,9 +217,19 @@ const PackageModal: React.FC<Props> = (props ) => {
                                         <span>{item.validity}</span>
                                     </Grid2>
                                 </Grid2>
+
                                 <Grid2 size={12} container>
                                     <Grid2 size={6}>
-                                        <span>sdlgksdg</span>
+                                        <div style={{
+                                            cursor: 'pointer',
+                                            borderRadius: '12px',
+                                            border: '1px solid #2bab84',
+                                            width: '100px',
+                                            alignContent: 'center',
+                                            height: '40px',}}>
+
+                                           <span style={{padding: '1rem'}}> حرید بسته</span>
+                                        </div>
                                     </Grid2>
                                     <Grid2 size={6}>
                                         <span>{item.price} ریال</span>
@@ -230,7 +238,6 @@ const PackageModal: React.FC<Props> = (props ) => {
                             </Grid2>
                         </div>
                     ))}
-
                 </Card>
             </BootstrapDialog>
         </React.Fragment>
