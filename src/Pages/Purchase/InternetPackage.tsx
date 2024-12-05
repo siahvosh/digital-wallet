@@ -43,10 +43,13 @@ export const InternetPackage = () => {
         label?: any;
     }
     interface packageType {
-        title: string;
+        dataVolume: string
+        id: string
+        isActive: boolean;
         name: string;
-        operator: string
-
+        operator: string;
+        validity: string;
+        price: number;
     }
 
     const [operator] = useState<btnType[]>([
@@ -176,44 +179,58 @@ export const InternetPackage = () => {
                     </Grid2>
                 </Grid2>
             </Card>
-            <PackageModal/>
+            <PackageModal packages={packages} />
         </React.Fragment>
     )
 }
 
+interface packageType {
+    dataVolume: string
+    id: string
+    isActive: boolean;
+    name: string;
+    operator: string;
+    validity: string;
+    price: number;
+}
+interface Props {
+    packages: packageType[]; // تعریف درست props برای استفاده در PackageModal
+}
 
+const PackageModal: React.FC<Props> = (props ) => {
 
-const PackageModal = () => {
 
     return (
         <React.Fragment>
             <BootstrapDialog
                 fullScreen
-
                 aria-labelledby="customized-dialog-title"
                 open={true}
             >
                 <Card style={{height: '100%', padding: '2rem'}}>
-                    <div style={{border: '2px solid red', height: '8rem'}}>
-                        <Grid2 container spacing={2} size={12} style={{padding: '1rem', width: '100%'}}>
-                            <Grid2 size={12}>
-                                <Grid2 size={6}>
-                                    <span>sdlgksdg</span>
+                    {props.packages.map((item, idx) => (
+                        <div style={{border: '1px solid grey', height: '8rem',marginTop: '2rem', borderRadius: '12px'}}>
+                            <Grid2 container spacing={6} size={12} style={{padding: '1rem', width: '100%'}}>
+                                <Grid2 size={12} container style={{}}>
+                                    <Grid2 size={6}>
+                                        <span>{item.name}</span>
+                                    </Grid2>
+                                    <Grid2 size={6}>
+                                        <span>{item.validity}</span>
+                                    </Grid2>
                                 </Grid2>
-                                <Grid2 size={6}>
-                                    <span>12,500</span>
+                                <Grid2 size={12} container>
+                                    <Grid2 size={6}>
+                                        <span>sdlgksdg</span>
+                                    </Grid2>
+                                    <Grid2 size={6}>
+                                        <span>{item.price} ریال</span>
+                                    </Grid2>
                                 </Grid2>
                             </Grid2>
-                            <Grid2 size={12}>
-                                <Grid2 size={6}>
-                                    <span>sdlgksdg</span>
-                                </Grid2>
-                                <Grid2 size={6}>
-                                    <span>12,500</span>
-                                </Grid2>
-                            </Grid2>
-                        </Grid2>
-                    </div>
+                        </div>
+                    ))}
+
                 </Card>
             </BootstrapDialog>
         </React.Fragment>
