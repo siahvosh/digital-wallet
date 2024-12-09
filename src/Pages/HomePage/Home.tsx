@@ -20,7 +20,7 @@ import {Callback} from "../../Component/Modals/CallbackModal/Callback";
 import header from "../../Component/Header/Header";
 
 export const Home = () => {
-
+    const navigate = useNavigate();
     const { phoneNumber } = useData();
     const { setBalance } = useData()
     const { setCurrency } = useData()
@@ -28,7 +28,6 @@ export const Home = () => {
 
 
      useEffect(() => {
-         const phone = localStorage.getItem('phone-number')
          const token = localStorage.getItem('accessToken')
          axios
              .post('http://localhost:3000/users/find',
@@ -43,13 +42,15 @@ export const Home = () => {
                   // getUserData(res.data.id)
              })
              .catch((err) => {
+                 navigate('/login')
+                 localStorage.removeItem('accessToken')
                  console.error('Expected error:', err.response.status);
              });
 
     })
 
 
-    const getUserData = (id:any) => {
+    const getWalletData = (id:any) => {
         axios
             .get(`http://localhost:3000/wallet?userId=${id}`)
             .then(res => {
