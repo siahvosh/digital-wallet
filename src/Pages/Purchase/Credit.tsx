@@ -76,15 +76,22 @@ export const Credit = () => {
 
     const payment = () => {
         const amount = convertToInt(price)
+        const token = localStorage.getItem('accessToken')
+
         axios
             .patch('http://localhost:3000/wallet/credit', {
                 amount: amount,
                 operator: operators,
                 creditType: creditValue,
-                walletId: walletId,
                 phoneNumber: phoneNumber,
                 cardNumber: null
-            })
+            },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            )
             .then(res => {
                 console.log(res)
                 if (setData) setData(false)

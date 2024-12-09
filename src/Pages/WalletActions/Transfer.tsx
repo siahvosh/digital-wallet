@@ -57,14 +57,16 @@ export const Transfer = () => {
 
     const transfer = () => {
         const amount = convertToInt(customPrice)
-        console.log(cardNumber)
-        axios
-            .patch('http://localhost:3000/wallet/transfer', {
-                walletId: walletId,
-                amount: amount,
-                cardNumber: cardNumber,
+        const token = localStorage.getItem('accessToken')
 
-            })
+        axios
+            .patch('http://localhost:3000/wallet/transfer',
+                {amount: amount, cardNumber: cardNumber,},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
             .then(res => {
                 if (setData)
                     setData(false)
