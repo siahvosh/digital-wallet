@@ -17,6 +17,7 @@ import {useData} from '../../Context/DataContext'
 import axios from "axios";
 import {Sep1000} from "../../indexHelper";
 import {Callback} from "../../Component/Modals/CallbackModal/Callback";
+import header from "../../Component/Header/Header";
 
 export const Home = () => {
 
@@ -28,13 +29,22 @@ export const Home = () => {
 
      useEffect(() => {
          const phone = localStorage.getItem('phone-number')
+         const token = 'invalid-token-123'
          axios
-             .post('http://localhost:3000/users/find', {
-                  phone_number: phone,
-             })
+             .post('http://localhost:3000/users/find',
+                 {phone_number: phone},
+                 {
+                     headers: {
+                         Authorization: `Bearer ${token}`
+                     },
+                 }
+             )
              .then((res) => {
-                  getUserData(res.data.id)
+                  // getUserData(res.data.id)
              })
+             .catch((err) => {
+                 console.error('Expected error:', err.response.status);
+             });
 
     })
 
