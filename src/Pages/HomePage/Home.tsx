@@ -29,24 +29,37 @@ export const Home = () => {
 
      useEffect(() => {
          const token = localStorage.getItem('accessToken')
-         axios
-             .post('http://localhost:3000/users/find',
-                 {},
-                 {
-                     headers: {
-                         Authorization: `Bearer ${token}`
-                     },
-                 }
-             )
-             .then((res) => {
-                  // getUserData(res.data.id)
-             })
-             .catch((err) => {
-                 navigate('/login')
-                 localStorage.removeItem('accessToken')
-                 console.error('Expected error:', err.response.status);
-             });
+         // axios
+         //     .post('http://localhost:3000/users/find', {}, {
+         //             headers: {
+         //                 Authorization: `Bearer ${token}`
+         //             },
+         //         })
+         //     .then((res) => {
+         //          // getUserData(res.data.id)
+         //     })
+         //     .catch((err) => {
+         //         navigate('/login')
+         //         localStorage.removeItem('accessToken')
+         //         console.error('Expected error:', err.response.status);
+         //     });
 
+         axios
+             .get(`http://localhost:3000/wallet`,{
+                 headers: {
+                     Authorization: `Bearer ${token}`
+                 },
+             })
+             .then(res => {
+                 console.log({ressssssssss: res.data})
+                 const value = Sep1000(res.data.balance)
+
+                 setBalance(value);
+                 setCurrency(res.data.currency)
+                 setWalletId(res.data.id)
+
+             })
+             .catch(err => console.log(err))
     })
 
 
