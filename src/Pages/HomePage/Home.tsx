@@ -29,7 +29,7 @@ export const Home = () => {
 
      useEffect(() => {
          const phone = localStorage.getItem('phone-number')
-         const token = 'invalid-token-123'
+         const token = localStorage.getItem('accessToken')
          axios
              .post('http://localhost:3000/users/find',
                  {phone_number: phone},
