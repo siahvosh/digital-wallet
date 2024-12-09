@@ -34,7 +34,6 @@ export const Home = () => {
                  },
              })
             .then(res => {
-                 console.log({ressssssssss: res.data})
                  const value = Sep1000(res.data.balance)
 
                  setBalance(value);
