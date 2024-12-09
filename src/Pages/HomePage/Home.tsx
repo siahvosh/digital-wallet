@@ -21,36 +21,19 @@ import header from "../../Component/Header/Header";
 
 export const Home = () => {
     const navigate = useNavigate();
-    const { phoneNumber } = useData();
     const { setBalance } = useData()
     const { setCurrency } = useData()
     const { setWalletId } = useData()
 
-
-     useEffect(() => {
-         const token = localStorage.getItem('accessToken')
-         // axios
-         //     .post('http://localhost:3000/users/find', {}, {
-         //             headers: {
-         //                 Authorization: `Bearer ${token}`
-         //             },
-         //         })
-         //     .then((res) => {
-         //          // getUserData(res.data.id)
-         //     })
-         //     .catch((err) => {
-         //         navigate('/login')
-         //         localStorage.removeItem('accessToken')
-         //         console.error('Expected error:', err.response.status);
-         //     });
-
-         axios
-             .get(`http://localhost:3000/wallet`,{
+    useEffect(() => {
+        const token = localStorage.getItem('accessToken')
+        axios
+            .get(`http://localhost:3000/wallet`,{
                  headers: {
                      Authorization: `Bearer ${token}`
                  },
              })
-             .then(res => {
+            .then(res => {
                  console.log({ressssssssss: res.data})
                  const value = Sep1000(res.data.balance)
 
@@ -59,23 +42,11 @@ export const Home = () => {
                  setWalletId(res.data.id)
 
              })
-             .catch(err => console.log(err))
+            .catch((err) => {
+                 navigate('/login')
+                 localStorage.removeItem('accessToken')
+             })
     })
-
-
-    const getWalletData = (id:any) => {
-        axios
-            .get(`http://localhost:3000/wallet?userId=${id}`)
-            .then(res => {
-                const value = Sep1000(res.data[0].balance)
-
-                setBalance(value);
-                setCurrency(res.data[0].currency)
-                setWalletId(res.data[0].id)
-
-            })
-            .catch(err => console.log(err))
-    }
 
     return (
        <React.Fragment>
