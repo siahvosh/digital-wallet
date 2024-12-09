@@ -34,12 +34,17 @@ export const Refund = () => {
     const refund = () => {
 
         const amount = convertToInt(customPrice)
+        const token = localStorage.getItem('accessToken')
+
         axios
-            .patch('http://localhost:3000/wallet/refund', {
-                walletId: walletId,
-                amount: amount,
-                cardNumber: cardNumber,
-            })
+            .patch('http://localhost:3000/wallet/refund',
+                {amount: amount, cardNumber: cardNumber,},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            )
             .then(res => {
                 if (setData) setData(false)
                 setCallbackStatus('refund')
