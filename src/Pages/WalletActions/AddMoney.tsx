@@ -53,12 +53,15 @@ export const AddMoney = () => {
     const addFound = () => {
 
         const amount = convertToInt(customPrice)
+        const token = localStorage.getItem('accessToken')
         axios
-            .patch('http://localhost:3000/wallet/add', {
-                walletId: walletId,
-                amount: amount,
-                cardNumber: null
-            })
+            .patch('http://localhost:3000/wallet/add',
+                {amount: amount, cardNumber: null},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    },
+                })
             .then(res => {
                 if (setData) setData(false)
                 setCallbackStatus('add')
