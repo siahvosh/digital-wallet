@@ -27,6 +27,7 @@ export const Home = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('accessToken')
+        console.log({token: token})
         axios
             .get(`http://localhost:3000/wallet`,{
                  headers: {
@@ -35,7 +36,6 @@ export const Home = () => {
              })
             .then(res => {
                  const value = Sep1000(res.data.balance)
-
                  setBalance(value);
                  setCurrency(res.data.currency)
                  setWalletId(res.data.id)
