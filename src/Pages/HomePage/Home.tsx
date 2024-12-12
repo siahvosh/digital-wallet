@@ -18,12 +18,14 @@ import axios from "axios";
 import {Sep1000} from "../../indexHelper";
 import {Callback} from "../../Component/Modals/CallbackModal/Callback";
 import header from "../../Component/Header/Header";
+import {MainLoading} from "../../Component/Loading/MainLoading";
 
 export const Home = () => {
     const navigate = useNavigate();
     const { setBalance } = useData()
     const { setCurrency } = useData()
     const { setWalletId } = useData()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const token = localStorage.getItem('accessToken')
@@ -49,12 +51,16 @@ export const Home = () => {
 
     return (
        <React.Fragment>
-           <Header/>
-           <TopCard/>
-           <ActionCard/>
-           <MenuBar/>
-           <Wallet/>
-           <Callback/>
+           {loading ? <MainLoading/> :
+               <>
+               <Header/>
+               <TopCard/>
+               <ActionCard/>
+               <MenuBar/>
+               <Wallet/>
+               <Callback/>
+               </>
+           }
        </React.Fragment>
     )
 }
