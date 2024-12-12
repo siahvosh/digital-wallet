@@ -9,7 +9,6 @@ import axios from "axios";
 import {useData} from "../../Context/DataContext";
 import {convertToInt} from "../../indexHelper";
 import {useNavigate} from "react-router-dom";
-import pattern from "../../Assets/patternCredit.png"
 
 export const Credit = () => {
     const [selectedIndex, setSelectedIndex] = useState<number>()
@@ -20,8 +19,6 @@ export const Credit = () => {
     const [phoneNumber, setPhoneNumberValue] = useState<string>()
     const [operators, setOperators] = useState<string>()
     const { setData, setCallbackStatus, setAmount, setShowCallback, setPhoneNumber } = useData();
-
-
     const { t } = useTranslation('credit')
     const navigate = useNavigate();
     const {walletId} = useData()

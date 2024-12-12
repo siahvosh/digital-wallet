@@ -84,8 +84,6 @@ export const Transfer = () => {
                 setShowCallback(true)
                 navigate('/')
             })
-
-
     }
 
     return(

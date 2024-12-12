@@ -12,11 +12,9 @@ import {useNavigate} from "react-router-dom";
 export const Refund = () => {
     const { t } = useTranslation('transfer');
     const navigate = useNavigate();
-
     const [customPrice, setCustomPrice] = useState<string>('')
     const [disabled, setDisabled] = useState<boolean>(true)
     const [cardNumber, setCardNumber] = useState<string>('')
-    const {walletId} = useData()
     const { setData, setCallbackStatus, setAmount, setShowCallback} = useData();
 
     const handelCustomPrice = (value: any) => {
@@ -32,7 +30,6 @@ export const Refund = () => {
     }, [cardNumber, customPrice])
 
     const refund = () => {
-
         const amount = convertToInt(customPrice)
         const token = localStorage.getItem('accessToken')
 

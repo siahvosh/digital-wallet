@@ -9,7 +9,6 @@
 
 .bottom-card{
     width: calc(100%);
-    /*background: #272626;*/
     border-top: 1px solid #2bab84;
     border-top-left-radius: 45px;
     justify-content: center !important;
@@ -36,7 +35,6 @@
     background-image: url("../../Assets/img1.png") !important;
     background-position: center !important;
     background-size: 100% !important;
-    /*backdrop-filter: blur(100%);*/
 }
 @media (min-width: 600px), (max-width: 900px) {
     .img-card {

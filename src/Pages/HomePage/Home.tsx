@@ -52,8 +52,6 @@ export const Home = () => {
                  navigate('/login')
                  localStorage.removeItem('accessToken')
              })
-        // setLoading(false)
-
     },[])
 
     return (
@@ -167,14 +165,9 @@ const ActionCard = () => {
                                 <span> {t(`${item.title}`)} </span>
                             </Grid2>
                         ))}
-
                     </Grid2>
                     <Grid2 container size={12}  style={{justifyContent: 'center', marginTop: '1rem'}}>
-                        <div className={'img-card'}>
-                            {/*<div style={{width: '100%', height: '100%', background: 'black', opacity: '60%'}} >*/}
-                            {/*  <span style={{ fontSize: '100px', fontWeight: '800', color:"white"}}>invite firends</span>*/}
-                            {/*</div>*/}
-                        </div>
+                        <div className={'img-card'}></div>
                     </Grid2>
                 </CardContent>
             </Card>

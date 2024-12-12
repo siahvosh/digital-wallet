@@ -102,7 +102,7 @@ export const AddMoney = () => {
                                 </div>
                             </div>
                         </Grid2>
-                        <Grid2 size={12} container style={{justifyContent: 'center', display: 'center', width: '65vw', margin: 'auto', alignContent: 'center'}}>
+                        <Grid2 container size={12} style={{justifyContent: 'center', display: 'center', width: '65vw', margin: 'auto', alignContent: 'center'}}>
                             <Grid2 size={12}>
                                 <span style={{display: 'flex', justifyContent: 'start'}}>{t('transfer.customPriceLabel')}</span>
                             </Grid2>
