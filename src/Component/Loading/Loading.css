@@ -67,7 +67,7 @@
 
 
 .main-loading{
-    height: 1000px;
+    height: 800px;
     width: calc(100%);
     margin: auto;
     background-image: url("../../Assets/12244.jpg") ;
@@ -84,7 +84,7 @@
     height: 50%;
     width: 50%;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.9)
+    background-color: rgba(255, 255, 255, 0.8)
 }
 
 .loader-text{
