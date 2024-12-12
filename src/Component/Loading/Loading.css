@@ -64,6 +64,16 @@
     }
 }
 
+
+.main-loading{
+    width: calc(100%);
+    margin: auto;
+    background-image: url("../../Assets/12244.jpg");
+    background-size: 100%  !important;
+    background-position: center;
+    background-repeat: repeat;
+}
+
 .loader-text{
     color: black;
     position: absolute;

@@ -33,7 +33,7 @@ export const Home = () => {
     }
     useEffect(() => {
         const token = localStorage.getItem('accessToken')
-        setTimeout(myGreeting, 1500);
+        setTimeout(myGreeting, 2000);
 
         axios
             .get(`http://localhost:3000/wallet`,{
