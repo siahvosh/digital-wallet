@@ -27,9 +27,14 @@ export const Home = () => {
     const { setWalletId } = useData()
     const [loading, setLoading] = useState(true)
 
+
+    function myGreeting() {
+        setLoading(false)
+    }
     useEffect(() => {
         const token = localStorage.getItem('accessToken')
-        console.log({token: token})
+        setTimeout(myGreeting, 1500);
+
         axios
             .get(`http://localhost:3000/wallet`,{
                  headers: {
@@ -47,18 +52,20 @@ export const Home = () => {
                  navigate('/login')
                  localStorage.removeItem('accessToken')
              })
-    })
+        // setLoading(false)
+
+    },[])
 
     return (
        <React.Fragment>
            {loading ? <MainLoading/> :
                <>
-               <Header/>
-               <TopCard/>
-               <ActionCard/>
-               <MenuBar/>
-               <Wallet/>
-               <Callback/>
+                   <Header/>
+                   <TopCard/>
+                   <ActionCard/>
+                   <MenuBar/>
+                   <Wallet/>
+                   <Callback/>
                </>
            }
        </React.Fragment>
