@@ -1,9 +1,10 @@
-/* From Uiverse.io by alexruix */
 .loader {
     position: relative;
     width: 120px;
     height: 90px;
-    margin: auto;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .loader:before {
@@ -66,9 +67,10 @@
 
 
 .main-loading{
+    height: 1000px;
     width: calc(100%);
     margin: auto;
-    background-image: url("../../Assets/12244.jpg");
+    background-image: url("../../Assets/12244.jpg") ;
     background-size: 100%  !important;
     background-position: center;
     background-repeat: repeat;
@@ -85,8 +87,6 @@
 }
 
 
-/* From Uiverse.io by kennyotsu */
-
 .loaders {
     color: rgb(124, 124, 124);
     font-family: "Poppins", sans-serif;
@@ -94,7 +94,6 @@
     font-size: 25px;
     box-sizing: content-box;
     height: 40px;
-
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -105,8 +104,6 @@
 .words {
     overflow: hidden;
     position: relative;
-
-
 }
 
 .words::after {
@@ -126,6 +123,7 @@
 .word {
     display: block;
     height: 100%;
+    font-size: 2rem;
     padding-left: 6px;
     color: #2bab84;
     animation: spin_4991 4s infinite;
@@ -134,6 +132,7 @@
 
 .text{
     margin: 0px;
+    font-size: 2rem;
 }
 
 @keyframes spin_4991 {

@@ -29,7 +29,7 @@ export const Home = () => {
 
 
     function myGreeting() {
-        setLoading(false)
+        // setLoading(false)
     }
     useEffect(() => {
         const token = localStorage.getItem('accessToken')
