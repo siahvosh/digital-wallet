@@ -7,7 +7,7 @@ export const MainLoading = () => {
 
             </div>
             <div className={'loader-text'}>
-                <div className="card">
+
                     <div className="loaders">
                         <p className={'text'}>loading</p>
                         <div className="words">
@@ -19,7 +19,7 @@ export const MainLoading = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+
 
         </>
     )

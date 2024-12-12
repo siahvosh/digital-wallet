@@ -14,7 +14,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background: #2a9d8f;
+    background: #2bab84;
     animation: loading-bounce 0.5s ease-in-out infinite alternate;
 }
 
@@ -58,7 +58,7 @@
 
     100% {
         box-shadow: 0 10px 0 #888585,
-        -35px 50px 0 green,
+        -35px 50px 0 #2bab84,
         -70px 90px 0 #888585,
         -70px 90px 0 rgba(0, 0, 0, 0);
     }
@@ -76,28 +76,27 @@
 
 
 /* From Uiverse.io by kennyotsu */
-.card {
-    padding: 1rem 2rem;
-    border-radius: 1.25rem;
-}
+
 .loaders {
     color: rgb(124, 124, 124);
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 25px;
-    -webkit-box-sizing: content-box;
     box-sizing: content-box;
     height: 40px;
-    padding: 10px 10px;
+
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     border-radius: 8px;
+    margin-top: 2.5rem;
 }
 
 .words {
     overflow: hidden;
     position: relative;
+
+
 }
 
 .words::after {
@@ -111,6 +110,7 @@
             var(--bg-color) 90%
     );
     z-index: 20;
+    padding: 3rem;
 }
 
 .word {
@@ -119,10 +119,11 @@
     padding-left: 6px;
     color: #2bab84;
     animation: spin_4991 4s infinite;
+
 }
 
 .text{
-    text-align: center;
+    margin: 0px;
 }
 
 @keyframes spin_4991 {
